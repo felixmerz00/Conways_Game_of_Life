@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="scetch for updateGeneration method done">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="getAliveNeighbours method and provisional constructor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
     </list>
@@ -69,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671048136033</updated>
       <workItem from="1671048137248" duration="880000" />
-      <workItem from="1671445229210" duration="3824000" />
+      <workItem from="1671445229210" duration="5890000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -106,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671447044452</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="getAliveNeighbours method and provisional constructor.">
+      <created>1671455004976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671455004976</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +136,7 @@
     <MESSAGE value="Tile class created" />
     <MESSAGE value="Color enum created" />
     <MESSAGE value="scetch for updateGeneration method done" />
-    <option name="LAST_COMMIT_MESSAGE" value="scetch for updateGeneration method done" />
+    <MESSAGE value="getAliveNeighbours method and provisional constructor." />
+    <option name="LAST_COMMIT_MESSAGE" value="getAliveNeighbours method and provisional constructor." />
   </component>
 </project>
