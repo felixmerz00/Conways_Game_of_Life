@@ -16,7 +16,7 @@ public class Grid {
     }
 
     // This method replaces the current generation with its successor.
-    public void updateGeneration(){
+    public void makeGenerationStep(){
         // Iterate over all tiles
         for(tile: grid){
             ArrayList<Tile> neighbors = getAliveNeighbours(i, j);
