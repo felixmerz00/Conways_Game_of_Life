@@ -11,9 +11,47 @@ public class Grid {
         // Fill grid with Tile objects.
         for(int i = 0; i < 18; i++){
             for(int j = 0; j < 18; j++){
-                grid[i][j] = new Tile();
+                Coordinate coordinate = new Coordinate(i,j);
+                grid[i][j] = new Tile(coordinate);
             }
         }
+    }
+
+    //Method to get the Tile Instance in Grid at Input Coordinate
+     private Tile getCoordinateTile(Coordinate coordinate) {
+        return grid[coordinate.getX()][coordinate.getY()];
+    }
+
+    //This method sets Tile.alive to false and Tile.aColor to WHITE
+    //we use design by contract for this method implementation
+
+    /**
+     * @pre tile.getColor != Color.WHITE && tile.isAlive == true
+     * @pre killValid(grid) == true
+     */
+    public void kill(Coordinate coordinate) {
+        Tile tile = getCoordinateTile(coordinate);
+        tile.setAlive(false);
+        tile.setColor(Color.WHITE);
+    }
+
+    //do we need to add post conditions for design by contract?
+    /**
+     * @post tile.getColor == Color.WHITE && tile.isAlive == false
+     */
+
+    //method to assign a player to a tile at given coordinate in grid
+    //use Design by Contract
+
+    /**
+     * @pre tile.getColor == Color.WHITE && tile.isAlive == false
+     * @pre setValid(grid, player) == true;
+     */
+    public void playerSetTile(Coordinate coordinate, Player player) {
+        Tile tile = getCoordinateTile(coordinate);
+        Color color = player.getPlayerColor();
+        tile.setColor(color);
+        tile.setAlive(true);
     }
 
     // This method replaces the current generation with its successor.

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="nothing">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="add Coordinate Class&#10;implemented Tile and Grid methods">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Coordinate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Tile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,6 +64,29 @@
       <recent name="com.example.conways_game_of_life" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="TileTest.testTilePlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.TileTest" />
+      <option name="METHOD_NAME" value="testTilePlayer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TileTest.testTilePlayer" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -71,7 +98,7 @@
       <workItem from="1671048137248" duration="880000" />
       <workItem from="1671445229210" duration="6086000" />
       <workItem from="1671468750851" duration="705000" />
-      <workItem from="1671626745778" duration="3718000" />
+      <workItem from="1671626745778" duration="8434000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -129,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671628778047</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="nothing">
+      <created>1671631503145</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671631503145</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +192,7 @@
     <MESSAGE value="changes in Tile Class" />
     <MESSAGE value="make Grid be an ArrayList" />
     <MESSAGE value="nothing" />
-    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
+    <MESSAGE value="add Coordinate Class&#10;implemented Tile and Grid methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Coordinate Class&#10;implemented Tile and Grid methods" />
   </component>
 </project>
