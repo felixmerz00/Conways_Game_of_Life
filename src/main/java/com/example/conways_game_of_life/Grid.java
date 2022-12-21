@@ -10,10 +10,10 @@ public class Grid {
         grid = new Tile[18][18];    // Initialize grid.
         lastGenColors = new Color[18][18];
         // Fill grid with Tile objects.
-        for(int i = 0; i < 18; i++){
-            for(int j = 0; j < 18; j++){
-                Coordinate coordinate = new Coordinate(i,j);
-                grid[i][j] = new Tile(coordinate);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                Coordinate coordinate = new Coordinate(y,x);
+                grid[y][x] = new Tile(coordinate);
             }
         }
     }
@@ -130,5 +130,17 @@ public class Grid {
                 lastGenColors[y][x] = grid[y][x].getColor();
             }
         }
+    }
+
+    // Method takes a players color and checks if he still has tiles on the board.
+    public boolean hasTiles(Color playersColor) {
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                if(grid[y][x].getColor() == playersColor){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
