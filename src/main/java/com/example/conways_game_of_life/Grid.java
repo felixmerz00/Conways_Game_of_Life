@@ -2,6 +2,7 @@ package com.example.conways_game_of_life;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Random;
 
 public class Grid {
     private Tile[][] grid;
@@ -58,6 +59,10 @@ public class Grid {
     public void makeGenerationStep(){
         // Iterate over all tiles
         for(tile: grid) {
+            //If the cell is alive, then it stays alive if it has either 2 or 3 live neighbors
+
+
+            // If the cell is dead, then it springs to life only in the case that it has 3 live neighbors
             ArrayList<Tile> aliveNeighbors = getAliveNeighbours(i, j);
             tile.setColor(getWinningColor(aliveNeighbors));
         }
@@ -109,10 +114,16 @@ public class Grid {
             } else if (colorTwo.isPresent() && colorTwo.get() == cur) {countColorTwo++;}
         }
         // TODO Look at Andres rules if this is the correct behavior.
-        if(countColorOne > countColorTwo) {
+        if (countColorOne == countColorTwo && countColorOne >= 3 && countColorTwo >= 3) {    // If both players have the same number of tile, decide randomly
+            Random rand = new Random();
+            if(rand.nextInt(2) == 0){return colorOne.get();
+            }else {return colorTwo.get();}
+        }else if(countColorOne >= 3 && countColorOne > countColorTwo) {    // Color one wins
             return colorOne.get();
-        }else{
+        }else if(countColorTwo >= 3){   // Color two wins
             return colorTwo.get();
+        }else{  // In this case the tile dies.
+            return Color.WHITE;
         }
     }
 }
