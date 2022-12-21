@@ -1,14 +1,14 @@
 package com.example.conways_game_of_life;
 
 import java.util.ArrayList;
-import java.util.Optional;
-import java.util.Random;
 
 public class Grid {
     private Tile[][] grid;
+    Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
     public Grid() {
         grid = new Tile[18][18];    // Initialize grid.
+        lastGenColors = new Color[18][18];
         // Fill grid with Tile objects.
         for(int i = 0; i < 18; i++){
             for(int j = 0; j < 18; j++){
@@ -57,41 +57,52 @@ public class Grid {
 
     // This method replaces the current generation with its successor.
     public void makeGenerationStep(){
-        // Iterate over all tiles
-        for(tile: grid) {
-            //If the cell is alive, then it stays alive if it has either 2 or 3 live neighbors
+        updateLastGenColors();  // Store outgoing configuration of colors in the lastGenColors array.
+        // Iterate over all tiles except the tiles at the border (Row 0 & 17 and column 0 & 17)
+        for(int y = 1; y < 17; y++){
+            for(int x = 1; x < 17; x++){
+                Tile curTile = grid[y][x];
+                ArrayList<Tile> aliveNeighbors = getAliveNeighbours(y, x);
 
-
-            // If the cell is dead, then it springs to life only in the case that it has 3 live neighbors
-            ArrayList<Tile> aliveNeighbors = getAliveNeighbours(i, j);
-            tile.setColor(getWinningColor(aliveNeighbors));
+                /* Updating tiles
+                * Different rules apply for coloring a tile, depending on whether it is dead or alive. */
+                if(curTile.getColor() == Color.WHITE){  // Handle dead tiles
+                    curTile.setColor(getColorForDeadTile(aliveNeighbors));
+                }else{  // Handle live tiles
+                    // If the cell is alive, then it stays alive if it has either 2 or 3 live neighbors
+                    if(aliveNeighbors.size() != 2 && aliveNeighbors.size() != 3){
+                        curTile.setColor(Color.WHITE);
+                    }
+                }
+            }
         }
         // TODO Write code to update the drawn grid on the GUI.
     }
 
-    /* Takes the coordinates from which I want the alive neighbours. i = row, j = column
+    /* Takes the coordinates from which I want the alive neighbours.
     * Returns an ArrayList of the alive neighbors. */
-    public ArrayList<Tile> getAliveNeighbours(int i, int j){
+    public ArrayList<Tile> getAliveNeighbours(int row, int column){
         ArrayList<Tile> listOfNeighbours = new ArrayList<>();
-        int x = -1;
-        int y = -1;
-        while (y <= i + 2){
-            while (x <= j + 1){
-                if (grid[y][x].isAlive()){
+        int y = row - 1;
+        int x = column - 1;
+        while (y <= row + 1){
+            while (x <= column + 1){
+                if (lastGenColors[y][x] != Color.WHITE){    // Add the neighbour to the list if it is alive.
                     listOfNeighbours.add(grid[y][x]);
                 }
                 x++;
             }
             y++;
-            x = j-1;
+            x = row - 1;
         }
         return listOfNeighbours;
     }
 
-    /* This method takes the list of neighbours of a tile.
+    /* This method takes the list of neighbours of a dead tile.
     * It compares the colors of the neighbours and
     * returns the color that should be used to color the tile. */
-    private Color getWinningColor(ArrayList<Tile> aliveNeighbours){
+    private Color getColorForDeadTile(ArrayList<Tile> aliveNeighbours){
+        // If the cell is dead, then it springs to life only in the case that it has 3 live neighbors.
         if(aliveNeighbours.size() != 3){
             return Color.WHITE;
         }
@@ -103,6 +114,16 @@ public class Grid {
             return colorZero;
         }else{  // The color that occupies index one and two occurs twice.
             return colorOne;
+        }
+    }
+
+    /* Before making a generation step we store the current configuration
+    * of colors in the lastGenColors Array for reference. */
+    private void updateLastGenColors() {
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                lastGenColors[y][x] = grid[y][x].getColor();
+            }
         }
     }
 }
