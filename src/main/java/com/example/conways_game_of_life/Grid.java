@@ -61,8 +61,7 @@ public class Grid {
             ArrayList<Tile> aliveNeighbors = getAliveNeighbours(i, j);
             tile.setColor(getWinningColor(aliveNeighbors));
         }
-        // Update the drawn grid on the GUI.
-        draw();
+        // TODO Write code to update the drawn grid on the GUI.
     }
 
     /* Takes the coordinates from which I want the alive neighbours. i = row, j = column
@@ -111,9 +110,9 @@ public class Grid {
         }
         // TODO Look at Andres rules if this is the correct behavior.
         if(countColorOne > countColorTwo) {
-            return colorOne;
+            return colorOne.get();
         }else{
-            return colorTwo;
+            return colorTwo.get();
         }
     }
 }
