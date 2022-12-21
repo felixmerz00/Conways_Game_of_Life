@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Grid {
     private Tile[][] grid;
-    Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
+    private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
     public Grid() {
         grid = new Tile[18][18];    // Initialize grid.
@@ -81,7 +81,7 @@ public class Grid {
 
     /* Takes the coordinates from which I want the alive neighbours.
     * Returns an ArrayList of the alive neighbors. */
-    public ArrayList<Tile> getAliveNeighbours(int row, int column){
+    private ArrayList<Tile> getAliveNeighbours(int row, int column){
         ArrayList<Tile> listOfNeighbours = new ArrayList<>();
         int y = row - 1;
         int x = column - 1;
