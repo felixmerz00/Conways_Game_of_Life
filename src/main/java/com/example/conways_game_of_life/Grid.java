@@ -92,38 +92,17 @@ public class Grid {
     * It compares the colors of the neighbours and
     * returns the color that should be used to color the tile. */
     private Color getWinningColor(ArrayList<Tile> aliveNeighbours){
-        // TODO Maybe put this color finding code in separate method.
-        Optional<Color> colorOne = Optional.empty(); // Store one color in this field. TODO Maybe make an instance variable for this.
-        Optional<Color> colorTwo = Optional.empty(); // Store the other color in this field. TODO Maybe make an instance variable for this.
-        int i;
-        for (i = 0; i < aliveNeighbours.size(); i++){
-            Color cur = aliveNeighbours.get(i).getColor();
-            if(colorOne.isEmpty()){
-                colorOne = Optional.of(cur);
-            } else if(colorTwo.isEmpty() && cur != colorOne.get()){   // If there is an alive cell with the second color, I store it in colorTwo
-                colorTwo = Optional.of(cur);
-            }
-        }
-
-        // Find the winning color
-        int countColorOne = 0;
-        int countColorTwo = 0;
-        for(i = 0; i < aliveNeighbours.size(); i++){
-            Color cur = aliveNeighbours.get(i).getColor();
-            if(colorOne.get() == cur){countColorOne++;  // Color one is never empty, that's why I don't have to check it.
-            } else if (colorTwo.isPresent() && colorTwo.get() == cur) {countColorTwo++;}
-        }
-        // TODO Look at Andres rules if this is the correct behavior.
-        if (countColorOne == countColorTwo && countColorOne >= 3 && countColorTwo >= 3) {    // If both players have the same number of tile, decide randomly
-            Random rand = new Random();
-            if(rand.nextInt(2) == 0){return colorOne.get();
-            }else {return colorTwo.get();}
-        }else if(countColorOne >= 3 && countColorOne > countColorTwo) {    // Color one wins
-            return colorOne.get();
-        }else if(countColorTwo >= 3){   // Color two wins
-            return colorTwo.get();
-        }else{  // In this case the tile dies.
+        if(aliveNeighbours.size() != 3){
             return Color.WHITE;
+        }
+        Color colorZero = aliveNeighbours.get(0).getColor();
+        Color colorOne = aliveNeighbours.get(1).getColor();
+        Color colorTwo = aliveNeighbours.get(2).getColor();
+        // This covers if-else block covers all six possible combinations of colors.
+        if(colorZero == colorOne || colorZero == colorTwo){ // Color zero occurs twice
+            return colorZero;
+        }else{  // The color that occupies index one and two occurs twice.
+            return colorOne;
         }
     }
 }
