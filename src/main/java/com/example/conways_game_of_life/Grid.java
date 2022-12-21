@@ -18,7 +18,7 @@ public class Grid {
     // This method replaces the current generation with its successor.
     public void makeGenerationStep(){
         // Iterate over all tiles
-        for(tile: grid){
+        for(tile: grid) {
             ArrayList<Tile> neighbors = getAliveNeighbours(i, j);
             tile.setColor(getWinningColor(neighbors));
         }
