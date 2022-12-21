@@ -23,6 +23,11 @@ public class Grid {
         return grid[coordinate.getX()][coordinate.getY()];
     }
 
+    // Alternative method to get Tile at given coordinate.
+    private Tile getTileAt(int x, int y){
+        return grid[y][x];
+    }
+
     //This method sets Tile.alive to false and Tile.aColor to WHITE
     //we use design by contract for this method implementation
 
