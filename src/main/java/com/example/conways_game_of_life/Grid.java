@@ -1,8 +1,9 @@
 package com.example.conways_game_of_life;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Grid {
+public class Grid implements Iterable<Tile>{
     private Tile[][] grid;
     private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
@@ -142,5 +143,12 @@ public class Grid {
             }
         }
         return false;
+    }
+
+    /* When using this method, do not store the iterator. Updates in the grid will not show in the
+    * Iterator<Tile> object. Create a new iterator every time. */
+    @Override
+    public Iterator<Tile> iterator() {
+        return new GridIterator(grid);
     }
 }

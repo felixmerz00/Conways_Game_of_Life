@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="add Coordinate Class&#10;implemented Tile and Grid methods">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="updated some for loops to avoid unnecessary iterations over border tiles">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GridIterator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -29,29 +29,32 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2Iv3EKZJxDoCmSpVzpJSQFyKyhR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/felix/OneDrive - Universität Zürich UZH/2022_HS/Software_Construction/Assignment2/Sample-solution",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Git_Repositories/Solitaire&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -95,6 +98,8 @@
       <workItem from="1671445229210" duration="6086000" />
       <workItem from="1671468750851" duration="705000" />
       <workItem from="1671626745778" duration="10733000" />
+      <workItem from="1671696383738" duration="4509000" />
+      <workItem from="1671738055294" duration="2961000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -166,7 +171,49 @@
       <option name="project" value="LOCAL" />
       <updated>1671636243225</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="optimized getWinningColor method">
+      <created>1671641380258</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1671641380258</updated>
+    </task>
+    <task id="LOCAL-00012" summary="improving makeGenerationStep method, also field lastGenColors and method updateLastGenColors added">
+      <created>1671649733500</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671649733500</updated>
+    </task>
+    <task id="LOCAL-00013" summary="small changes (different access modifiers)">
+      <created>1671650563326</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1671650563326</updated>
+    </task>
+    <task id="LOCAL-00014" summary="create getTileAt method">
+      <created>1671651442976</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671651442976</updated>
+    </task>
+    <task id="LOCAL-00015" summary="created Grid.hasTiles method and renamed variables in constructor of Grid.">
+      <created>1671653037141</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671653037141</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated some for loops to avoid unnecessary iterations over border tiles">
+      <created>1671653174880</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671653174880</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +243,12 @@
     <MESSAGE value="make Grid be an ArrayList" />
     <MESSAGE value="nothing" />
     <MESSAGE value="add Coordinate Class&#10;implemented Tile and Grid methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Coordinate Class&#10;implemented Tile and Grid methods" />
+    <MESSAGE value="optimized getWinningColor method" />
+    <MESSAGE value="improving makeGenerationStep method, also field lastGenColors and method updateLastGenColors added" />
+    <MESSAGE value="small changes (different access modifiers)" />
+    <MESSAGE value="create getTileAt method" />
+    <MESSAGE value="created Grid.hasTiles method and renamed variables in constructor of Grid." />
+    <MESSAGE value="updated some for loops to avoid unnecessary iterations over border tiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated some for loops to avoid unnecessary iterations over border tiles" />
   </component>
 </project>
