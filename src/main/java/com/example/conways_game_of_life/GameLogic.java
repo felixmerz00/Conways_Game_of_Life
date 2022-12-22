@@ -24,7 +24,6 @@ public class GameLogic {
         players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
         players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
         players.sort(Comparator.comparing(Player::getName));
-        aGrid.initState();
     }
 
     //play game
@@ -34,14 +33,14 @@ public class GameLogic {
             for(Player aPlayer : players){
                 notifyOb();
 
-                //delete a tile
-                aGrid.delete(ui.deleteTile(aPlayer));
+                //delete a tile //inputvalidation in grid?
+                aGrid.kill(ui.deleteTile(aPlayer));
 
                 //set a tile
-                aGrid.set(ui.setTile(aPlayer));
+                aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
 
-                //go a step forward (next cell)
-                aGrid.nextGen(aPlayer);
+                //go a step forward (next cell) (player specific or not?)
+                aGrid.makeGenerationStep();
             }
         }
 
@@ -51,7 +50,7 @@ public class GameLogic {
     }
     public boolean allPlayerHaveTiles(){
         for(Player aPlayer: players){
-            if(!aGrid.hasTiles(aPlayer)){
+            if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
                 return false;
             }
         }
