@@ -4,7 +4,7 @@ public interface InterfaceUI {
 
     String setPlayerName();
     String setPlayerColor();
-    void deleteTile(Player aPlayer);
-    void setTile(Player aPlayer);
+    Coordinate deleteTile(Player aPlayer);
+    Coordinate setTile(Player aPlayer);
 
 }
