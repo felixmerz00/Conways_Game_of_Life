@@ -5,9 +5,9 @@ public class Player {
     private final String name;
     private final Color color;
 
-    public Player(String name, String color){
+    public Player(String name, Color color){
         this.name = name;
-        this.color = Color.valueOf(color);
+        this.color = color;
     }
 
     public String getName() {
