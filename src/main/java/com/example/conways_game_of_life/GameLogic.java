@@ -41,13 +41,24 @@ public class GameLogic {
 
                 //go a step forward (next cell) (player specific or not?)
                 aGrid.makeGenerationStep();
+
+                if(!allPlayerHaveTiles()){
+                    break;
+                }
             }
         }
-
         //one player has no active tile -->end
         //determine winner
 
     }
+
+    public static void main(String[] args){
+        GameLogic game = new GameLogic();
+        game.gameSetup();
+        game.playGame();
+        game.getWinner();
+    }
+
     public boolean allPlayerHaveTiles(){
         for(Player aPlayer: players){
             if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
@@ -64,6 +75,14 @@ public class GameLogic {
     public void notifyOb(){
         for(Observer aObserver: observers){
             aObserver.updateGrid();
+        }
+    }
+
+    public void getWinner(){
+        for (Player aPlayer: players) {
+            if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
+                ui.declareWinner(aPlayer);
+            }
         }
     }
 }
