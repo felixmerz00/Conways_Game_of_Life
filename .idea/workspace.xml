@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="updated some for loops to avoid unnecessary iterations over border tiles">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GridIterator.java" afterDir="false" />
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="improved testMakeGenerationStep2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +27,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,7 +55,8 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -63,7 +67,55 @@
       <recent name="com.example.conways_game_of_life" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.GridTest.testMakeGenerationStep2">
+    <configuration name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage" sample_coverage="false">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GridTest.testMakeGenerationStep1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="testMakeGenerationStep1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GridTest.testMakeGenerationStep2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="testMakeGenerationStep2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TileTest.testTilePlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage">
@@ -80,8 +132,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.GridTest" />
+      <item itemvalue="JUnit.GridTest.testMakeGenerationStep1" />
+      <item itemvalue="JUnit.GridTest.testMakeGenerationStep2" />
+      <item itemvalue="JUnit.TileTest.testTilePlayer" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GridTest.testMakeGenerationStep2" />
+        <item itemvalue="JUnit.GridTest.testMakeGenerationStep1" />
+        <item itemvalue="JUnit.GridTest" />
         <item itemvalue="JUnit.TileTest.testTilePlayer" />
       </list>
     </recent_temporary>
@@ -99,7 +160,10 @@
       <workItem from="1671468750851" duration="705000" />
       <workItem from="1671626745778" duration="10733000" />
       <workItem from="1671696383738" duration="4509000" />
-      <workItem from="1671738055294" duration="2961000" />
+      <workItem from="1671738055294" duration="3686000" />
+      <workItem from="1671788318660" duration="6518000" />
+      <workItem from="1671803658622" duration="7120000" />
+      <workItem from="1671830510154" duration="565000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -213,7 +277,49 @@
       <option name="project" value="LOCAL" />
       <updated>1671653174880</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ITERATOR implementiert in grid">
+      <created>1671741303817</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671741303817</updated>
+    </task>
+    <task id="LOCAL-00018" summary="created testMakeGenerationStep1">
+      <created>1671810695467</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671810695467</updated>
+    </task>
+    <task id="LOCAL-00019" summary="testMakeGenerationStep1 improved">
+      <created>1671811115487</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671811115487</updated>
+    </task>
+    <task id="LOCAL-00020" summary="created testMakeGenerationStep2">
+      <created>1671812774316</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671812774316</updated>
+    </task>
+    <task id="LOCAL-00021" summary="improved testMakeGenerationStep1">
+      <created>1671813267509</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1671813267509</updated>
+    </task>
+    <task id="LOCAL-00022" summary="improved testMakeGenerationStep2">
+      <created>1671813409892</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1671813409892</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +355,17 @@
     <MESSAGE value="create getTileAt method" />
     <MESSAGE value="created Grid.hasTiles method and renamed variables in constructor of Grid." />
     <MESSAGE value="updated some for loops to avoid unnecessary iterations over border tiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated some for loops to avoid unnecessary iterations over border tiles" />
+    <MESSAGE value="ITERATOR implementiert in grid" />
+    <MESSAGE value="created testMakeGenerationStep1" />
+    <MESSAGE value="testMakeGenerationStep1 improved" />
+    <MESSAGE value="created testMakeGenerationStep2" />
+    <MESSAGE value="improved testMakeGenerationStep1" />
+    <MESSAGE value="improved testMakeGenerationStep2" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved testMakeGenerationStep2" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1671812655175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
   </component>
 </project>

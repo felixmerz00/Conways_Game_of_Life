@@ -11,6 +11,7 @@ public class Grid implements Iterable<Tile>{
         grid = new Tile[18][18];    // Initialize grid.
         lastGenColors = new Color[18][18];
         // Fill grid with Tile objects.
+        // TODO Enter initial configuration instead of a dead grid.
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
                 grid[y][x] = new Tile(x,y);
@@ -34,6 +35,11 @@ public class Grid implements Iterable<Tile>{
         tile.setColor(Color.WHITE);
     }
 
+    // I temporarily implemented this method to resolve the errors.
+    public void kill(Coordinate c){
+        getTileAt(c.x(), c.y()).setColor(Color.WHITE);
+    }
+
     //do we need to add post conditions for design by contract?
     /**
      * @post tile.getColor == Color.WHITE && tile.isAlive == false
@@ -51,6 +57,11 @@ public class Grid implements Iterable<Tile>{
         Color color = player.getPlayerColor();
         tile.setColor(color);
         //tile.setAlive(true); -> we dont have alive bool
+    }
+
+    // I temporarily implemented this method to resolve the errors.
+    public void playerSetTile(Coordinate c, Player player){
+        getTileAt(c.x(), c.y()).setColor(player.getPlayerColor());
     }
 
     // This method replaces the current generation with its successor.
