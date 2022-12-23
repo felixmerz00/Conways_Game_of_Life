@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GameLogic {
 
-    private final InterfaceUI ui;
+    // private final InterfaceUI ui;
     private final Grid aGrid;
 
     private final List<Observer> observers;
@@ -21,8 +21,8 @@ public class GameLogic {
 
     //setup game
     public void gameSetup(){
-        players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
-        players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
+        // players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
+        // players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
         players.sort(Comparator.comparing(Player::getName));
     }
 
@@ -34,10 +34,10 @@ public class GameLogic {
                 notifyOb();
 
                 //delete a tile //inputvalidation in grid?
-                aGrid.kill(ui.deleteTile(aPlayer));
+                // aGrid.kill(ui.deleteTile(aPlayer));
 
                 //set a tile
-                aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
+                // aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
 
                 //go a step forward (next cell) (player specific or not?)
                 aGrid.makeGenerationStep();
@@ -81,7 +81,7 @@ public class GameLogic {
     public void getWinner(){
         for (Player aPlayer: players) {
             if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
-                ui.declareWinner(aPlayer);
+                // ui.declareWinner(aPlayer);
             }
         }
     }

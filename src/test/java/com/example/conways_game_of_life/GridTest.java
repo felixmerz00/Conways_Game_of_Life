@@ -41,7 +41,8 @@ class GridTest {
         assertTrue(tile.getColor().equals(player.getPlayerColor()));
         assertTrue(tile.isAlive());
     }
-*/
+    */
+
     // Test if makeGenerationStep method works for a dead playing field.
     @Test
     void testMakeGenerationStep1() throws NoSuchFieldException, IllegalAccessException {
@@ -117,4 +118,6 @@ class GridTest {
         // Make assertion
         assertEquals(expectedArray, actualArray);
     }
+
+    // TODO Test a few patterns with one or two players
 }
