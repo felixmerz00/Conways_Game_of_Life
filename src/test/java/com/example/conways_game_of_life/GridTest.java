@@ -71,33 +71,33 @@ class GridTest {
     void testMakeGenerationStep2() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // Create grid on which I make the generation step.
-        Tile[][] actualArray = new Tile[18][18];
+        Tile[][] setupArray = new Tile[18][18];
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
-                actualArray[y][x] = new Tile(x,y);
+                setupArray[y][x] = new Tile(x,y);
             }
         }
         // Bring all tiles next to the border to live.
         for(int x = 1; x < 17; x++){    // Bring first row to live
-            actualArray[1][x].setColor(Color.BLUE);
+            setupArray[1][x].setColor(Color.BLUE);
         }
         for(int x = 1; x < 17; x++){    // Bring last row to live
-            actualArray[16][x].setColor(Color.BLUE);
+            setupArray[16][x].setColor(Color.BLUE);
         }
         for(int y = 2; y < 16; y++){    // Bring first column to live
-            actualArray[y][1].setColor(Color.BLUE);
+            setupArray[y][1].setColor(Color.BLUE);
         }
         for(int y = 2; y < 16; y++){    // Bring last column to live
-            actualArray[y][16].setColor(Color.BLUE);
+            setupArray[y][16].setColor(Color.BLUE);
         }
 
         // Assign the actual grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, actualArray);
+        gridField.set(aTestGrid, setupArray);
 
         // Create the expected grid.
-        Tile[][] expectedArray = actualArray;
+        Tile[][] expectedArray = setupArray;
         for(int x = 3; x < 15; x++){    // Bring part of second row to live
             expectedArray[2][x].setColor(Color.BLUE);
         }
@@ -111,10 +111,10 @@ class GridTest {
             expectedArray[y][15].setColor(Color.BLUE);
         }
 
-        // Call the UUT
+        // Call the UUT and get the resulting array.
         aTestGrid.makeGenerationStep();
-        // Make assertions.
-        // Note I cannot use the Grid.iterator method because I also want to test the hidden border tiles.
+        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
+        // Make assertion
         assertEquals(expectedArray, actualArray);
     }
 }
