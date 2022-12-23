@@ -48,23 +48,18 @@ class GridTest {
     void testMakeGenerationStep1() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // create a completely dead grid
-        Tile[][] deadArray = new Tile[18][18];
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                deadArray[y][x] = new Tile(x,y);
-            }
-        }
+        Tile[][] setupArray = getSetupArray();
 
         // Assign the dead grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, deadArray);
+        gridField.set(aTestGrid, setupArray);
 
         // Call the UUT and get the resulting array.
         aTestGrid.makeGenerationStep();
         Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
         // Make assertion: The actualArray should still be completely dead.
-        assertEquals(deadArray, actualArray);
+        assertEquals(setupArray, actualArray);
     }
 
     // Test if the tiles which are not displayed (row 0 & 17 and column 0 & 17) always remain dead.
@@ -72,12 +67,8 @@ class GridTest {
     void testMakeGenerationStep2() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // Create grid on which I make the generation step.
-        Tile[][] setupArray = new Tile[18][18];
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                setupArray[y][x] = new Tile(x,y);
-            }
-        }
+        Tile[][] setupArray = getSetupArray();
+
         // Bring all tiles next to the border to live.
         for(int x = 1; x < 17; x++){    // Bring first row to live
             setupArray[1][x].setColor(Color.BLUE);
@@ -124,12 +115,8 @@ class GridTest {
     void testMakeGenerationStep3() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // Create grid on which I make the generation step.
-        Tile[][] setupArray = new Tile[18][18];
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                setupArray[y][x] = new Tile(x,y);
-            }
-        }
+        Tile[][] setupArray = getSetupArray();
+
         // Create the pattern
         setupArray[1][2].setColor(Color.BLUE);
         setupArray[2][3].setColor(Color.RED);
@@ -162,12 +149,8 @@ class GridTest {
     void testMakeGenerationStep4() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // Create grid on which I make the generation step.
-        Tile[][] setupArray = new Tile[18][18];
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                setupArray[y][x] = new Tile(x,y);
-            }
-        }
+        Tile[][] setupArray = getSetupArray();
+
         // Create the pattern
         setupArray[5][4].setColor(Color.BLUE);
         setupArray[5][5].setColor(Color.RED);
@@ -197,12 +180,8 @@ class GridTest {
     void testHasTiles1() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // Create grid on which I make the generation step.
-        Tile[][] setupArray = new Tile[18][18];
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                setupArray[y][x] = new Tile(x,y);
-            }
-        }
+        Tile[][] setupArray = getSetupArray();
+
         // Random red values
         setupArray[5][13].setColor(Color.RED);
         setupArray[1][1].setColor(Color.RED);
@@ -225,12 +204,8 @@ class GridTest {
     void testHasTiles2() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // Create grid on which I make the generation step.
-        Tile[][] setupArray = new Tile[18][18];
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                setupArray[y][x] = new Tile(x,y);
-            }
-        }
+        Tile[][] setupArray = getSetupArray();
+
         // Random red values
         setupArray[5][13].setColor(Color.RED);
         setupArray[1][1].setColor(Color.RED);
@@ -245,5 +220,15 @@ class GridTest {
         assertFalse(aTestGrid.hasTiles(Color.BLUE));
     }
 
-    // TODO Test a few patterns with one or two players
+    /* This is a helper method for other tests to avoid duplicate code.
+    * It returns an array filled with dead Tile objects. */
+    Tile[][] getSetupArray(){
+        Tile[][] setupArray = new Tile[18][18];
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                setupArray[y][x] = new Tile(x,y);
+            }
+        }
+        return setupArray;
+    }
 }
