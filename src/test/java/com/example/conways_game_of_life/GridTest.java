@@ -192,7 +192,7 @@ class GridTest {
         assertEquals(expectedArray, actualArray);
     }
 
-    // Test the method has Tiles.
+    // Test the method hasTiles. Test if the hasTiles detects the living blue tiles.
     @Test
     void testHasTiles1() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
@@ -217,6 +217,32 @@ class GridTest {
 
         // Call the UUT and assert the returned value.
         assertTrue(aTestGrid.hasTiles(Color.BLUE));
+    }
+
+    /* Test the method hasTiles. Test if the hasTiles returns false if no tiles
+    * of the given colors are alive anymore. */
+    @Test
+    void testHasTiles2() throws NoSuchFieldException, IllegalAccessException {
+        Grid aTestGrid = new Grid();
+        // Create grid on which I make the generation step.
+        Tile[][] setupArray = new Tile[18][18];
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                setupArray[y][x] = new Tile(x,y);
+            }
+        }
+        // Random red values
+        setupArray[5][13].setColor(Color.RED);
+        setupArray[1][1].setColor(Color.RED);
+        setupArray[16][15].setColor(Color.RED);
+
+        // Assign the actual grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        gridField.set(aTestGrid, setupArray);
+
+        // Call the UUT and assert the returned value.
+        assertFalse(aTestGrid.hasTiles(Color.BLUE));
     }
 
     // TODO Test a few patterns with one or two players
