@@ -156,5 +156,41 @@ class GridTest {
         assertEquals(expectedArray, actualArray);
     }
 
+    /* Test to cover the condition (colorZero == colorTwo) in getColorForDeadTile
+    * which is currently on line 122. */
+    @Test
+    void testMakeGenerationStep4() throws NoSuchFieldException, IllegalAccessException {
+        Grid aTestGrid = new Grid();
+        // Create grid on which I make the generation step.
+        Tile[][] setupArray = new Tile[18][18];
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                setupArray[y][x] = new Tile(x,y);
+            }
+        }
+        // Create the pattern
+        setupArray[5][4].setColor(Color.BLUE);
+        setupArray[5][5].setColor(Color.RED);
+        setupArray[5][6].setColor(Color.BLUE);
+
+        // Assign the actual grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        gridField.set(aTestGrid, setupArray);
+
+        // Create the expected grid.
+        Tile[][] expectedArray = setupArray;
+        expectedArray[5][4].setColor(Color.WHITE);
+        expectedArray[5][6].setColor(Color.WHITE);
+        expectedArray[4][5].setColor(Color.BLUE);
+        expectedArray[6][5].setColor(Color.BLUE);
+
+        // Call the UUT and get the resulting array.
+        aTestGrid.makeGenerationStep();
+        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
+        // Make assertion
+        assertEquals(expectedArray, actualArray);
+    }
+
     // TODO Test a few patterns with one or two players
 }
