@@ -33,7 +33,7 @@ class TileTest {
         //because Tile has Color WHITE and Player MAGENTA, out should be false
         assertFalse(out);
     }
-
+/*
     @Test
     void testSetAlive() {
         boolean before = tile.isAlive();
@@ -50,7 +50,7 @@ class TileTest {
         tile.setAlive(false);
         assertFalse(tile.isAlive());
     }
-
+*/
     @Test
     void testSetColor() {
         tile.setColor(Color.GREEN);
