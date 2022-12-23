@@ -59,10 +59,15 @@ class GridTest {
         gridField.setAccessible(true);
         gridField.set(aTestGrid, deadGridArray);
 
-        // Call the UUT and make assertions.
+        // Call the UUT
         aTestGrid.makeGenerationStep();
-        for(Tile t: aTestGrid){
-            assertEquals(Color.WHITE, t.getColor());
+        // Make assertions.
+        // Note I cannot use the Grid.iterator method because I also want to test the hidden border tiles.
+        Tile[][] newGenGrid = (Tile[][]) gridField.get(aTestGrid);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(Color.WHITE, newGenGrid[y][x].getColor());
+            }
         }
     }
 }
