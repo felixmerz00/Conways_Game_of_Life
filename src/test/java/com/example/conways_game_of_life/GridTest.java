@@ -119,5 +119,42 @@ class GridTest {
         assertEquals(expectedArray, actualArray);
     }
 
+    // Test a specific pattern.
+    @Test
+    void testMakeGenerationStep3() throws NoSuchFieldException, IllegalAccessException {
+        Grid aTestGrid = new Grid();
+        // Create grid on which I make the generation step.
+        Tile[][] setupArray = new Tile[18][18];
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                setupArray[y][x] = new Tile(x,y);
+            }
+        }
+        // Create the pattern
+        setupArray[1][2].setColor(Color.BLUE);
+        setupArray[2][3].setColor(Color.RED);
+        setupArray[3][1].setColor(Color.BLUE);
+        setupArray[3][2].setColor(Color.BLUE);
+        setupArray[3][3].setColor(Color.RED);
+
+        // Assign the actual grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        gridField.set(aTestGrid, setupArray);
+
+        // Create the expected grid.
+        Tile[][] expectedArray = setupArray;
+        expectedArray[1][2].setColor(Color.WHITE);
+        expectedArray[2][1].setColor(Color.BLUE);
+        expectedArray[3][1].setColor(Color.WHITE);
+        expectedArray[4][2].setColor(Color.BLUE);
+
+        // Call the UUT and get the resulting array.
+        aTestGrid.makeGenerationStep();
+        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
+        // Make assertion
+        assertEquals(expectedArray, actualArray);
+    }
+
     // TODO Test a few patterns with one or two players
 }
