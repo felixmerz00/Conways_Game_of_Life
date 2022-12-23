@@ -13,18 +13,12 @@ public class Grid implements Iterable<Tile>{
         // Fill grid with Tile objects.
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
-                Coordinate coordinate = new Coordinate(y,x);
-                grid[y][x] = new Tile(coordinate);
+                grid[y][x] = new Tile(x,y);
             }
         }
     }
 
     //Method to get the Tile Instance in Grid at Input Coordinate
-     private Tile getCoordinateTile(Coordinate coordinate) {
-        return grid[coordinate.getX()][coordinate.getY()];
-    }
-
-    // Alternative method to get Tile at given coordinate.
     private Tile getTileAt(int x, int y){
         return grid[y][x];
     }
@@ -33,12 +27,10 @@ public class Grid implements Iterable<Tile>{
     //we use design by contract for this method implementation
 
     /**
-     * @pre tile.getColor != Color.WHITE && tile.isAlive == true
-     * @pre killValid(grid) == true
+     * @pre tile.getColor != Color.WHITE && tile.getColor != player.getPlayerColor
      */
-    public void kill(Coordinate coordinate) {
-        Tile tile = getCoordinateTile(coordinate);
-        tile.setAlive(false);
+    public void kill(int x, int y) {
+        Tile tile = getTileAt(x,y);
         tile.setColor(Color.WHITE);
     }
 
@@ -54,11 +46,11 @@ public class Grid implements Iterable<Tile>{
      * @pre tile.getColor == Color.WHITE && tile.isAlive == false
      * @pre setValid(grid, player) == true;
      */
-    public void playerSetTile(Coordinate coordinate, Player player) {
-        Tile tile = getCoordinateTile(coordinate);
+    public void playerSetTile(int x, int y, Player player) {
+        Tile tile = getTileAt(x,y);
         Color color = player.getPlayerColor();
         tile.setColor(color);
-        tile.setAlive(true);
+        //tile.setAlive(true); -> we dont have alive bool
     }
 
     // This method replaces the current generation with its successor.
