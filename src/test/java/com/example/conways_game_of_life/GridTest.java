@@ -47,28 +47,23 @@ class GridTest {
     void testMakeGenerationStep1() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid();
         // create a completely dead grid
-        Tile[][] deadGridArray = new Tile[18][18];
+        Tile[][] deadArray = new Tile[18][18];
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
-                deadGridArray[y][x] = new Tile(x,y);
+                deadArray[y][x] = new Tile(x,y);
             }
         }
 
         // Assign the dead grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, deadGridArray);
+        gridField.set(aTestGrid, deadArray);
 
-        // Call the UUT
+        // Call the UUT and get the resulting array.
         aTestGrid.makeGenerationStep();
-        // Make assertions.
-        // Note I cannot use the Grid.iterator method because I also want to test the hidden border tiles.
-        Tile[][] newGenGrid = (Tile[][]) gridField.get(aTestGrid);
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                assertEquals(Color.WHITE, newGenGrid[y][x].getColor());
-            }
-        }
+        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
+        // Make assertion: The actualArray should still be completely dead.
+        assertEquals(deadArray, actualArray);
     }
 
     // Test if the tiles which are not displayed (row 0 & 17 and column 0 & 17) always remain dead.
