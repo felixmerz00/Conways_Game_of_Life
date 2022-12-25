@@ -1,6 +1,7 @@
 package com.example.conways_game_of_life;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class GridIterator implements Iterator<Tile> {
     private Tile[][] grid;
@@ -19,10 +20,13 @@ public class GridIterator implements Iterator<Tile> {
     }
 
     @Override
-    public Tile next() {
+    public Tile next() throws NoSuchElementException{
         // Move the coordinates to the next tile.
         // Can I just assume that hasNext() equals true? If not I must check that first. How would I handle hasNext() == false?
         if(x == 16){
+            if(y == 16){    // This prevents the iterator from returning the border tiles of the grid.
+                throw new NoSuchElementException();
+            }
             y++;
             x = 1;
         } else{
