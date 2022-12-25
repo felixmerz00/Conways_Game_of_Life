@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Iterator;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -218,6 +219,20 @@ class GridTest {
 
         // Call the UUT and assert the returned value.
         assertFalse(aTestGrid.hasTiles(Color.BLUE));
+    }
+
+    /* Test the method iterator.
+     * Test if the iterator returns 16^2 elements as it should. */
+    @Test
+    void testIterator() {
+        Grid aTestGrid = new Grid();
+        int countReturnedTiles = 0;
+
+        for(Tile t: aTestGrid){
+            countReturnedTiles++;
+        }
+
+        assertEquals(256, countReturnedTiles);
     }
 
     /* This is a helper method for other tests to avoid duplicate code.
