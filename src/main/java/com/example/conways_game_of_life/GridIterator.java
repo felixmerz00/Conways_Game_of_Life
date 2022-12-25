@@ -8,7 +8,7 @@ public class GridIterator implements Iterator<Tile> {
 
     public GridIterator(Tile[][] grid) {
         this.grid = grid;
-        x = 1;
+        x = 0;  // x starts at zero because, before returning an element, x is increased by 1.
         y = 1;
     }
 
@@ -23,8 +23,8 @@ public class GridIterator implements Iterator<Tile> {
         // Move the coordinates to the next tile.
         // Can I just assume that hasNext() equals true? If not I must check that first. How would I handle hasNext() == false?
         if(x == 16){
-            x = 1;
             y++;
+            x = 1;
         } else{
             x++;
         }
