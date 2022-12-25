@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -224,7 +225,7 @@ class GridTest {
     /* Test the method iterator.
      * Test if the iterator returns 16^2 elements as it should. */
     @Test
-    void testIterator() {
+    void testIterator1() {
         Grid aTestGrid = new Grid();
         int countReturnedTiles = 0;
 
@@ -233,6 +234,26 @@ class GridTest {
         }
 
         assertEquals(256, countReturnedTiles);
+    }
+
+    /* Test the method iterator.
+     * Test if the iterator throws a NoSuchElementException if I try to access border tiles. */
+    @Test
+    void testIterator2() {
+        Grid aTestGrid = new Grid();
+        Iterator<Tile> aTestIterator = aTestGrid.iterator();
+        // Run through all the visible tiles.
+        while(aTestIterator.hasNext()){
+            aTestIterator.next();
+        }
+
+        // Try to access an invisible border tile.
+        try{
+            aTestIterator.next();
+            fail("NoSuchElementException should be thrown.");
+        }catch (NoSuchElementException e){
+            // If the code reaches this point, the test should pass.
+        }
     }
 
     /* This is a helper method for other tests to avoid duplicate code.
