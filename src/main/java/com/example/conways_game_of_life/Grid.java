@@ -129,8 +129,8 @@ public class Grid implements Iterable<Tile>{
     /* Before making a generation step we store the current configuration
     * of colors in the lastGenColors Array for reference. */
     private void updateLastGenColors() {
-        for(int y = 1; y < 17; y++){
-            for(int x = 1; x < 17; x++){
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
                 lastGenColors[y][x] = grid[y][x].getColor();
             }
         }
