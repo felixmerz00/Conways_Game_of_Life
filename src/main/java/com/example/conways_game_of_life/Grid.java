@@ -7,11 +7,11 @@ public class Grid implements Iterable<Tile>{
     private Tile[][] grid;
     private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
+    // This constructor initializes the Tile[][] grid filled with dead tiles.
     public Grid() {
         grid = new Tile[18][18];    // Initialize grid.
         lastGenColors = new Color[18][18];
-        // Fill grid with Tile objects.
-        // TODO Enter initial configuration instead of a dead grid.
+        // Fill grid with dead tiles.
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
                 grid[y][x] = new Tile(x,y);
@@ -19,11 +19,13 @@ public class Grid implements Iterable<Tile>{
         }
     }
 
+    // This constructor initializes the Tile[][] grid with a starting pattern.
     public Grid(Color colorPlayerOne, Color colorPlayerTwo) {
         grid = getInitialGrid(colorPlayerOne, colorPlayerTwo);    // Create grid with initial configuration.
         lastGenColors = new Color[18][18];  // Initialize lastGenColors. I don't need to set the values here.
     }
 
+    // This is a helper method for the constructor. It creates the Tile[][] with determined starting pattern.
     private Tile[][] getInitialGrid(Color colorPlayerOne, Color colorPlayerTwo){
         Tile[][] initialGrid = new Tile[18][18];
         for(int y = 0; y < 18; y++){
