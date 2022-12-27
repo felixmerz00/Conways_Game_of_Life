@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="improved testMakeGenerationStep2">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="small adjustment to updateLastGenColors method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +45,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Git_Repositories/Solitaire&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Git_Repositories/Conways_Game_of_Life&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,7 +64,7 @@
       <recent name="com.example.conways_game_of_life" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GridTest.testMakeGenerationStep2">
+  <component name="RunManager" selected="JUnit.GridTest">
     <configuration name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage" sample_coverage="false">
@@ -84,7 +81,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GridTest.testMakeGenerationStep1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GridTest.testHasTiles1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage">
         <pattern>
@@ -94,13 +91,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
       <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="testMakeGenerationStep1" />
+      <option name="METHOD_NAME" value="testHasTiles1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GridTest.testMakeGenerationStep2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GridTest.testHasTiles2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage">
         <pattern>
@@ -110,13 +107,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
       <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="testMakeGenerationStep2" />
+      <option name="METHOD_NAME" value="testHasTiles2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TileTest.testTilePlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GridTest.testIterator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage">
         <pattern>
@@ -125,25 +122,43 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.TileTest" />
-      <option name="METHOD_NAME" value="testTilePlayer" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="testIterator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GridTest.testIterator2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="testIterator2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.GridTest.testIterator" />
+      <item itemvalue="JUnit.GridTest.testIterator2" />
+      <item itemvalue="JUnit.GridTest.testHasTiles1" />
+      <item itemvalue="JUnit.GridTest.testHasTiles2" />
       <item itemvalue="JUnit.GridTest" />
-      <item itemvalue="JUnit.GridTest.testMakeGenerationStep1" />
-      <item itemvalue="JUnit.GridTest.testMakeGenerationStep2" />
-      <item itemvalue="JUnit.TileTest.testTilePlayer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GridTest.testMakeGenerationStep2" />
-        <item itemvalue="JUnit.GridTest.testMakeGenerationStep1" />
         <item itemvalue="JUnit.GridTest" />
-        <item itemvalue="JUnit.TileTest.testTilePlayer" />
+        <item itemvalue="JUnit.GridTest.testIterator2" />
+        <item itemvalue="JUnit.GridTest.testIterator" />
+        <item itemvalue="JUnit.GridTest.testHasTiles2" />
+        <item itemvalue="JUnit.GridTest.testHasTiles1" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +178,10 @@
       <workItem from="1671738055294" duration="3686000" />
       <workItem from="1671788318660" duration="6518000" />
       <workItem from="1671803658622" duration="7120000" />
-      <workItem from="1671830510154" duration="565000" />
+      <workItem from="1671830510154" duration="5453000" />
+      <workItem from="1671959626755" duration="3216000" />
+      <workItem from="1672088718131" duration="1899000" />
+      <workItem from="1672131941638" duration="1641000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -319,7 +337,98 @@
       <option name="project" value="LOCAL" />
       <updated>1671813409892</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="implemented temporary methods to resolve compiling errors">
+      <created>1671831128936</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1671831128936</updated>
+    </task>
+    <task id="LOCAL-00024" summary="code commented out to avoid compiling errors">
+      <created>1671831451511</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1671831451511</updated>
+    </task>
+    <task id="LOCAL-00025" summary="code commented out to avoid compiling errors">
+      <created>1671831473116</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1671831473116</updated>
+    </task>
+    <task id="LOCAL-00026" summary="created testMakeGenerationStep3">
+      <created>1671833462353</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1671833462353</updated>
+    </task>
+    <task id="LOCAL-00027" summary="created testMakeGenerationStep4">
+      <created>1671834521100</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1671834521100</updated>
+    </task>
+    <task id="LOCAL-00028" summary="created testHasTiles1">
+      <created>1671835317091</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1671835317091</updated>
+    </task>
+    <task id="LOCAL-00029" summary="created testHasTiles2">
+      <created>1671835529791</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1671835529791</updated>
+    </task>
+    <task id="LOCAL-00030" summary="delegated duplicate code into getSetupArray method">
+      <created>1671835920776</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1671835920776</updated>
+    </task>
+    <task id="LOCAL-00031" summary="created testIterator">
+      <created>1671960591780</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1671960591780</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fixed a detected bug of next()">
+      <created>1671960625738</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1671960625738</updated>
+    </task>
+    <task id="LOCAL-00033" summary="next method throws NoSuchElementException">
+      <created>1671962766084</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1671962766084</updated>
+    </task>
+    <task id="LOCAL-00034" summary="test if GridIterator.next() throws NoSuchElementException (testIterator2)">
+      <created>1671962813185</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1671962813185</updated>
+    </task>
+    <task id="LOCAL-00035" summary="small adjustment to updateLastGenColors method">
+      <created>1672089028633</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1672089028633</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,17 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Error" />
-    <MESSAGE value="GridTest class created" />
-    <MESSAGE value="Tile class created" />
-    <MESSAGE value="Color enum created" />
-    <MESSAGE value="scetch for updateGeneration method done" />
-    <MESSAGE value="getAliveNeighbours method and provisional constructor." />
-    <MESSAGE value="Helper methods for updateGeneration method" />
-    <MESSAGE value="changement in Tile Class" />
-    <MESSAGE value="changes in Tile Class" />
-    <MESSAGE value="make Grid be an ArrayList" />
-    <MESSAGE value="nothing" />
     <MESSAGE value="add Coordinate Class&#10;implemented Tile and Grid methods" />
     <MESSAGE value="optimized getWinningColor method" />
     <MESSAGE value="improving makeGenerationStep method, also field lastGenColors and method updateLastGenColors added" />
@@ -361,10 +459,22 @@
     <MESSAGE value="created testMakeGenerationStep2" />
     <MESSAGE value="improved testMakeGenerationStep1" />
     <MESSAGE value="improved testMakeGenerationStep2" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved testMakeGenerationStep2" />
+    <MESSAGE value="implemented temporary methods to resolve compiling errors" />
+    <MESSAGE value="code commented out to avoid compiling errors" />
+    <MESSAGE value="created testMakeGenerationStep3" />
+    <MESSAGE value="created testMakeGenerationStep4" />
+    <MESSAGE value="created testHasTiles1" />
+    <MESSAGE value="created testHasTiles2" />
+    <MESSAGE value="delegated duplicate code into getSetupArray method" />
+    <MESSAGE value="created testIterator" />
+    <MESSAGE value="fixed a detected bug of next()" />
+    <MESSAGE value="next method throws NoSuchElementException" />
+    <MESSAGE value="test if GridIterator.next() throws NoSuchElementException (testIterator2)" />
+    <MESSAGE value="small adjustment to updateLastGenColors method" />
+    <option name="LAST_COMMIT_MESSAGE" value="small adjustment to updateLastGenColors method" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1671812655175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1671962639554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.conways_game_of_life.*</FILTER>
     </SUITE>
   </component>

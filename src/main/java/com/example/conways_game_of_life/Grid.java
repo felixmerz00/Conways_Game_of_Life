@@ -19,6 +19,70 @@ public class Grid implements Iterable<Tile>{
         }
     }
 
+    public Grid(Color colorPlayerOne, Color colorPlayerTwo) {
+        grid = getInitialGrid(colorPlayerOne, colorPlayerTwo);    // Create grid with initial configuration.
+        lastGenColors = new Color[18][18];  // Initialize lastGenColors. I don't need to set the values here.
+    }
+
+    private Tile[][] getInitialGrid(Color colorPlayerOne, Color colorPlayerTwo){
+        Tile[][] initialGrid = new Tile[18][18];
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                initialGrid[y][x] = new Tile(x,y);
+            }
+        }
+        // Block 1
+        initialGrid[2][7].setColor(colorPlayerOne);
+        initialGrid[2][8].setColor(colorPlayerOne);
+        initialGrid[2][9].setColor(colorPlayerOne);
+        initialGrid[4][6].setColor(colorPlayerOne);
+        initialGrid[4][8].setColor(colorPlayerOne);
+        initialGrid[4][10].setColor(colorPlayerOne);
+        initialGrid[5][6].setColor(colorPlayerOne);
+        initialGrid[5][7].setColor(colorPlayerOne);
+        initialGrid[5][9].setColor(colorPlayerOne);
+        initialGrid[5][10].setColor(colorPlayerOne);
+        initialGrid[7][8].setColor(colorPlayerOne);
+        // Block 2
+        initialGrid[6][4].setColor(colorPlayerTwo);
+        initialGrid[6][5].setColor(colorPlayerTwo);
+        initialGrid[7][2].setColor(colorPlayerTwo);
+        initialGrid[7][5].setColor(colorPlayerTwo);
+        initialGrid[8][2].setColor(colorPlayerTwo);
+        initialGrid[8][4].setColor(colorPlayerTwo);
+        initialGrid[8][7].setColor(colorPlayerTwo);
+        initialGrid[9][2].setColor(colorPlayerTwo);
+        initialGrid[9][5].setColor(colorPlayerTwo);
+        initialGrid[10][4].setColor(colorPlayerTwo);
+        initialGrid[10][5].setColor(colorPlayerTwo);
+        // Block 3
+        initialGrid[7][12].setColor(colorPlayerOne);
+        initialGrid[7][13].setColor(colorPlayerOne);
+        initialGrid[8][12].setColor(colorPlayerOne);
+        initialGrid[8][15].setColor(colorPlayerOne);
+        initialGrid[9][10].setColor(colorPlayerOne);
+        initialGrid[9][13].setColor(colorPlayerOne);
+        initialGrid[9][15].setColor(colorPlayerOne);
+        initialGrid[10][12].setColor(colorPlayerOne);
+        initialGrid[10][15].setColor(colorPlayerOne);
+        initialGrid[11][12].setColor(colorPlayerOne);
+        initialGrid[11][13].setColor(colorPlayerOne);
+        // Block 4
+        initialGrid[10][9].setColor(colorPlayerTwo);
+        initialGrid[12][7].setColor(colorPlayerTwo);
+        initialGrid[12][8].setColor(colorPlayerTwo);
+        initialGrid[12][10].setColor(colorPlayerTwo);
+        initialGrid[12][11].setColor(colorPlayerTwo);
+        initialGrid[13][7].setColor(colorPlayerTwo);
+        initialGrid[13][9].setColor(colorPlayerTwo);
+        initialGrid[13][11].setColor(colorPlayerTwo);
+        initialGrid[15][8].setColor(colorPlayerTwo);
+        initialGrid[15][9].setColor(colorPlayerTwo);
+        initialGrid[15][10].setColor(colorPlayerTwo);
+
+        return initialGrid;
+    }
+
     //Method to get the Tile Instance in Grid at Input Coordinate
     private Tile getTileAt(int x, int y){
         return grid[y][x];
