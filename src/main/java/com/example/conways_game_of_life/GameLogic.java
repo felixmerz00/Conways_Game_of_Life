@@ -6,8 +6,8 @@ import java.util.List;
 
 public class GameLogic {
 
-    // private final InterfaceUI ui;
-    private final Grid aGrid;
+    private final InterfaceUI ui;
+    private Grid aGrid;
 
     private final List<Observer> observers;
 
@@ -16,40 +16,44 @@ public class GameLogic {
     public GameLogic(){
         this.observers = new ArrayList<>();
         //this.ui = new UI(this);
-        this.aGrid = new Grid();
     }
 
-    //setup game
+    //setup game (player + grid)
     public void gameSetup(){
-        // players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
-        // players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
+        //set up player
+        players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
+        players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
         players.sort(Comparator.comparing(Player::getName));
+
+        //setup grid
+        this.aGrid = new Grid(players.get(0).getPlayerColor(), players.get(1).getPlayerColor());
+
     }
 
     //play game
     public void playGame(){
-        // one player has none active tile
+        // if one player has no active tiles, then the game ends
         while(allPlayerHaveTiles()){
             for(Player aPlayer : players){
-                notifyOb();
+                notifyObserver();
 
-                //delete a tile //inputvalidation in grid?
-                // aGrid.kill(ui.deleteTile(aPlayer));
+                //delete a tile
+                aGrid.kill(ui.deleteTile(aPlayer));
+                notifyObserver();
 
                 //set a tile
-                // aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
+                aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
+                notifyObserver();
 
                 //go a step forward (next cell) (player specific or not?)
                 aGrid.makeGenerationStep();
+                notifyObserver();
 
                 if(!allPlayerHaveTiles()){
                     break;
                 }
             }
         }
-        //one player has no active tile -->end
-        //determine winner
-
     }
 
     public static void main(String[] args){
@@ -59,6 +63,7 @@ public class GameLogic {
         game.getWinner();
     }
 
+    //end condition to the while loop in playGame
     public boolean allPlayerHaveTiles(){
         for(Player aPlayer: players){
             if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
@@ -67,21 +72,23 @@ public class GameLogic {
         }
         return true;
     }
-
-    public void registerOb(Observer aObserver){
+    //observer can register themself with this function
+    public void registerObserver(Observer aObserver){
         this.observers.add(aObserver);
     }
 
-    public void notifyOb(){
+    //used as callback method in observer pattern
+    public void notifyObserver(){
         for(Observer aObserver: observers){
             aObserver.updateGrid();
         }
     }
 
+    //utility function to let the ui declare the winner and pass the correct player as winner
     public void getWinner(){
         for (Player aPlayer: players) {
             if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
-                // ui.declareWinner(aPlayer);
+                ui.declareWinner(aPlayer);
             }
         }
     }
