@@ -90,15 +90,31 @@ public class Grid implements Iterable<Tile>{
         return grid[y][x];
     }
 
-    //This method sets Tile.alive to false and Tile.aColor to WHITE
-    //we use design by contract for this method implementation
+    private boolean validKill(int x, int y, Player player) {
+        boolean valid = false;
+        Tile tile = getTileAt(x, y);
+        //Player cannot kill his own tile
+        if (tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE) {
+            valid = true;
+        }
+        return valid;
+    }
 
-    /**
-     * @pre tile.getColor != Color.WHITE && tile.getColor != player.getPlayerColor
-     */
-    public void kill(int x, int y) {
-        Tile tile = getTileAt(x,y);
-        tile.setColor(Color.WHITE);
+    //This method sets Tile.aColor to WHITE
+    //we use design by contract for this method implementation -> we use input validation
+    //should i return something after tile got killed
+    ///**
+     //* @pre tile.getColor != Color.WHITE && tile.getColor != player.getPlayerColor
+     //*/
+    public void kill(int x, int y, Player player) {
+        Tile inputTile = getTileAt(x, y);
+        if (validKill(x,y,player)) {
+            inputTile.setColor(Color.WHITE);
+        }
+        else {//we need other Tile to kill
+            Coordinate killCoordinate = getTileToKill();
+            kill(killCoordinate.x(), killCoordinate.y(), player);
+        }
     }
 
     // I temporarily implemented this method to resolve the errors.
@@ -107,22 +123,36 @@ public class Grid implements Iterable<Tile>{
     }
 
     //do we need to add post conditions for design by contract?
-    /**
+    /*/**
      * @post tile.getColor == Color.WHITE && tile.isAlive == false
      */
+
+    private boolean validSetTile(int x, int y) {
+        boolean valid = false;
+        Tile tile = getTileAt(x, y);
+        //possible to set tile only when Tile.getColor == WHITE
+        if (tile.getColor() == Color.WHITE) {
+            valid = true;
+        }
+        return valid;
+    }
 
     //method to assign a player to a tile at given coordinate in grid
     //use Design by Contract
 
-    /**
+    /*/**
      * @pre tile.getColor == Color.WHITE && tile.isAlive == false
      * @pre setValid(grid, player) == true;
      */
     public void playerSetTile(int x, int y, Player player) {
         Tile tile = getTileAt(x,y);
-        Color color = player.getPlayerColor();
-        tile.setColor(color);
-        //tile.setAlive(true); -> we dont have alive bool
+        if (validSetTile(x,y)) {//assign Tile Color with Player Color
+            tile.setColor(player.getPlayerColor());
+        }
+        else {
+            Coordinate setCoordinate = getTileToSet();
+            playerSetTile(setCoordinate.x(),setCoordinate.y(),player);
+        }
     }
 
     // I temporarily implemented this method to resolve the errors.
