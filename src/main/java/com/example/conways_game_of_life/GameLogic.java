@@ -26,7 +26,7 @@ public class GameLogic {
         players.sort(Comparator.comparing(Player::getName));
 
         //setup grid
-        this.aGrid = new Grid(players.get(0).getPlayerColor(), players.get(1).getPlayerColor());
+        this.aGrid = new Grid(players.get(0).getPlayerColor(), players.get(1).getPlayerColor(), ui);
         notifyObserver();
 
     }

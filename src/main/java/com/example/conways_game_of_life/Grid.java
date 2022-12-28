@@ -7,6 +7,7 @@ public class Grid implements Iterable<Tile>{
     private Tile[][] grid;
     private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
+    private InterfaceUI ui;
     // This constructor initializes the Tile[][] grid filled with dead tiles.
     public Grid() {
         grid = new Tile[18][18];    // Initialize grid.
@@ -20,7 +21,8 @@ public class Grid implements Iterable<Tile>{
     }
 
     // This constructor initializes the Tile[][] grid with a starting pattern.
-    public Grid(Color colorPlayerOne, Color colorPlayerTwo) {
+    public Grid(Color colorPlayerOne, Color colorPlayerTwo, InterfaceUI ui) {
+        this.ui = ui;
         grid = getInitialGrid(colorPlayerOne, colorPlayerTwo);    // Create grid with initial configuration.
         lastGenColors = new Color[18][18];  // Initialize lastGenColors. I don't need to set the values here.
     }
@@ -108,7 +110,7 @@ public class Grid implements Iterable<Tile>{
             inputTile.setColor(Color.WHITE);
         }
         else {//we need other Tile to kill
-            Coordinate killCoordinate = getTileToKill();
+            Coordinate killCoordinate = ui.deleteTile(player);//getTileToKill();
             kill(killCoordinate.x(), killCoordinate.y(), player);
         }
     }
@@ -143,7 +145,7 @@ public class Grid implements Iterable<Tile>{
             tile.setColor(player.getPlayerColor());
         }
         else {
-            Coordinate setCoordinate = getTileToSet();
+            Coordinate setCoordinate = ui.setTile(player);//getTileToSet();
             playerSetTile(setCoordinate.x(),setCoordinate.y(),player);
         }
     }
