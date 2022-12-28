@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="implement validation methods in grid for kill &amp; set">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="GridTest add tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,7 @@
       <recent name="com.example.conways_game_of_life" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GridTest.testGetTile">
+  <component name="RunManager" selected="JUnit.TileTest.testTileToPlayer">
     <configuration name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage" sample_coverage="false">
@@ -95,22 +93,6 @@
       <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
       <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
       <option name="METHOD_NAME" value="testGetTile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GridTest.testHasTiles2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Conways_Game_of_Life" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="testHasTiles2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,20 +130,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TileTest.testTileToPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.TileTest" />
+      <option name="METHOD_NAME" value="testTileToPlayer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JUnit.GridTest.testGetTile" />
+      <item itemvalue="JUnit.TileTest.testTileToPlayer" />
       <item itemvalue="JUnit.GridTest.testIterator" />
       <item itemvalue="JUnit.GridTest.testIterator2" />
-      <item itemvalue="JUnit.GridTest.testHasTiles2" />
       <item itemvalue="JUnit.GridTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TileTest.testTileToPlayer" />
         <item itemvalue="JUnit.GridTest.testGetTile" />
         <item itemvalue="JUnit.GridTest" />
         <item itemvalue="JUnit.GridTest.testIterator2" />
         <item itemvalue="JUnit.GridTest.testIterator" />
-        <item itemvalue="JUnit.GridTest.testHasTiles2" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +183,7 @@
       <workItem from="1671959626755" duration="3216000" />
       <workItem from="1672088718131" duration="1899000" />
       <workItem from="1672131941638" duration="1641000" />
-      <workItem from="1672167583677" duration="4554000" />
+      <workItem from="1672167583677" duration="5718000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -439,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672214393688</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="GridTest add tests">
+      <created>1672217551053</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1672217551053</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +462,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="optimized getWinningColor method" />
     <MESSAGE value="improving makeGenerationStep method, also field lastGenColors and method updateLastGenColors added" />
     <MESSAGE value="small changes (different access modifiers)" />
     <MESSAGE value="create getTileAt method" />
@@ -482,7 +486,8 @@
     <MESSAGE value="test if GridIterator.next() throws NoSuchElementException (testIterator2)" />
     <MESSAGE value="small adjustment to updateLastGenColors method" />
     <MESSAGE value="implement validation methods in grid for kill &amp; set" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement validation methods in grid for kill &amp; set" />
+    <MESSAGE value="GridTest add tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="GridTest add tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1671962639554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
