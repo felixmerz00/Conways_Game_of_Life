@@ -15,11 +15,11 @@ public class GameLogic {
 
     public GameLogic(){
         this.observers = new ArrayList<>();
-        //this.ui = new UI(this);
+        this.ui = new ExampleUI(this);
     }
 
     //setup game (player + grid)
-    public void gameSetup(){
+    private void gameSetup(){
         //set up player
         players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
         players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
@@ -27,15 +27,15 @@ public class GameLogic {
 
         //setup grid
         this.aGrid = new Grid(players.get(0).getPlayerColor(), players.get(1).getPlayerColor());
+        notifyObserver();
 
     }
 
     //play game
-    public void playGame(){
+    private void playGame(){
         // if one player has no active tiles, then the game ends
         while(allPlayerHaveTiles()){
             for(Player aPlayer : players){
-                notifyObserver();
 
                 //delete a tile
                 aGrid.kill(ui.deleteTile(aPlayer));
@@ -45,7 +45,7 @@ public class GameLogic {
                 aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
                 notifyObserver();
 
-                //go a step forward (next cell) (player specific or not?)
+                //go a step forward (next cell)
                 aGrid.makeGenerationStep();
                 notifyObserver();
 
@@ -64,7 +64,7 @@ public class GameLogic {
     }
 
     //end condition to the while loop in playGame
-    public boolean allPlayerHaveTiles(){
+    private boolean allPlayerHaveTiles(){
         for(Player aPlayer: players){
             if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
                 return false;
@@ -78,14 +78,14 @@ public class GameLogic {
     }
 
     //used as callback method in observer pattern
-    public void notifyObserver(){
+    private void notifyObserver(){
         for(Observer aObserver: observers){
-            aObserver.updateGrid();
+            aObserver.updateGrid(aGrid);
         }
     }
 
     //utility function to let the ui declare the winner and pass the correct player as winner
-    public void getWinner(){
+    private void getWinner(){
         for (Player aPlayer: players) {
             if(!aGrid.hasTiles(aPlayer.getPlayerColor())){
                 ui.declareWinner(aPlayer);
