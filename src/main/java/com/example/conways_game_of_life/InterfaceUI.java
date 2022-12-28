@@ -9,4 +9,5 @@ public interface InterfaceUI {
 
     void declareWinner(Player aPlayer);
 
+    void UpdateGrid(Grid aGrid);
 }
