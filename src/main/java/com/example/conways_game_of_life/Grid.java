@@ -90,13 +90,9 @@ public class Grid implements Iterable<Tile>{
         return grid[y][x];
     }
 
-    private boolean validKill(int x, int y, Player player) {
-        boolean valid = false;
-        Tile tile = getTileAt(x, y);
+    private boolean validKill(Tile tile, Player player) {
         //Player cannot kill his own tile
-        if (tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE) {
-            valid = true;
-        }
+        boolean valid = tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
         return valid;
     }
 
@@ -108,7 +104,7 @@ public class Grid implements Iterable<Tile>{
      //*/
     public void kill(int x, int y, Player player) {
         Tile inputTile = getTileAt(x, y);
-        if (validKill(x,y,player)) {
+        if (validKill(inputTile,player)) {
             inputTile.setColor(Color.WHITE);
         }
         else {//we need other Tile to kill
@@ -116,6 +112,7 @@ public class Grid implements Iterable<Tile>{
             kill(killCoordinate.x(), killCoordinate.y(), player);
         }
     }
+    //TODO what are correct methods to call from UI when Tile is not valid
 
     // I temporarily implemented this method to resolve the errors.
     public void kill(Coordinate c){
@@ -127,13 +124,9 @@ public class Grid implements Iterable<Tile>{
      * @post tile.getColor == Color.WHITE && tile.isAlive == false
      */
 
-    private boolean validSetTile(int x, int y) {
-        boolean valid = false;
-        Tile tile = getTileAt(x, y);
+    private boolean validSetTile(Tile tile) {
         //possible to set tile only when Tile.getColor == WHITE
-        if (tile.getColor() == Color.WHITE) {
-            valid = true;
-        }
+        boolean valid = tile.getColor() == Color.WHITE;
         return valid;
     }
 
@@ -146,7 +139,7 @@ public class Grid implements Iterable<Tile>{
      */
     public void playerSetTile(int x, int y, Player player) {
         Tile tile = getTileAt(x,y);
-        if (validSetTile(x,y)) {//assign Tile Color with Player Color
+        if (validSetTile(tile)) {//assign Tile Color with Player Color
             tile.setColor(player.getPlayerColor());
         }
         else {

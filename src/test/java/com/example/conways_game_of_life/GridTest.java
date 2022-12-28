@@ -1,6 +1,5 @@
 package com.example.conways_game_of_life;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
@@ -13,37 +12,79 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
-/*
-    GridTest() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
-    }
+    //TODO do we have to test constructor?
 
-    //make method public
-    private Tile getCoordinateTile(Coordinate coordinate) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = Grid.class.getDeclaredMethod("getCoordinateTile");
-        method.setAccessible(true);
-        return (Tile) method.invoke(coordinate);
-    }
     Random random = new Random();
-    Grid grid = new Grid();
-    Coordinate coordinate = new Coordinate(random.nextInt(18), random.nextInt(18));
-    Tile tile = getCoordinateTile(coordinate);
-    Player player = new Player("TestPlayer", Color.MAGENTA);
 
+    //helper method to make Grid.getTile accessible
+    /*public Tile getTileAt(int x, int y) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method method = Grid.class.getDeclaredMethod("getTileAt");
+        method.setAccessible(true);
+        return (Tile) method.invoke(x, y);
+    }*/
 
     @Test
-    void testKill() {
-        grid.kill(coordinate);
-        assertFalse(tile.isAlive());
+    void testGetTile() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+        //int x = random.nextInt(18);
+        //int y = random.nextInt(18);
+        //TODO check test again
+        //Tile tile1 = grid[y][x];
+        //Tile tile2 = getTileAt(x,y);
+        //assertTrue(tile1 == tile2);
+    }
+
+    //helper method to make Grid.validKill accessible
+    public boolean validKill(Tile tile, Player player) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method method = Grid.class.getDeclaredMethod("validKill");
+        method.setAccessible(true);
+        return (boolean) method.invoke(tile, player);
+    }
+    @Test
+    void testValidKill() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+        Player player = new Player("Test", Color.BLUE);
+        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
+        //when Tile.getColor == WHITE -> invalid kill
+        assertFalse(validKill(tile, player));
+        //when Tile.getColor == Player.getPlayerColor -> invalid kill
+        tile.setColor(Color.BLUE);
+        assertFalse(validKill(tile, player));
+        //when Tile.getColor != Color.WHITE && Tile.getColor != Player.getPlayerColor
+        tile.setColor(Color.MAGENTA);
+        assertTrue(validKill(tile, player));
+    }
+
+    @Test
+    void testKill() { //we only give input to the method for which a kill is possible
+        Grid grid = new Grid();
+        Player player = new Player("Test", Color.BLUE);
+        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
+        tile.setColor(Color.GREEN);
+        grid.kill(tile.getX(), tile.getY(), player);    //should set tile.color to WHITE
         assertTrue(tile.getColor() == Color.WHITE);
     }
 
-    @Test
-    void testPlayerSetTile() {
-        grid.playerSetTile(coordinate, player);
-        assertTrue(tile.getColor().equals(player.getPlayerColor()));
-        assertTrue(tile.isAlive());
+    //helper method to make Grid.validSetTile accessible
+    public boolean validSetTile(Tile tile) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method method = Grid.class.getDeclaredMethod("validSetTile");
+        method.setAccessible(true);
+        return (boolean) method.invoke(tile);
     }
-    */
+
+    @Test
+    void testValidSetTile() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
+        //only if Tile.getColor = WHITE, Grid.validSetTile returns true
+        assertTrue(validSetTile(tile));
+    }
+
+    @Test
+    void testPlayerSetTile() {  //we only give input to the method for which setTile is possible
+        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
+        Player player = new Player("Test", Color.BLUE);
+        Grid grid = new Grid();
+        grid.playerSetTile(tile.getX(), tile.getY(), player);   //should set Tile.color to Player.color
+        assertTrue(tile.getColor() == player.getPlayerColor());
+    }
 
     // Test if makeGenerationStep method works for a dead playing field.
     @Test

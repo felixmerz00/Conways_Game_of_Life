@@ -22,10 +22,10 @@ public class Tile {
     }
 
     //check if methods are necessary at end
-    public int tileX() {
+    public int getX() {
         return x;
     }
-    public int tileY() {
+    public int getY() {
         return y;
     }
 
