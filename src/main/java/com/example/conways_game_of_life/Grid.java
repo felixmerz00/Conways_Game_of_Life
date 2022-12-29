@@ -136,12 +136,12 @@ public class Grid implements Iterable<Tile>{
     //use Design by Contract
 
     /*/**
-     * @pre tile.getColor == Color.WHITE && tile.isAlive == false
+     * @pre tile.getColor == Color.WHITE
      * @pre setValid(grid, player) == true;
      */
 
     /**
-     * @pre
+     * @pre ????
      */
     public void playerSetTile(int x, int y, Player player) {
         Tile tile = getTileAt(x,y);
@@ -149,10 +149,12 @@ public class Grid implements Iterable<Tile>{
             tile.setColor(player.getPlayerColor());
         }
         else {
-            Coordinate setCoordinate = ui.setTile(player);//getTileToSet();
+            Coordinate setCoordinate = ui.setTile(player); //getTileToSet();
             playerSetTile(setCoordinate.x(),setCoordinate.y(),player);
         }
     }
+
+    //TODO can we delete this method?
 
     // I temporarily implemented this method to resolve the errors.
     public void playerSetTile(Coordinate c, Player player){

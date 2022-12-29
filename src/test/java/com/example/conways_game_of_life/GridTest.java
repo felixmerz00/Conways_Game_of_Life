@@ -2,6 +2,8 @@ package com.example.conways_game_of_life;
 
 import org.junit.jupiter.api.Test;
 
+import com.example.conways_game_of_life.Tile;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -15,22 +17,35 @@ import static org.junit.jupiter.api.Assertions.*;
 class GridTest {
     Random random = new Random();
 
+
+    //no test for grid.getTile ?
     //helper method to make Grid.getTile accessible
     /*public Tile getTileAt(int x, int y) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = Grid.class.getDeclaredMethod("getTileAt");
         method.setAccessible(true);
         return (Tile) method.invoke(x, y);
-    }*/
+    }
 
     @Test
-    void testGetTile() {
-        //int x = random.nextInt(18);
-        //int y = random.nextInt(18);
-        //TODO check test again
-        //Tile tile1 = grid[y][x];
-        //Tile tile2 = getTileAt(x,y);
-        //assertTrue(tile1 == tile2);
-    }
+    void testGetTileAt() {
+        //lists to implement MockUI
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+        ArrayList<Coordinate> deleteTile = new ArrayList<>();
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+
+        //create instance of MockUI
+        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
+
+        //create instance of Grid
+        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+
+
+        //create Tile
+        Tile tile = new Tile(random.nextInt(2,16), random.nextInt(2,16));
+
+        Tile tile1= grid.getTileAt(tile.getX(), tile.getY()));
+    }*/
 
     //helper method to make Grid.validKill accessible
     public boolean validKill(Tile tile, Player player) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
