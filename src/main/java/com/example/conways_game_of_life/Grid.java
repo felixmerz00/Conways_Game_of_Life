@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Grid implements Iterable<Tile>{
-    private Tile[][] grid;
+    protected Tile[][] grid;
     private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
     private InterfaceUI ui;
