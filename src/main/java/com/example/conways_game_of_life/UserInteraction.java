@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class UserInteraction implements InterfaceUI {
+public class UserInteraction implements InterfaceUI, Observer{
 
     public UserInteraction() {
 
@@ -167,7 +167,7 @@ public class UserInteraction implements InterfaceUI {
     }
 
     @Override
-    public void UpdateGrid(Grid aGrid){
+    public void updateGrid(Grid aGrid){
         // print out new grid
         System.out.println("================ NEW GENERATION ================");
         System.out.println(" 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 ");
