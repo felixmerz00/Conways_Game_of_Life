@@ -13,9 +13,6 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
-
-    //TODO use constructor with input parameter, no test for constructor
-
     Random random = new Random();
 
     //helper method to make Grid.getTile accessible
