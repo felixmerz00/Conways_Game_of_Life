@@ -3,6 +3,8 @@ package com.example.conways_game_of_life;
 import java.util.ArrayList;
 
 public class MockUI implements InterfaceUI{
+
+    private Player winner;// = new Player("Not Set", Color.RED);
     private final ArrayList<String> names;
     private final ArrayList<Color> colors;
     private final ArrayList<Coordinate> deleteTile;
@@ -15,13 +17,13 @@ public class MockUI implements InterfaceUI{
         this.setTile = setTile;
     }
 
-    public String setPlayerName(){
+    public String setPlayerName(int one){
         String name = names.get(0);
         names.remove(0);
         return name;
     }
 
-    public Color setPlayerColor(){
+    public Color setPlayerColor(int one){
         Color color = colors.get(0);
         colors.remove(0);
         return color;
@@ -37,5 +39,11 @@ public class MockUI implements InterfaceUI{
         return coordinate;
     }
 
-    public void declareWinner(Player aPlayer){}
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void declareWinner(Player aPlayer){
+        this.winner = aPlayer;
+    }
 }

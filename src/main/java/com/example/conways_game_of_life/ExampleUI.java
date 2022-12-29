@@ -1,18 +1,18 @@
 package com.example.conways_game_of_life;
 
-public class ExampleUI implements  InterfaceUI, Observer{
+public class ExampleUI implements  InterfaceUI, Observer {
    private Grid aGrid;
 
     ExampleUI(GameLogic aGameLogic){
         aGameLogic.registerObserver(this);
     }
     @Override
-    public String setPlayerName() {
+    public String setPlayerName(int number_of_player) {
         return null;
     }
 
     @Override
-    public Color setPlayerColor() {
+    public Color setPlayerColor(int number_of_player) {
         return null;
     }
 
@@ -28,7 +28,6 @@ public class ExampleUI implements  InterfaceUI, Observer{
 
     @Override
     public void declareWinner(Player aPlayer) {
-
     }
 
     @Override
