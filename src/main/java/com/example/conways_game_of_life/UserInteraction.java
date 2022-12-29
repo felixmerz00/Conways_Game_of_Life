@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class UserInteraction implements InterfaceUI, Observer{
 
-    public UserInteraction() {
-
+    Grid aGrid;
+    public UserInteraction(GameLogic aGameLogic) {
+        aGameLogic.registerObserver(this);
     }
 
     @Override
@@ -168,28 +169,34 @@ public class UserInteraction implements InterfaceUI, Observer{
 
     @Override
     public void updateGrid(Grid aGrid){
+        this.aGrid = aGrid;
+        // System.out.println(aGrid);
+
         // print out new grid
         System.out.println("================ NEW GENERATION ================");
         System.out.println(" 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 ");
         System.out.println("+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+ ");
 
-        int i = 0;
         int j = 0;
+        int i = 0;
         for(Tile t: aGrid){
-            System.out.print(i+1);
-            while(j < 16){
-                System.out.print('|');
-                Character uppercaseLetter = t.getColor().toString().charAt(0);
-                System.out.print(uppercaseLetter+uppercaseLetter);
-                System.out.print("|");
-                j += 1;
+            if(i == 16){
+                System.out.print(j+1);
+                System.out.print("\n");
+                i = 0;
+                j++;
             }
-            System.out.print(i+1);
-            System.out.print("\n");
-            i += 1;
+            if(i == 0){
+                System.out.print(j+1);
+            }
+            System.out.print('|');
+            Character uppercaseLetter = t.getColor().toString().charAt(0);
+            System.out.print(uppercaseLetter);
+            System.out.print("|");
+            i++;
         }
 
-        System.out.println("+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+ ");
+        System.out.println("\n+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+ ");
         System.out.println(" 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 ");
         System.out.print("=================================================");
         System.out.print("\n\n--------------------------------------------------\n\n");
