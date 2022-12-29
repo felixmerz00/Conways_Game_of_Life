@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -12,6 +13,8 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
+
+    //TODO use constructor with input parameter, no test for constructor
     //TODO do we have to test constructor?
 
     Random random = new Random();
@@ -24,7 +27,7 @@ class GridTest {
     }*/
 
     @Test
-    void testGetTile() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    void testGetTile() {
         //int x = random.nextInt(18);
         //int y = random.nextInt(18);
         //TODO check test again
@@ -53,14 +56,39 @@ class GridTest {
         assertTrue(validKill(tile, player));
     }
 
+    //TODO use mockUI
+
     @Test
     void testKill() { //we only give input to the method for which a kill is possible
-        Grid grid = new Grid();
-        Player player = new Player("Test", Color.BLUE);
-        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
-        tile.setColor(Color.GREEN);
-        grid.kill(tile.getX(), tile.getY(), player);    //should set tile.color to WHITE
-        assertTrue(tile.getColor() == Color.WHITE);
+        //create Tile in Grid which is not valid to kill for player1 with color BLUE
+        Tile invalidTile = new Tile(3,3);
+        invalidTile.setColor(Color.BLUE);
+
+        //create Tile in Grid which is valid to kill: tile.color is color of enemy player2 (AMBER)
+        Tile validTile = new Tile(5,5);
+        validTile.setColor(Color.AMBER);
+
+        //use MockUI to test -> create lists & only fill in lists i use in test
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+
+        ArrayList<Coordinate> deleteTile = new ArrayList<>();
+        //deleteTile.add(new Coordinate(3,3));  //invalidKill Tile
+        deleteTile.add(new Coordinate(5,5)); //validKill Tile
+
+        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
+
+        //create two players
+        Player player1 = new Player("Test1", Color.BLUE);
+        Player player2 = new Player("Test2", Color.AMBER);
+
+        //create Grid
+        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+
+        //input tile is invalid to kill for player1
+        grid.kill(3, 3, player1); //method will ask new tile from ui
+        //TODO what do i have to assert?
     }
 
     //helper method to make Grid.validSetTile accessible

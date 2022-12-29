@@ -139,6 +139,10 @@ public class Grid implements Iterable<Tile>{
      * @pre tile.getColor == Color.WHITE && tile.isAlive == false
      * @pre setValid(grid, player) == true;
      */
+
+    /**
+     * @pre tile
+     */
     public void playerSetTile(int x, int y, Player player) {
         Tile tile = getTileAt(x,y);
         if (validSetTile(tile)) {//assign Tile Color with Player Color
