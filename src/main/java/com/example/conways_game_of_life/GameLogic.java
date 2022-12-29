@@ -15,14 +15,14 @@ public class GameLogic {
 
     public GameLogic(){
         this.observers = new ArrayList<>();
-        this.ui = new ExampleUI(this);
+        this.ui = new UserInteraction();
     }
 
     //setup game (player + grid)
     public void gameSetup(){
         //set up player
-        players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
-        players.add(new Player(ui.setPlayerName(), ui.setPlayerColor()));
+        players.add(new Player(ui.setPlayerName(1), ui.setPlayerColor(1)));
+        players.add(new Player(ui.setPlayerName(2), ui.setPlayerColor(2)));
         players.sort(Comparator.comparing(Player::getName));
 
         //setup grid
