@@ -7,6 +7,7 @@ public class MockGrid extends Grid{
 
     //set 2,2 to wished color
     public MockGrid(Color color, InterfaceUI ui){
+        this.ui = ui;
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
                 grid[y][x] = new Tile(x,y);
@@ -16,6 +17,7 @@ public class MockGrid extends Grid{
     }
 
     public MockGrid(Color color1, Color color2, InterfaceUI ui){
+        this.ui = ui;
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
                 grid[y][x] = new Tile(x,y);
@@ -32,4 +34,21 @@ public class MockGrid extends Grid{
         grid[7][3].setColor(color2);
 
     }
+
+    private Tile getTileAt(int x, int y){
+        return grid[y][x];
+    }
+    @Override
+    public void kill(int x, int y, Player player){
+        Tile inputTile = getTileAt(x, y);
+        inputTile.setColor(Color.WHITE);
+    }
+
+    @Override
+    public void playerSetTile(int x, int y, Player player){
+        Tile tile = getTileAt(x,y);
+        tile.setColor(player.getPlayerColor());
+    }
+    @Override
+    public void makeGenerationStep(){}
 }

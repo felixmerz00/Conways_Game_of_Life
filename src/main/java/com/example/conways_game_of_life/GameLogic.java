@@ -11,11 +11,12 @@ public class GameLogic {
 
     private final List<Observer> observers;
 
-    private final List<Player> players = new ArrayList<>();
+    private final List<Player> players;
 
     public GameLogic(){
         this.observers = new ArrayList<>();
-        this.ui = new UserInteraction();
+        this.players = new ArrayList<>();
+        this.ui = new ExampleUI(this);
     }
 
     //setup game (player + grid)

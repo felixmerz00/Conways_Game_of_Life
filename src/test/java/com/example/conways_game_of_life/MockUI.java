@@ -17,13 +17,13 @@ public class MockUI implements InterfaceUI{
         this.setTile = setTile;
     }
 
-    public String setPlayerName(){
+    public String setPlayerName(int one){
         String name = names.get(0);
         names.remove(0);
         return name;
     }
 
-    public Color setPlayerColor(){
+    public Color setPlayerColor(int one){
         Color color = colors.get(0);
         colors.remove(0);
         return color;

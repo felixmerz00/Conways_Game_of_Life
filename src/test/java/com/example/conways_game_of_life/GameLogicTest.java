@@ -146,21 +146,41 @@ public class GameLogicTest {
         assertSame("No One", mockUI.getWinner().getName());
     }
 
-    //play game, testplayer1 wins with amber
+    //play game, testplayer2 wins with yellow
     @Test
     void playGameTest() throws NoSuchFieldException, IllegalAccessException {
         GameLogic aGame = new GameLogic();
 
         //ArrayList creation & MockUI
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
-        Coordinate deletePlayer1 = new Coordinate(7,3);
-        Coordinate deletePlayer2 = new Coordinate(1,2);
+        Coordinate deletePlayer1 = new Coordinate(5,5); //doesn't delete
+        Coordinate deletePlayer2a = new Coordinate(2,2);
+        Coordinate deletePlayer2b = new Coordinate(2,3);
+        Coordinate deletePlayer2c = new Coordinate(3,2);
+        Coordinate deletePlayer2d = new Coordinate(3,3);
+        Coordinate deletePlayer2end = new Coordinate(1,1);
         deleteTile.add(deletePlayer1);
-        deleteTile.add(deletePlayer2);
+        deleteTile.add(deletePlayer2a);
+        deleteTile.add(deletePlayer1);
+        deleteTile.add(deletePlayer2b);
+        deleteTile.add(deletePlayer1);
+        deleteTile.add(deletePlayer2c);
+        deleteTile.add(deletePlayer1);
+        deleteTile.add(deletePlayer2d);
+        deleteTile.add(deletePlayer1);
+        deleteTile.add(deletePlayer2end);
 
         ArrayList<Coordinate> setTile = new ArrayList<>();
-        Coordinate setPlayer1 = new Coordinate(2,1);
-        Coordinate setPlayer2 = new Coordinate(7,4);
+        Coordinate setPlayer1 = new Coordinate(1,1);//only sets on (1,1)
+        Coordinate setPlayer2 = new Coordinate(7,4);//only sets on (7,4)
+        setTile.add(setPlayer1);
+        setTile.add(setPlayer2);
+        setTile.add(setPlayer1);
+        setTile.add(setPlayer2);
+        setTile.add(setPlayer1);
+        setTile.add(setPlayer2);
+        setTile.add(setPlayer1);
+        setTile.add(setPlayer2);
         setTile.add(setPlayer1);
         setTile.add(setPlayer2);
 
@@ -187,8 +207,8 @@ public class GameLogicTest {
         aGame.getWinner();
 
         System.out.println(aMockGrid);
-        assertSame(ORANGE, mockUI.getWinner().getPlayerColor());
-        assertSame("TestPlayer1", mockUI.getWinner().getName());
+        assertSame(YELLOW, mockUI.getWinner().getPlayerColor());
+        assertSame("TestPlayer2", mockUI.getWinner().getName());
         //it should be Yellow and testplayer2?
     }
 }
