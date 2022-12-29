@@ -16,7 +16,7 @@ public class GameLogic {
     public GameLogic(){
         this.observers = new ArrayList<>();
         this.players = new ArrayList<>();
-        this.ui = new ExampleUI(this);
+        this.ui = new UserInteraction(this);
     }
 
     //setup game (player + grid)
