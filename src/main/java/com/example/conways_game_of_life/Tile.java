@@ -1,9 +1,6 @@
 package com.example.conways_game_of_life;
 
 public class Tile {
-    //Tile Status (dead or alive)
-    //private boolean alive;
-
     //Tile Color: I think this is enough, so we don't have to assign a Player to a Tile,
     //because when a Color is assigned to the Player we can compare -> helper Method in Tile class (Tile.tileToPlayer)
     private Color aColor;
