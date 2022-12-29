@@ -179,11 +179,11 @@ class GridTest {
         //use MockUI to test -> create lists & only fill in lists i use in test
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
-        ArrayList<Coordinate> setTile = new ArrayList<>();
-
-        //add valid tile to deleteTile list
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
-        deleteTile.add(new Coordinate(validTile.getX(),validTile.getY())); //validKill Tile
+
+        //add valid tile to setTile list
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+        setTile.add(new Coordinate(validTile.getX(),validTile.getY())); //validKill Tile
 
         MockUI ui = new MockUI(names, colors, deleteTile, setTile);
 

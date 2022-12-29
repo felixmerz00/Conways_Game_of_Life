@@ -29,9 +29,25 @@ class TileTest {
         assertTrue(tile.getColor() == Color.MAGENTA);
     }
 
-    //TODO no test needed for getColor and getX/Y?
     @Test
-    void testGetColor() {}
+    void testGetColor() {
+        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
+        assertTrue(tile.getColor() == Color.WHITE);
+        tile.setColor(Color.GREEN);
+        assertTrue(tile.getColor() == Color.GREEN);
+    }
+
+    @Test
+    void testGetX() {
+        Tile tile = new Tile(2, 3); //x == 2
+        assertTrue(tile.getX() == 2);
+    }
+
+    @Test
+    void testGetY() {
+        Tile tile = new Tile(2, 3); //y == 3
+        assertTrue(tile.getY() == 3);
+    }
 
     @Test
     void testTileToPlayer() {
