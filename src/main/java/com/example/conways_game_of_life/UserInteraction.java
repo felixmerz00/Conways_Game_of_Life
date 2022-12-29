@@ -1,28 +1,65 @@
 package com.example.conways_game_of_life;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class UserInteraction implements InterfaceUI {
 
-    GUI graphicInterface = new GUI();
-    Color listOfColors = new Color();
+    public UserInteraction() {
 
-    @Override
-    public String setPlayerName() {
-        String name = graphicInterface.getName();
-
-        // check if name is valid
-        // can be done much easier in GUI
-
-        return name;
     }
 
     @Override
-    public Color setPlayerColor() {
+    public String setPlayerName(int player) {
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter username for player " + player+1 + ": ");
+        String playerName = null;
+        boolean validInput = false;
+        while (!validInput) {
+            playerName = myObj.nextLine();  // Read user input
+            if (playerName.length() > 0){ //minimum one character long
+                validInput = true;
+            }
+            else {
+                System.out.println("Name must be at least on character long, try again: ");
+            }
+        }
+        System.out.println("Username of player "+ player+1 +" is: " + playerName +"\n");  // Output user input
+        return playerName;
 
-        // how can I get the color of player 1?
 
-        Color color = graphicInterface.getColor(listOfColors);
+        // check if name is valid
+        // can be done much easier in GUI
+    }
 
-        return color;
+    @Override
+    public Color setPlayerColor(int player) {
+
+        // aks user about color and return
+        Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
+
+        System.out.println("Choose a color (Enter letter in brackets): ");
+        System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
+
+        ArrayList<String> validInputs = new ArrayList<>(Arrays.asList("YELLOW", "ORANGE", "RED", "MAGENTA", "PURPLE", "VIOLET", "BLUE", "TEAL", "GREEN"));
+        int userSelection = 0;
+        boolean validInput = false;
+        while (!validInput) {
+            try {
+                userSelection = Integer.parseInt(aScanner.nextLine());  // Read user input
+                if (userSelection >= 0 && userSelection < validInputs.size()) {
+                    validInput = true;
+                } else {
+                    System.out.println("Enter one of the provided numbers.");
+                    System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
+                }
+            }catch(NumberFormatException e){
+                System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
+            }
+        }
+        return Color.valueOf(validInputs.get(userSelection));
+        // TODO Make sure that not both players can choose the same color.
     }
 
     @Override
@@ -34,42 +71,24 @@ public class UserInteraction implements InterfaceUI {
 
     @Override
     public Coordinate setTile(Player aPlayer) {
-        // player not needed if:
-        // maybe do this aswell in GameLogic/Grid class (otherwise UI has to go back and forth)
+        //
         return null;
-    }
-
-    @Override
-    public Coordinate deleteTile() {
-        // yields a coordinate
-        Coordinate selectedTile = graphicInterface.selectTile();
-
-
-
-
-        return selectedTile;
-    }
-
-    @Override
-    public Coordinate setTile() {
-        // ask user to press on tile and make input validation
-        // yields a coordinate
-        Coordinate selectedTile = graphicInterface.selectTile();
-
-        return selectedTile;
     }
 
     // Does only open a new window which states winner and closes stage on "Enter"
     @Override
     public void declareWinner(Player aPlayer) {
         String winnerName = aPlayer.getName();
-        graphicInterface.popUpWinner(winnerName);
+        System.out.println("The winner is " + winnerName);
+
     }
 
 
     @Override
     public void UpdateGrid(Grid aGrid){
-        // update grid here in GUI
-        graphicInterface.refreshGrid(aGrid);
+        // print out new grid
+
+
+
     }
 }
