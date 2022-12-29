@@ -100,7 +100,6 @@ public class Grid implements Iterable<Tile>{
 
     //This method sets Tile.aColor to WHITE
     //we use design by contract for this method implementation -> we use input validation
-    //should i return something after tile got killed
     ///**
      //* @pre tile.getColor != Color.WHITE && tile.getColor != player.getPlayerColor
      //*/
@@ -114,7 +113,8 @@ public class Grid implements Iterable<Tile>{
             kill(killCoordinate.x(), killCoordinate.y(), player);
         }
     }
-    //TODO what are correct methods to call from UI when Tile is not valid
+
+    //TODO can we delete this method?
 
     // I temporarily implemented this method to resolve the errors.
     public void kill(Coordinate c){
@@ -136,8 +136,12 @@ public class Grid implements Iterable<Tile>{
     //use Design by Contract
 
     /*/**
-     * @pre tile.getColor == Color.WHITE && tile.isAlive == false
+     * @pre tile.getColor == Color.WHITE
      * @pre setValid(grid, player) == true;
+     */
+
+    /**
+     * @pre ????
      */
     public void playerSetTile(int x, int y, Player player) {
         Tile tile = getTileAt(x,y);
@@ -145,10 +149,12 @@ public class Grid implements Iterable<Tile>{
             tile.setColor(player.getPlayerColor());
         }
         else {
-            Coordinate setCoordinate = ui.setTile(player);//getTileToSet();
+            Coordinate setCoordinate = ui.setTile(player); //getTileToSet();
             playerSetTile(setCoordinate.x(),setCoordinate.y(),player);
         }
     }
+
+    //TODO can we delete this method?
 
     // I temporarily implemented this method to resolve the errors.
     public void playerSetTile(Coordinate c, Player player){
