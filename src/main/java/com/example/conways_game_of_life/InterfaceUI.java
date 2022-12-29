@@ -8,6 +8,4 @@ public interface InterfaceUI {
     Coordinate setTile(Player aPlayer);
 
     void declareWinner(Player aPlayer);
-
-    void updateGrid(Grid aGrid);
 }
