@@ -2,7 +2,6 @@ package com.example.conways_game_of_life;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.conways_game_of_life.Tile;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -71,7 +70,7 @@ class GridTest {
     void testKill1() { //Input valid
         //create Tile in Grid which is valid to kill: tile.color is color of enemy player2 (AMBER)
         Tile validTile = new Tile(random.nextInt(2,16), random.nextInt(2, 16));
-        validTile.setColor(Color.AMBER);
+        validTile.setColor(Color.GREEN);
 
         //use MockUI to test -> create lists & only fill in lists i use in test
         ArrayList<String> names = new ArrayList<>();
@@ -85,11 +84,11 @@ class GridTest {
         Player player1 = new Player("Test1", Color.BLUE);
 
         //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
         //input tile is valid to kill for player1
         grid.kill(validTile.getX(), validTile.getY(), player1); //valid input: player.BLUE can kill tile.AMBER
-        //TODO what do i have to assert?
+        assertTrue(validTile.getColor() == Color.WHITE); //tile should be dead -> color white
     }
 
     @Test
@@ -100,7 +99,7 @@ class GridTest {
 
         //create Tile in Grid which is valid to kill: tile.color is color of enemy player2 (AMBER)
         Tile validTile = new Tile(random.nextInt(2,16),random.nextInt(2,16));
-        validTile.setColor(Color.AMBER);
+        validTile.setColor(Color.GREEN);
 
         //use MockUI to test -> create lists & only fill in lists i use in test
         ArrayList<String> names = new ArrayList<>();
@@ -116,11 +115,12 @@ class GridTest {
         Player player1 = new Player("Test1", Color.BLUE);
 
         //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
         //input tile is invalid to kill for player1
         grid.kill(invalidTile.getX(), invalidTile.getY(), player1); //method will ask new tile (valid) from ui
-        //TODO what do i have to assert?
+        assertTrue(validTile.getColor() == Color.WHITE); //validTile: tile has to be dead
+        assertFalse(invalidTile.getColor() == Color.BLUE); //invalidTile: nothing should be changed
     }
 
     //helper method to make Grid.validSetTile accessible
@@ -158,11 +158,12 @@ class GridTest {
         Player player1 = new Player("Test1", Color.BLUE);
 
         //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
         //input tile is valid to set for player1
         grid.playerSetTile(validTile.getX(), validTile.getY(), player1); //valid input: player can set tile.White
-        //TODO what do i have to assert?
+        assertTrue(validTile.getColor() == player1.getPlayerColor()); //valid tile should be assigned to player1
+        assertFalse(validTile.getColor() == Color.WHITE);
     }
 
     @Test
@@ -190,11 +191,12 @@ class GridTest {
         Player player1 = new Player("Test1", Color.BLUE);
 
         //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
         //input tile is invalid to kill for player1
         grid.playerSetTile(invalidTile.getX(), invalidTile.getY(), player1); //method will ask new tile from ui
-        //TODO what do i have to assert?
+        assertTrue(invalidTile.getColor() == Color.BLUE); //nothing should be changed at invalid tile
+        assertTrue(validTile.getColor() == player1.getPlayerColor()); //tile has to be assigned to player1
     }
 
     // Test if makeGenerationStep method works for a dead playing field.
