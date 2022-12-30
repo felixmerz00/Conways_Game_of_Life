@@ -94,8 +94,8 @@ class GridTest {
         Coordinate validC = new Coordinate(3,3);
         deleteTile.add(validC);
 
-        //Coordinate != validC to pass to method -> invalid
-        Coordinate c = new Coordinate(6,6);
+        //invalid Coordinate to pass to method
+        Coordinate c = new Coordinate(6,6); //already dead tile
 
         MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
 

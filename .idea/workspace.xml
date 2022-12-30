@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="Tile remove method">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="Grid Test correction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" afterDir="false" />
     </list>
@@ -184,7 +184,7 @@
       <workItem from="1672131941638" duration="1641000" />
       <workItem from="1672167583677" duration="5934000" />
       <workItem from="1672236212836" duration="22107000" />
-      <workItem from="1672417080315" duration="13500000" />
+      <workItem from="1672417080315" duration="15826000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -515,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672432831753</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Grid Test correction">
+      <created>1672437047536</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1672437047536</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created testMakeGenerationStep1" />
     <MESSAGE value="testMakeGenerationStep1 improved" />
     <MESSAGE value="created testMakeGenerationStep2" />
     <MESSAGE value="improved testMakeGenerationStep1" />
@@ -558,10 +564,11 @@
     <MESSAGE value="GridTest correct" />
     <MESSAGE value="rename setKill and setTile in Grid class" />
     <MESSAGE value="Tile remove method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tile remove method" />
+    <MESSAGE value="Grid Test correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grid Test correction" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1672436847718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1672436884021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.conways_game_of_life.*</FILTER>
     </SUITE>
   </component>
