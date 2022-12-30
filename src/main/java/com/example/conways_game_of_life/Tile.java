@@ -43,4 +43,8 @@ public class Tile {
         return player.getPlayerColor().equals(aColor);
     }
 
+    @Override
+    public String toString() {
+        return aColor.toString();
+    }
 }

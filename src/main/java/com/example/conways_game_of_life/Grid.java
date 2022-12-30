@@ -251,4 +251,28 @@ public class Grid implements Iterable<Tile>{
     public Iterator<Tile> iterator() {
         return new GridIterator(grid);
     }
+
+    @Override
+    public String toString() {
+        String s = "\n";
+
+        s += "======================   NEW GENERATION   =======================\n";
+        s += "  1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16 \n";
+        s += "+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
+
+        for(int y = 1; y < 17; y++){
+            for(int x = 1; x < 17; x++){
+                s += ("| ");
+                s += (grid[y][x]).toString();
+                s += (" ");
+            }
+            s += ("|\n");
+        }
+
+        s += "+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
+        s += "  1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16 \n";
+        s += "-----------------------------------------------------------------\n";
+
+        return s;
+    }
 }

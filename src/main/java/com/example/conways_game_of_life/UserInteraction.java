@@ -38,7 +38,7 @@ public class UserInteraction implements InterfaceUI, Observer{
         Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
 
         System.out.println("Choose a color for player " + player + " (Enter letter in brackets): ");
-        System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
+        System.out.println("Yellow (1), Orange (2), Red (3), Magenta (4), Purple (5), Violet (6), Blue (7), Teal (8), Green (9)");
 
         ArrayList<String> validInputs = new ArrayList<>(Arrays.asList("YELLOW", "ORANGE", "RED", "MAGENTA", "PURPLE", "VIOLET", "BLUE", "TEAL", "GREEN"));
         int userSelection = 0;
@@ -170,35 +170,6 @@ public class UserInteraction implements InterfaceUI, Observer{
     @Override
     public void updateGrid(Grid aGrid){
         this.aGrid = aGrid;
-        // System.out.println(aGrid);
-
-        // print out new grid
-        System.out.println("================ NEW GENERATION ================");
-        System.out.println(" 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 ");
-        System.out.println("+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+ ");
-
-        int j = 0;
-        int i = 0;
-        for(Tile t: aGrid){
-            if(i == 16){
-                System.out.print(j+1);
-                System.out.print("\n");
-                i = 0;
-                j++;
-            }
-            if(i == 0){
-                System.out.print(j+1);
-            }
-            System.out.print('|');
-            Character uppercaseLetter = t.getColor().toString().charAt(0);
-            System.out.print(uppercaseLetter);
-            System.out.print("|");
-            i++;
-        }
-
-        System.out.println("\n+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+ ");
-        System.out.println(" 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 ");
-        System.out.print("=================================================");
-        System.out.print("\n\n--------------------------------------------------\n\n");
+        System.out.println(aGrid);
     }
 }
