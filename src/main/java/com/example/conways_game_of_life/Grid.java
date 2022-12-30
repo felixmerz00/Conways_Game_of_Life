@@ -154,7 +154,7 @@ public class Grid implements Iterable<Tile>{
                 x++;
             }
             y++;
-            x = row - 1;
+            x = column - 1;
         }
         return listOfNeighbours;
     }
