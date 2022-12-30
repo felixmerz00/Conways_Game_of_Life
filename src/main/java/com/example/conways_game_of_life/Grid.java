@@ -87,6 +87,7 @@ public class Grid implements Iterable<Tile>{
         return initialGrid;
     }
 
+    // TODO Delete this method from everywhere
     /* DO NOT USE THIS METHOD
     * use grid[y][x] directly !*/
     private Tile getTileAt(int x, int y){
