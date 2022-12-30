@@ -69,104 +69,52 @@ public class UserInteraction implements InterfaceUI, Observer{
 
         System.out.println("Color of player " + player + " is " + validInputs.get(userSelection).toLowerCase());
         return Color.valueOf(validInputs.get(userSelection));
-        // TODO Make sure that not both players can choose the same color.
     }
 
     @Override
     public Coordinate deleteTile(Player aPlayer) {
         Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
 
-        // ask for X-Coordinate
-        System.out.println("-----------------------------------------");
-        System.out.println("\n" + aPlayer.getName() + ":");
-        System.out.println("Please enter X-Coordinate of enemy tile which you would like to kill.\n" +
-                "Enter an integer below (between 1 and 16):");
-        int userinputX = 0;
-        boolean validInput = false;
-        while (!validInput) {
-            try {
-                userinputX = Integer.parseInt(aScanner.nextLine());  // Read user input
-                if (userinputX > 0 && userinputX < 17) {
-                    validInput = true;
-                } else {
-                    System.out.println("X-Coordinate must be between 1 and 16.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter only an integer between 1 and 16.");
-            }
-        }
-        System.out.println("Your chosen X-Coordinate is " + userinputX);
+        System.out.println(aPlayer.getName() + ": Which enemy tile would you like to kill?");
 
-        // aks for Y-Coordinate
-        System.out.println("Please enter Y-Coordinate of enemy tile which you would like to kill.\n" +
-                "Enter an integer below (between 1 and 16):");
-        int userinputY = 0;
-        validInput = false;
-        while (!validInput) {
-            try {
-                userinputY = Integer.parseInt(aScanner.nextLine());  // Read user input
-                if (userinputY > 0 && userinputY < 17) {
-                    validInput = true;
-                } else {
-                    System.out.println("Y-Coordinate must be between 1 and 16.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter only an integer between 1 and 16.");
-            }
-        }
-        System.out.println("Your chosen Coordinate is (" + userinputX + "," + userinputY + ")");
+        int userInputX = getInputForCoordinate(aScanner, "X");  // ask user for X-Coordinate
+        int userInputY = getInputForCoordinate(aScanner, "Y");  // ask user for Y-Coordinate
 
+        System.out.println("You chose the coordinate (" + userInputX + "," + userInputY + ")");
 
-
-        // make Coordinate from user inputs
-        return new Coordinate(userinputX, userinputY);
+        return new Coordinate(userInputX, userInputY);  // Create and return Coordinate object.
     }
 
     @Override
     public Coordinate setTile(Player aPlayer) {
         Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
 
-        // ask for X-Coordinate
-        System.out.println("\n" + aPlayer.getName() + ":");
-        System.out.println("Please enter X-Coordinate of dead Tile which you would like to occupy.\n" +
-                "Enter an integer below (between 1 and 16):");
-        int userinputX = 0;
-        boolean validInput = false;
-        while (!validInput) {
+        System.out.println(aPlayer.getName() + ": Which dead tile would you like to occupy?");
+        int userInputX = getInputForCoordinate(aScanner, "X");  // ask user for X-Coordinate
+        int userInputY = getInputForCoordinate(aScanner, "Y");  // ask user for Y-Coordinate
+        System.out.println("You chose the coordinate (" + userInputX + "," + userInputY + ")");
+
+        return new Coordinate(userInputX, userInputY);  // Create and return Coordinate object.
+    }
+
+    // Ask user for and int between 1 and 16 and return it.
+    private int getInputForCoordinate(Scanner aScanner, String coordinate) {
+        System.out.println("Please enter the " + coordinate + "-Coordinate of the tile. This should be an integer between 1 and 16.");
+
+        int userInput = -1;
+        while (userInput == -1) {
             try {
-                userinputX = Integer.parseInt(aScanner.nextLine());  // Read user input
-                if (userinputX > 0 && userinputX < 17) {
-                    validInput = true;
-                } else {
-                    System.out.println("X-Coordinate must be between 1 and 16.");
+                userInput = Integer.parseInt(aScanner.nextLine());  // Read user input
+                // If the input is not within bounds, we must ask for a new coordinate (iterate again).
+                if (userInput < 1 || userInput > 16) {
+                    System.out.println(coordinate + "-Coordinate must be between 1 and 16.");
+                    userInput = -1;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Please enter only an integer between 1 and 16.");
             }
         }
-        System.out.println("Your chosen X-Coordinate is " + userinputX);
-
-        // aks for Y-Coordinate
-        System.out.println("Please enter Y-Coordinate of dead Tile which you would like to occupy.\n" +
-                "Enter an integer below (between 1 and 16):");
-        int userinputY = 0;
-        validInput = false;
-        while (!validInput) {
-            try {
-                userinputY = Integer.parseInt(aScanner.nextLine());  // Read user input
-                if (userinputY > 0 && userinputY < 17) {
-                    validInput = true;
-                } else {
-                    System.out.println("Y-Coordinate must be between 1 and 16.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter only an integer between 1 and 16.");
-            }
-        }
-        System.out.println("Your chosen Coordinate is (" + userinputX + "," + userinputY + ")");
-
-        // make Coordinate from user inputs
-        return new Coordinate(userinputX, userinputY);
+        return userInput;
     }
 
     // Does only open a new window which states winner and closes stage on "Enter"
