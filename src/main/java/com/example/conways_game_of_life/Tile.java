@@ -4,14 +4,12 @@ public class Tile {
 
     private Color aColor;
 
-    //row
-    private final int x;
-    //line
-    private final int y;
+    private final int x;    // Column
+    
+    private final int y;    // Row
 
     //Constructor used when initializing Grid; set bool alive to true and Color to white
     public Tile(int x, int y) {
-        //alive = true;
         aColor = Color.WHITE;
         this.y = y;
         this.x = x;
