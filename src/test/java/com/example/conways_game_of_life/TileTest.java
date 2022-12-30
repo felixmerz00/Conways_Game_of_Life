@@ -77,4 +77,12 @@ class TileTest {
         Tile t2 = new Tile(0, 1);
         assertFalse(t1.equals(t2));
     }
+
+    // Object 2 has a different type.
+    @Test
+    void testEquals5() {
+        Tile t1 = new Tile(0, 0);
+        Integer t2 = 10;
+        assertFalse(t1.equals(t2));
+    }
 }
