@@ -89,21 +89,12 @@ public class Grid implements Iterable<Tile>{
         return initialGrid;
     }
 
-    /**
-     * Returns true if a given tile can be killed by the given player.
-     * A player cannot kill his own tile or a dead tile.
-     *
-     * @post The player is allowed to kill the given tile.
-     */
-    private boolean validKill(Tile tile, Player player) {
-        return tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
-    }
-
     /* This method kills the tile at the given coordinate, if this is not possible
     * it asks for another tile to kill.*/
     public void kill(Coordinate c, Player player) {
         Tile inputTile = grid[c.y()][c.x()];
-        if (validKill(inputTile, player)) {
+        // A player can kill a tile if it isn't his own tile or a dead tile.
+        if (inputTile.getColor() != player.getPlayerColor() && inputTile.getColor() != Color.WHITE) {
             inputTile.setColor(Color.WHITE);
         }
         else {  //we need other Tile to kill
@@ -111,21 +102,13 @@ public class Grid implements Iterable<Tile>{
         }
     }
 
-    /**
-     * Returns true if a given tile is dead and therefore can be brought.
-     *
-     * @post The player is allowed to bring the given tile to life.
-     */
-    private boolean validSetTile(Tile tile) {
-        return tile.getColor() == Color.WHITE;
-    }
-
-    /* This method brings the tile at the given coordinate to live for the given player.
+    /* This method brings the tile at the given coordinate to life for the given player.
      * If this is not possible for the given tile, it asks for another tile.*/
     public void playerSetTile(Coordinate c, Player player) {
-        Tile tile = grid[c.y()][c.x()];
-        if (validSetTile(tile)) {   //assign Tile Color with Player Color
-            tile.setColor(player.getPlayerColor());
+        Tile inputTile = grid[c.y()][c.x()];
+        // If the given tile is dead it can be brought to life for the given player.
+        if (inputTile.getColor() == Color.WHITE) {
+            inputTile.setColor(player.getPlayerColor());
         }
         else {
             playerSetTile(ui.setTile(player), player);
