@@ -100,9 +100,6 @@ public class Grid implements Iterable<Tile>{
 
     //This method sets Tile.aColor to WHITE
     //we use design by contract for this method implementation -> we use input validation
-    ///**
-     //* @pre tile.getColor != Color.WHITE && tile.getColor != player.getPlayerColor
-     //*/
     public void kill(int x, int y, Player player) {
         Tile inputTile = getTileAt(x, y);
         if (validKill(inputTile,player)) {
