@@ -42,8 +42,8 @@ public class MockGrid extends Grid{
     }
 
     @Override
-    public void playerSetTile(int x, int y, Player player){
-        Tile tile = getTileAt(x,y);
+    public void playerSetTile(Coordinate c, Player player){
+        Tile tile = grid[c.x()][c.y()];
         tile.setColor(player.getPlayerColor());
     }
     @Override
