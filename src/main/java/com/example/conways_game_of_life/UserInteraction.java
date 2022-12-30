@@ -149,6 +149,7 @@ public class UserInteraction implements InterfaceUI, Observer{
         }
         System.out.println("Number of alive tiles " + playerList.get(0).getName() + ": " + counterPlayer1);
         System.out.println("Number of alive tiles " + playerList.get(1).getName() + ": " + counterPlayer2);
+        System.out.println("Number of generations: " + aGrid.getNumberOfGenerations());
         System.out.println("--------------------------------------------------------");
     }
 }

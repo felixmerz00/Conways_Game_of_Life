@@ -9,6 +9,8 @@ public class Grid implements Iterable<Tile>{
 
     private InterfaceUI ui;
 
+    private int numberOfGenerations = 0;
+
     // TODO Change the usages, then delete this constructor.
     // This constructor initializes the Tile[][] grid filled with dead tiles.
     public Grid() {
@@ -136,6 +138,7 @@ public class Grid implements Iterable<Tile>{
                 }
             }
         }
+        numberOfGenerations++;
     }
 
     /* Takes the coordinates from which I want the alive neighbours.
@@ -233,5 +236,9 @@ public class Grid implements Iterable<Tile>{
         s.append("---------------------------------------------------------------------\n");
 
         return s.toString();
+    }
+
+    public int getNumberOfGenerations() {
+        return numberOfGenerations;
     }
 }
