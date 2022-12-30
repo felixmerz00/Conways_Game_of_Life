@@ -214,26 +214,31 @@ class GridTest {
     // Test if makeGenerationStep method works for a dead playing field.
     @Test
     void testMakeGenerationStep1() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         // create a completely dead grid
         Tile[][] setupArray = getSetupArray();
 
         // Assign the dead grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, setupArray);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aTestGrid, getCopy(setupArray));
 
         // Call the UUT and get the resulting array.
         aTestGrid.makeGenerationStep();
         Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
         // Make assertion: The actualArray should still be completely dead.
-        assertEquals(setupArray, actualArray);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(setupArray[y][x], actualArray[y][x]);
+            }
+        }
     }
 
     // Test if the tiles which are not displayed (row 0 & 17 and column 0 & 17) always remain dead.
     @Test
     void testMakeGenerationStep2() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         // Create grid on which I make the generation step.
         Tile[][] setupArray = getSetupArray();
 
@@ -254,10 +259,10 @@ class GridTest {
         // Assign the actual grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, setupArray);
+        gridField.set(aTestGrid, getCopy(setupArray));
 
         // Create the expected grid.
-        Tile[][] expectedArray = setupArray;
+        Tile[][] expectedArray = getCopy(setupArray);
         for(int x = 3; x < 15; x++){    // Bring part of second row to live
             expectedArray[2][x].setColor(Color.BLUE);
         }
@@ -275,13 +280,17 @@ class GridTest {
         aTestGrid.makeGenerationStep();
         Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
         // Make assertion
-        assertEquals(expectedArray, actualArray);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(expectedArray[y][x], actualArray[y][x]);
+            }
+        }
     }
 
     // Test a specific pattern.
     @Test
     void testMakeGenerationStep3() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         // Create grid on which I make the generation step.
         Tile[][] setupArray = getSetupArray();
 
@@ -295,10 +304,10 @@ class GridTest {
         // Assign the actual grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, setupArray);
+        gridField.set(aTestGrid, getCopy(setupArray));
 
         // Create the expected grid.
-        Tile[][] expectedArray = setupArray;
+        Tile[][] expectedArray = getCopy(setupArray);
         expectedArray[1][2].setColor(Color.WHITE);
         expectedArray[2][1].setColor(Color.BLUE);
         expectedArray[3][1].setColor(Color.WHITE);
@@ -308,14 +317,18 @@ class GridTest {
         aTestGrid.makeGenerationStep();
         Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
         // Make assertion
-        assertEquals(expectedArray, actualArray);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(expectedArray[y][x], actualArray[y][x]);
+            }
+        }
     }
 
     /* Test to cover the condition (colorZero == colorTwo) in getColorForDeadTile
     * which is currently on line 122. */
     @Test
     void testMakeGenerationStep4() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         // Create grid on which I make the generation step.
         Tile[][] setupArray = getSetupArray();
 
@@ -327,10 +340,10 @@ class GridTest {
         // Assign the actual grid to the grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
-        gridField.set(aTestGrid, setupArray);
+        gridField.set(aTestGrid, getCopy(setupArray));
 
         // Create the expected grid.
-        Tile[][] expectedArray = setupArray;
+        Tile[][] expectedArray = getCopy(setupArray);
         expectedArray[5][4].setColor(Color.WHITE);
         expectedArray[5][6].setColor(Color.WHITE);
         expectedArray[4][5].setColor(Color.BLUE);
@@ -340,13 +353,101 @@ class GridTest {
         aTestGrid.makeGenerationStep();
         Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
         // Make assertion
-        assertEquals(expectedArray, actualArray);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(expectedArray[y][x], actualArray[y][x]);
+            }
+        }
+    }
+
+    /* Test a specific configuration */
+    @Test
+    void testMakeGenerationStep5() throws NoSuchFieldException, IllegalAccessException {
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
+        // Create grid on which I make the generation step.
+        Tile[][] setupArray = getSetupArray();
+
+        // Create the pattern
+        setupArray[5][4].setColor(Color.BLUE);
+
+        // Tile (1,1) should be orange.
+        setupArray[1][1].setColor(Color.ORANGE);
+        // Block 1
+        setupArray[2][7].setColor(Color.YELLOW);
+        setupArray[2][8].setColor(Color.YELLOW);
+        setupArray[2][9].setColor(Color.YELLOW);
+        setupArray[4][6].setColor(Color.YELLOW);
+        setupArray[4][8].setColor(Color.YELLOW);
+        setupArray[4][10].setColor(Color.YELLOW);
+        setupArray[5][6].setColor(Color.YELLOW);
+        setupArray[5][7].setColor(Color.YELLOW);
+        setupArray[5][9].setColor(Color.YELLOW);
+        setupArray[5][10].setColor(Color.YELLOW);
+        setupArray[7][8].setColor(Color.YELLOW);
+        // Block 2
+        setupArray[6][4].setColor(Color.ORANGE);
+        setupArray[6][5].setColor(Color.ORANGE);
+        // This tile from block two remains dead.
+        setupArray[7][5].setColor(Color.ORANGE);
+        setupArray[8][2].setColor(Color.ORANGE);
+        setupArray[8][4].setColor(Color.ORANGE);
+        setupArray[8][7].setColor(Color.ORANGE);
+        setupArray[9][2].setColor(Color.ORANGE);
+        setupArray[9][5].setColor(Color.ORANGE);
+        setupArray[10][4].setColor(Color.ORANGE);
+        setupArray[10][5].setColor(Color.ORANGE);
+        // Block 3
+        setupArray[7][12].setColor(Color.YELLOW);
+        setupArray[7][13].setColor(Color.YELLOW);
+        setupArray[8][12].setColor(Color.YELLOW);
+        setupArray[8][15].setColor(Color.YELLOW);
+        setupArray[9][10].setColor(Color.YELLOW);
+        setupArray[9][13].setColor(Color.YELLOW);
+        setupArray[9][15].setColor(Color.YELLOW);
+        setupArray[10][12].setColor(Color.YELLOW);
+        setupArray[10][15].setColor(Color.YELLOW);
+        setupArray[11][12].setColor(Color.YELLOW);
+        setupArray[11][13].setColor(Color.YELLOW);
+        // Block 4
+        setupArray[10][9].setColor(Color.ORANGE);
+        setupArray[12][7].setColor(Color.ORANGE);
+        setupArray[12][8].setColor(Color.ORANGE);
+        setupArray[12][10].setColor(Color.ORANGE);
+        setupArray[12][11].setColor(Color.ORANGE);
+        setupArray[13][7].setColor(Color.ORANGE);
+        setupArray[13][9].setColor(Color.ORANGE);
+        setupArray[13][11].setColor(Color.ORANGE);
+        setupArray[15][8].setColor(Color.ORANGE);
+        setupArray[15][9].setColor(Color.ORANGE);
+        setupArray[15][10].setColor(Color.ORANGE);
+
+        // Assign the actual grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        gridField.set(aTestGrid, setupArray);
+
+        // Create the expected grid.
+        Tile[][] expectedArray = getCopy(setupArray);
+        expectedArray[5][4].setColor(Color.WHITE);
+        expectedArray[5][6].setColor(Color.WHITE);
+        expectedArray[4][5].setColor(Color.BLUE);
+        expectedArray[6][5].setColor(Color.BLUE);
+
+        // Call the UUT and get the resulting array.
+        aTestGrid.makeGenerationStep();
+        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
+        // Make assertion
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(expectedArray[y][x], actualArray[y][x]);
+            }
+        }
     }
 
     // Test the method hasTiles. Test if the hasTiles detects the living blue tiles.
     @Test
     void testHasTiles1() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         // Create grid on which I make the generation step.
         Tile[][] setupArray = getSetupArray();
 
@@ -370,7 +471,7 @@ class GridTest {
     * of the given colors are alive anymore. */
     @Test
     void testHasTiles2() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         // Create grid on which I make the generation step.
         Tile[][] setupArray = getSetupArray();
 
@@ -392,7 +493,7 @@ class GridTest {
      * Test if the iterator returns 16^2 elements as it should. */
     @Test
     void testIterator1() {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         int countReturnedTiles = 0;
 
         for(Tile t: aTestGrid){
@@ -432,5 +533,27 @@ class GridTest {
             }
         }
         return setupArray;
+    }
+
+    private MockUI getEmptyMockUI(){
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+        ArrayList<Coordinate> deleteTile = new ArrayList<>();
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+
+        return new MockUI(names, colors, deleteTile, setTile);
+    }
+
+    // Takes a Tile[][] and returns a new Tile[][] with new tiles but the same color configuration.
+    private Tile[][] getCopy(Tile[][] original){
+        Tile[][] copy = new Tile[18][18];
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                copy[y][x] = new Tile(x,y);
+                copy[y][x].setColor(original[y][x].getColor());
+            }
+        }
+        return copy;
+
     }
 }
