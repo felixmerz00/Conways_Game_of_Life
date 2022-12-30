@@ -87,7 +87,8 @@ public class Grid implements Iterable<Tile>{
         return initialGrid;
     }
 
-    //Method to get the Tile Instance in Grid at Input Coordinate
+    /* DO NOT USE THIS METHOD
+    * use grid[y][x] directly !*/
     private Tile getTileAt(int x, int y){
         return grid[y][x];
     }
