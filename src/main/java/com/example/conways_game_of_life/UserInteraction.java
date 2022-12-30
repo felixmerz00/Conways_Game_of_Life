@@ -2,14 +2,18 @@ package com.example.conways_game_of_life;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInteraction implements InterfaceUI, Observer{
 
     Grid aGrid;
     int chosenColorPlayerOne = -1;   // Stores the color of the first player, so the second player cannot choose the same one.
-    public UserInteraction(GameLogic aGameLogic) {
+
+    List<Player> playerList;
+    public UserInteraction(GameLogic aGameLogic, List<Player> playerList) {
         aGameLogic.registerObserver(this);
+        this.playerList = playerList;
     }
 
     @Override
@@ -127,6 +131,24 @@ public class UserInteraction implements InterfaceUI, Observer{
     @Override
     public void updateGrid(Grid aGrid){
         this.aGrid = aGrid;
+    }
+    @Override
+    public void displayEndTurnInfo(){
         System.out.println(aGrid);
+        int counterPlayer1 = 0;
+        int counterPlayer2 = 0;
+        Color playerOneColor = playerList.get(0).getPlayerColor();
+        Color playerTwoColor = playerList.get(1).getPlayerColor();
+
+        for(Tile t: aGrid){
+            if(t.getColor() == playerOneColor){
+                counterPlayer1++;
+            } else if (t.getColor() == playerTwoColor) {
+                counterPlayer2++;
+            }
+        }
+        System.out.println("Number of alive tiles " + playerList.get(0).getName() + ": " + counterPlayer1);
+        System.out.println("Number of alive tiles " + playerList.get(1).getName() + ": " + counterPlayer2);
+        System.out.println("--------------------------------------------------------");
     }
 }
