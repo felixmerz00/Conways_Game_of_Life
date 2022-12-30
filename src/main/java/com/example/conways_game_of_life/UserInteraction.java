@@ -75,7 +75,7 @@ public class UserInteraction implements InterfaceUI, Observer{
     public Coordinate deleteTile(Player aPlayer) {
         Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
 
-        System.out.println(aPlayer.getName() + ": Which enemy tile would you like to kill?");
+        System.out.println(aPlayer.getName() + ": Which enemy tile (" + aPlayer.getPlayerColor().toString() + ") would you like to kill?");
 
         int userInputX = getInputForCoordinate(aScanner, "X");  // ask user for X-Coordinate
         int userInputY = getInputForCoordinate(aScanner, "Y");  // ask user for Y-Coordinate
