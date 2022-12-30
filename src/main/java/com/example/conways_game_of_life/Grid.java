@@ -8,6 +8,8 @@ public class Grid implements Iterable<Tile>{
     private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
     private InterfaceUI ui;
+
+    // TODO Change the usages, then delete this constructor.
     // This constructor initializes the Tile[][] grid filled with dead tiles.
     public Grid() {
         grid = new Tile[18][18];    // Initialize grid.
@@ -87,13 +89,6 @@ public class Grid implements Iterable<Tile>{
         return initialGrid;
     }
 
-    // TODO Delete this method from everywhere
-    /* DO NOT USE THIS METHOD
-    * use grid[y][x] directly !*/
-    private Tile getTileAt(int x, int y){
-        return grid[y][x];
-    }
-
     /**
      * Returns true if a given tile can be killed by the given player.
      * A player cannot kill his own tile or a dead tile.
@@ -114,11 +109,6 @@ public class Grid implements Iterable<Tile>{
         else {  //we need other Tile to kill
             kill(ui.deleteTile(player), player);
         }
-    }
-
-    // I temporarily implemented this method to resolve the errors.
-    public void kill(Coordinate c){
-        getTileAt(c.x(), c.y()).setColor(Color.WHITE);
     }
 
     /**

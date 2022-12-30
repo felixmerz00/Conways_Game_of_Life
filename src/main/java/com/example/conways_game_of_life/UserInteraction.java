@@ -122,7 +122,6 @@ public class UserInteraction implements InterfaceUI, Observer{
     public void declareWinner(Player aPlayer) {
         String winnerName = aPlayer.getName();
         System.out.println("The winner is " + winnerName);
-
     }
 
     @Override
