@@ -5,7 +5,7 @@ public class Tile {
     private Color aColor;
 
     private final int x;    // Column
-    
+
     private final int y;    // Row
 
     //Constructor used when initializing Grid; set bool alive to true and Color to white
