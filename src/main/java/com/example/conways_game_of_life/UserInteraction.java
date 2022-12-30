@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class UserInteraction implements InterfaceUI, Observer{
 
     Grid aGrid;
+    int chosenColorPlayerOne = -1;   // Stores the color of the first player, so the second player cannot choose the same one.
     public UserInteraction(GameLogic aGameLogic) {
         aGameLogic.registerObserver(this);
     }
@@ -39,7 +40,7 @@ public class UserInteraction implements InterfaceUI, Observer{
         Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
 
         System.out.println("Choose a color for player " + player + " (Enter letter in brackets): ");
-        System.out.println("Yellow (1), Orange (2), Red (3), Magenta (4), Purple (5), Violet (6), Blue (7), Teal (8), Green (9)");
+        System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
 
         ArrayList<String> validInputs = new ArrayList<>(Arrays.asList("YELLOW", "ORANGE", "RED", "MAGENTA", "PURPLE", "VIOLET", "BLUE", "TEAL", "GREEN"));
         int userSelection = 0;
@@ -47,14 +48,21 @@ public class UserInteraction implements InterfaceUI, Observer{
         while (!validInput) {
             try {
                 userSelection = Integer.parseInt(aScanner.nextLine());  // Read user input
-                if (userSelection >= 0 && userSelection < validInputs.size()) {
+                if (userSelection >= 0 && userSelection < validInputs.size() && userSelection != chosenColorPlayerOne) {
                     validInput = true;
+                    if(chosenColorPlayerOne == -1){
+                        chosenColorPlayerOne = userSelection;
+                    }
                 } else {
-                    System.out.println("Enter one of the provided numbers.");
-                    System.out.println("Yellow (1), Orange (2), Red (3), Magenta (4), Purple (5), Violet (6), Blue (7), Teal (8), Green (9)");
+                    if(chosenColorPlayerOne != -1){
+                        System.out.println("Enter one of the provided numbers which is different from the first players color.");
+                    }else{
+                        System.out.println("Enter one of the provided numbers.");
+                    }
+                    System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
                 }
             }catch(NumberFormatException e){
-                System.out.println("Yellow (1), Orange (2), Red (3), Magenta (4), Purple (5), Violet (6), Blue (7), Teal (8), Green (9)");
+                System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
             }
         }
 
