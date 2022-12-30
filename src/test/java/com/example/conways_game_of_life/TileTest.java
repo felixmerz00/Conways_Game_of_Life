@@ -18,8 +18,8 @@ class TileTest {
         Tile tile = new Tile(x,y);
         //in constructor, color of tile is automatically set to Color.WHITE
         assertTrue(tile.getColor() == Color.WHITE);
-        assertEquals(tile.getX(), x);
-        assertEquals(tile.getY(), y);
+        assertEquals(tile.getCoordinate().x(), x);
+        assertEquals(tile.getCoordinate().y(), y);
     }
 
     @Test
@@ -37,6 +37,8 @@ class TileTest {
         assertTrue(tile.getColor() == Color.GREEN);
     }
 
+    /* These two methods are used nowhere anymore except here.
+    * TODO I think we should delete these methods.
     @Test
     void testGetX() {
         Tile tile = new Tile(2, 3); //x == 2
@@ -47,7 +49,7 @@ class TileTest {
     void testGetY() {
         Tile tile = new Tile(2, 3); //y == 3
         assertTrue(tile.getY() == 3);
-    }
+    }*/
 
     @Test
     void testTileToPlayer() {

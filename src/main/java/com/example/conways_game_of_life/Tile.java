@@ -18,12 +18,18 @@ public class Tile {
         this.x = x;
     }
 
-    //check if methods are necessary at end
+    /*check if methods are necessary at end
+    * TODO I think we should delete these methods.
+    *  The getCoodinate function is more useful and can replace these two functions.
     public int getX() {
         return x;
     }
     public int getY() {
         return y;
+    }
+    */
+    public Coordinate getCoordinate(){
+        return new Coordinate(x, y);
     }
 
     //we don't need setAlive method because the field aColor serves as information -> setColor
