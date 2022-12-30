@@ -94,7 +94,7 @@ public class Grid implements Iterable<Tile>{
         return grid[y][x];
     }
 
-    /* Returns if a given tile can be killed by the given player.
+    /* Returns true if a given tile can be killed by the given player.
     * A player cannot kill his own tile or a dead tile. */
     private boolean validKill(Tile tile, Player player) {
         return tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
@@ -117,44 +117,25 @@ public class Grid implements Iterable<Tile>{
         getTileAt(c.x(), c.y()).setColor(Color.WHITE);
     }
 
-    //do we need to add post conditions for design by contract?
-    /*/**
-     * @post tile.getColor == Color.WHITE && tile.isAlive == false
+    /**
+     * Returns true if a given tile is dead and therefore can be brought.
+     *
+     * @post tile.getColor == Color.WHITE
      */
-
     private boolean validSetTile(Tile tile) {
-        //possible to set tile only when Tile.getColor == WHITE
-        boolean valid = tile.getColor() == Color.WHITE;
-        return valid;
+        return tile.getColor() == Color.WHITE;
     }
 
-    //method to assign a player to a tile at given coordinate in grid
-    //use Design by Contract
-
-    /*/**
-     * @pre tile.getColor == Color.WHITE
-     * @pre setValid(grid, player) == true;
-     */
-
-    /**
-     * @pre ????
-     */
-    public void playerSetTile(int x, int y, Player player) {
-        Tile tile = getTileAt(x,y);
-        if (validSetTile(tile)) {//assign Tile Color with Player Color
+    /* This method brings the tile at the given coordinate to live for the given player.
+     * If this is not possible for the given tile, it asks for another tile.*/
+    public void playerSetTile(Coordinate c, Player player) {
+        Tile tile = grid[c.y()][c.x()];
+        if (validSetTile(tile)) {   //assign Tile Color with Player Color
             tile.setColor(player.getPlayerColor());
         }
         else {
-            Coordinate setCoordinate = ui.setTile(player); //getTileToSet();
-            playerSetTile(setCoordinate.x(),setCoordinate.y(),player);
+            playerSetTile(ui.setTile(player), player);
         }
-    }
-
-    //TODO can we delete this method?
-
-    // I temporarily implemented this method to resolve the errors.
-    public void playerSetTile(Coordinate c, Player player){
-        getTileAt(c.x(), c.y()).setColor(player.getPlayerColor());
     }
 
     // This method replaces the current generation with its successor.
