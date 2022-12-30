@@ -88,15 +88,16 @@ public class GameLogic {
     //utility function to let the ui declare the winner and pass the correct player as winner
     //@PRE: at least one player has no Tiles
     public void getWinner(){
-        assert !allPlayerHaveTiles();
+        //assert !allPlayerHaveTiles(); // 4 cases: 1. both have tiles
+
         if(!aGrid.hasTiles(players.get(0).getPlayerColor()) && !aGrid.hasTiles(players.get(1).getPlayerColor())){
-            ui.declareWinner(new Player("No One", Color.WHITE)); // no one wins
+            ui.declareWinner(new Player("No One", Color.WHITE)); // 2. case both have no tiles: no one wins
         }
-        else if(aGrid.hasTiles(players.get(0).getPlayerColor()) && !aGrid.hasTiles(players.get(1).getPlayerColor())) {
-            ui.declareWinner(players.get(0)); //Player 0 wins
+        else if(aGrid.hasTiles(players.get(0).getPlayerColor())) {
+            ui.declareWinner(players.get(0)); //3. case: Player 0 wins
         }
-        else{// if(!aGrid.hasTiles(players.get(0).getPlayerColor()) && aGrid.hasTiles(players.get(1).getPlayerColor())) {
-            ui.declareWinner(players.get(1)); //Player 1 wins
+        else{// if(aGrid.hasTiles(players.get(1).getPlayerColor())) {
+            ui.declareWinner(players.get(1)); //4. case Player 1 wins
         }
     }
 }
