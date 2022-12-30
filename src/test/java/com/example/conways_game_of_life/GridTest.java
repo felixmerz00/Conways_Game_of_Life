@@ -42,9 +42,12 @@ class GridTest {
         // Create two players
         Player player1 = new Player("Test1", Color.BLUE);
 
-        //input tile is valid to kill for player1
-        grid.kill(validTile.getX(), validTile.getY(), player1); //valid input: player.BLUE can kill tile.AMBER
-        assertTrue(validTile.getColor() == Color.WHITE); //tile should be dead -> color white
+        // Call UUT
+        aGrid.setKill(c, player1);
+
+        // Make assertions
+        Tile[][] actual = (Tile[][]) gridField.get(aGrid);
+        assertSame(actual[c.y()][c.x()].getColor(), Color.WHITE);
     }
 
 
