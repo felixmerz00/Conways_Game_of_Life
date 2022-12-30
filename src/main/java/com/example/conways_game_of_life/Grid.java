@@ -147,7 +147,9 @@ public class Grid implements Iterable<Tile>{
         int x = column - 1;
         while (y <= row + 1){
             while (x <= column + 1){
-                if (lastGenColors[y][x] != Color.WHITE){    // Add the neighbour to the list if it is alive.
+                if(y == row && x == column){
+                    // We want to ignore the tile itself and only look at the neighbours.
+                }else if (lastGenColors[y][x] != Color.WHITE){    // Add the neighbour to the list if it is alive.
                     listOfNeighbours.add(grid[y][x]);
                 }
                 x++;
