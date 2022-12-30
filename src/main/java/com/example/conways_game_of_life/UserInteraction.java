@@ -31,10 +31,11 @@ public class UserInteraction implements InterfaceUI, Observer{
         return playerName;
     }
 
+
+    // Aks user to choose a color and return it.
     @Override
     public Color setPlayerColor(int player) {
 
-        // aks user about color and return
         Scanner aScanner = new Scanner(System.in);  // Create a Scanner object
 
         System.out.println("Choose a color for player " + player + " (Enter letter in brackets): ");
@@ -50,14 +51,14 @@ public class UserInteraction implements InterfaceUI, Observer{
                     validInput = true;
                 } else {
                     System.out.println("Enter one of the provided numbers.");
-                    System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
+                    System.out.println("Yellow (1), Orange (2), Red (3), Magenta (4), Purple (5), Violet (6), Blue (7), Teal (8), Green (9)");
                 }
             }catch(NumberFormatException e){
-                System.out.println("Yellow (0), Orange (1), Red (2), Magenta (3), Purple (4), Violet (5), Blue (6), Teal (7), Green (8)");
+                System.out.println("Yellow (1), Orange (2), Red (3), Magenta (4), Purple (5), Violet (6), Blue (7), Teal (8), Green (9)");
             }
         }
 
-        System.out.println("Color of player " + player + " is " + Color.valueOf(validInputs.get(userSelection)).toString().toLowerCase());
+        System.out.println("Color of player " + player + " is " + validInputs.get(userSelection).toLowerCase());
         return Color.valueOf(validInputs.get(userSelection));
         // TODO Make sure that not both players can choose the same color.
     }
