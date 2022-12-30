@@ -92,10 +92,10 @@ public class Grid implements Iterable<Tile>{
         return grid[y][x];
     }
 
+    // Returns if a given tile can be killed by the given player.
     private boolean validKill(Tile tile, Player player) {
-        //Player cannot kill his own tile
-        boolean valid = tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
-        return valid;
+        // Player cannot kill his own tile or a dead tile.
+        return tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
     }
 
     //This method sets Tile.aColor to WHITE
