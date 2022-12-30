@@ -26,11 +26,6 @@ public class Tile {
     public Color getColor() {return aColor;}
 
 
-    //helper method to check, if the player (input parameter) is assigned to the tile
-    public boolean tileToPlayer(Player player) {
-        return player.getPlayerColor().equals(aColor);
-    }
-
     @Override
     public String toString() {
         return aColor.toString();

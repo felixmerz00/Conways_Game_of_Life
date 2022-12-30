@@ -17,7 +17,7 @@ class TileTest {
         int y = random.nextInt(18);
         Tile tile = new Tile(x,y);
         //in constructor, color of tile is automatically set to Color.WHITE
-        assertTrue(tile.getColor() == Color.WHITE);
+        assertEquals(tile.getColor(), Color.WHITE);
         assertEquals(tile.getCoordinate().x(), x);
         assertEquals(tile.getCoordinate().y(), y);
     }
@@ -26,23 +26,15 @@ class TileTest {
     void testSetColor() {
         Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
         tile.setColor(Color.MAGENTA);
-        assertTrue(tile.getColor() == Color.MAGENTA);
+        assertEquals(tile.getColor(), Color.MAGENTA);
     }
 
     @Test
     void testGetColor() {
         Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
-        assertTrue(tile.getColor() == Color.WHITE);
+        assertEquals(tile.getColor(), Color.WHITE);
         tile.setColor(Color.GREEN);
-        assertTrue(tile.getColor() == Color.GREEN);
-    }
-
-    @Test
-    void testTileToPlayer() {
-        Tile tile = new Tile(random.nextInt(18), random.nextInt(18));
-        Player player = new Player("Test", Color.BLUE);
-        tile.setColor(Color.BLUE);
-        assertTrue(tile.tileToPlayer(player));
+        assertEquals(tile.getColor(), Color.GREEN);
     }
 
     // The tiles are equal.
