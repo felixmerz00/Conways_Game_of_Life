@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.conways_game_of_life/com.example.conways_game_of_life.HelloApplication
+                                com/example/conways_game_of_life/GameLogic.java
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
