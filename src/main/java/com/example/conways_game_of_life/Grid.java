@@ -94,8 +94,12 @@ public class Grid implements Iterable<Tile>{
         return grid[y][x];
     }
 
-    /* Returns true if a given tile can be killed by the given player.
-    * A player cannot kill his own tile or a dead tile. */
+    /**
+     * Returns true if a given tile can be killed by the given player.
+     * A player cannot kill his own tile or a dead tile.
+     *
+     * @post The player is allowed to kill the given tile.
+     */
     private boolean validKill(Tile tile, Player player) {
         return tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
     }
@@ -120,7 +124,7 @@ public class Grid implements Iterable<Tile>{
     /**
      * Returns true if a given tile is dead and therefore can be brought.
      *
-     * @post tile.getColor == Color.WHITE
+     * @post The player is allowed to bring the given tile to life.
      */
     private boolean validSetTile(Tile tile) {
         return tile.getColor() == Color.WHITE;
