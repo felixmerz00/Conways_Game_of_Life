@@ -17,81 +17,37 @@ class GridTest {
     Random random = new Random();
 
 
-    //no test for grid.getTile ?
-    //helper method to make Grid.getTile accessible
-    /*public Tile getTileAt(int x, int y) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = Grid.class.getDeclaredMethod("getTileAt");
-        method.setAccessible(true);
-        return (Tile) method.invoke(x, y);
-    }
-
     @Test
-    void testGetTileAt() {
-        //lists to implement MockUI
+    void testKill1() throws NoSuchFieldException, IllegalAccessException { //Input valid
+
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
         ArrayList<Coordinate> setTile = new ArrayList<>();
 
-        //create instance of MockUI
-        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
+        MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
 
-        //create instance of Grid
-        Grid grid = new Grid(Color.BLUE, Color.AMBER, ui);
+        Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
 
+        Tile[][] setupArray = getSetupArray();
+        Coordinate c = new Coordinate(random.nextInt(1,17), random.nextInt(1, 17));
+        setupArray[c.y()][c.x()].setColor(Color.GREEN);
 
-        //create Tile
-        Tile tile = new Tile(random.nextInt(2,16), random.nextInt(2,16));
+        // Assign the dead grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aGrid, setupArray);
 
-        Tile tile1= grid.getTileAt(tile.getX(), tile.getY()));
-    }*/
-
-    //helper method to make Grid.validKill accessible
-    public boolean validKill(Tile tile, Player player) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = Grid.class.getDeclaredMethod("validKill");
-        method.setAccessible(true);
-        return (boolean) method.invoke(tile, player);
-    }
-    @Test
-    void testValidKill() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
-        Player player = new Player("Test", Color.BLUE);
-        Tile tile = new Tile(random.nextInt(2,16), random.nextInt(2,16));
-        //when Tile.getColor == WHITE -> invalid kill
-        assertFalse(validKill(tile, player));
-        //when Tile.getColor == Player.getPlayerColor -> invalid kill
-        tile.setColor(Color.BLUE);
-        assertFalse(validKill(tile, player));
-        //when Tile.getColor != Color.WHITE && Tile.getColor != Player.getPlayerColor
-        tile.setColor(Color.MAGENTA);
-        assertTrue(validKill(tile, player));
-    }
-/*
-    @Test
-    void testKill1() { //Input valid
-        //create Tile in Grid which is valid to kill: tile.color is color of enemy player2 (AMBER)
-        Tile validTile = new Tile(random.nextInt(2,16), random.nextInt(2, 16));
-        validTile.setColor(Color.GREEN);
-
-        //use MockUI to test -> create lists & only fill in lists i use in test
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<Color> colors = new ArrayList<>();
-        ArrayList<Coordinate> deleteTile = new ArrayList<>();
-        ArrayList<Coordinate> setTile = new ArrayList<>();
-
-        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
-
-        //create two players
+        // Create two players
         Player player1 = new Player("Test1", Color.BLUE);
-
-        //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
         //input tile is valid to kill for player1
         grid.kill(validTile.getX(), validTile.getY(), player1); //valid input: player.BLUE can kill tile.AMBER
         assertTrue(validTile.getColor() == Color.WHITE); //tile should be dead -> color white
     }
 
- */
+
 
     /*
     @Test
