@@ -165,7 +165,7 @@ class GridTest {
         //create Grid
         Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
-        // TODO This test does not make sense.
+        // TODO This test does test if the tile from the grid was changed.
         //input tile is valid to set for player1
         grid.playerSetTile(validTile.getCoordinate(), player1); //valid input: player can set tile.White
         assertTrue(validTile.getColor() == player1.getPlayerColor()); //valid tile should be assigned to player1
@@ -202,7 +202,7 @@ class GridTest {
         //create Grid
         Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
 
-        // TODO This test does not make sense.
+        // TODO This test does not if the tile from the grid was changed.
         //input tile is invalid to kill for player1
         grid.playerSetTile(invalidTile.getCoordinate(), player1); //method will ask new tile from ui
         assertTrue(invalidTile.getColor() == Color.BLUE); //nothing should be changed at invalid tile
