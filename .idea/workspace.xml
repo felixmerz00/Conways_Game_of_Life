@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="TileTest add test">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="GridTest correct">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,39 +63,7 @@
       <recent name="com.example.conways_game_of_life" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GridTest.testKill">
-    <configuration name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Conways_Game_of_Life" />
-      <extension name="coverage" sample_coverage="false">
-        <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GridTest.testGetTile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Conways_Game_of_Life" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="testGetTile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="GridTest.testKill" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage">
@@ -109,6 +75,38 @@
       <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
       <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
       <option name="METHOD_NAME" value="testKill" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GridTest.testKill1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="testKill1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GridTest.testValidKill" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
+      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="METHOD_NAME" value="testValidKill" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,18 +146,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.GridTest.testKill" />
+      <item itemvalue="JUnit.GridTest.testKill1" />
+      <item itemvalue="JUnit.GridTest.testValidKill" />
       <item itemvalue="JUnit.GridTest.testValidSetTile" />
-      <item itemvalue="JUnit.GridTest.testGetTile" />
       <item itemvalue="JUnit.TileTest.testTileToPlayer" />
-      <item itemvalue="JUnit.GridTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GridTest.testKill1" />
+        <item itemvalue="JUnit.GridTest.testValidKill" />
         <item itemvalue="JUnit.GridTest.testKill" />
         <item itemvalue="JUnit.GridTest.testValidSetTile" />
         <item itemvalue="JUnit.TileTest.testTileToPlayer" />
-        <item itemvalue="JUnit.GridTest.testGetTile" />
-        <item itemvalue="JUnit.GridTest" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +182,8 @@
       <workItem from="1672088718131" duration="1899000" />
       <workItem from="1672131941638" duration="1641000" />
       <workItem from="1672167583677" duration="5934000" />
-      <workItem from="1672236212836" duration="6902000" />
+      <workItem from="1672236212836" duration="22107000" />
+      <workItem from="1672417080315" duration="1260000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Error">
       <created>1671048735052</created>
@@ -452,7 +451,56 @@
       <option name="project" value="LOCAL" />
       <updated>1672218323733</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="grid test with mockUI">
+      <created>1672298639443</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1672298639443</updated>
+    </task>
+    <task id="LOCAL-00040" summary="grid test with mockUI">
+      <created>1672302104749</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1672302104749</updated>
+    </task>
+    <task id="LOCAL-00041" summary="grid test with mockUI">
+      <created>1672302436838</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1672302436838</updated>
+    </task>
+    <task id="LOCAL-00042" summary="grid test with mockUI">
+      <created>1672303410920</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1672303410920</updated>
+    </task>
+    <task id="LOCAL-00043" summary="delete comments">
+      <created>1672315253606</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1672315253606</updated>
+    </task>
+    <task id="LOCAL-00044" summary="GridTest correct">
+      <created>1672316273854</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1672316273854</updated>
+    </task>
+    <task id="LOCAL-00045" summary="GridTest correct">
+      <created>1672339877069</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1672339877069</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,9 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="small changes (different access modifiers)" />
-    <MESSAGE value="create getTileAt method" />
-    <MESSAGE value="created Grid.hasTiles method and renamed variables in constructor of Grid." />
     <MESSAGE value="updated some for loops to avoid unnecessary iterations over border tiles" />
     <MESSAGE value="ITERATOR implementiert in grid" />
     <MESSAGE value="created testMakeGenerationStep1" />
@@ -495,7 +540,10 @@
     <MESSAGE value="implement validation methods in grid for kill &amp; set" />
     <MESSAGE value="GridTest add tests" />
     <MESSAGE value="TileTest add test" />
-    <option name="LAST_COMMIT_MESSAGE" value="TileTest add test" />
+    <MESSAGE value="grid test with mockUI" />
+    <MESSAGE value="delete comments" />
+    <MESSAGE value="GridTest correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="GridTest correct" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1671962639554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">

@@ -39,11 +39,11 @@ public class GameLogic {
             for(Player aPlayer : players){
 
                 //delete a tile
-                aGrid.kill(ui.deleteTile(aPlayer), aPlayer);
+                aGrid.setKill(ui.deleteTile(aPlayer), aPlayer);
                 notifyObserver();
 
                 //set a tile
-                aGrid.playerSetTile(ui.setTile(aPlayer), aPlayer);
+                aGrid.setTile(ui.setTile(aPlayer), aPlayer);
                 notifyObserver();
 
                 //go a step forward (next cell)

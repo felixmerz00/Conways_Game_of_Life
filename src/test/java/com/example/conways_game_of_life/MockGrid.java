@@ -36,13 +36,13 @@ public class MockGrid extends Grid{
         return grid[y][x];
     }
     @Override
-    public void kill(Coordinate c, Player player){
+    public void setKill(Coordinate c, Player player){
         Tile inputTile = getTileAt(c.x(), c.y());
         inputTile.setColor(Color.WHITE);
     }
 
     @Override
-    public void playerSetTile(Coordinate c, Player player){
+    public void setTile(Coordinate c, Player player){
         Tile tile = grid[c.x()][c.y()];
         tile.setColor(player.getPlayerColor());
     }

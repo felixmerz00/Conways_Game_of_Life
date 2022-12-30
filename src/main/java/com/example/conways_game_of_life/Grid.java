@@ -91,27 +91,27 @@ public class Grid implements Iterable<Tile>{
 
     /* This method kills the tile at the given coordinate, if this is not possible
     * it asks for another tile to kill.*/
-    public void kill(Coordinate c, Player player) {
+    public void setKill(Coordinate c, Player player) {
         Tile inputTile = grid[c.y()][c.x()];
         // A player can kill a tile if it isn't his own tile or a dead tile.
         if (inputTile.getColor() != player.getPlayerColor() && inputTile.getColor() != Color.WHITE) {
             inputTile.setColor(Color.WHITE);
         }
         else {  //we need other Tile to kill
-            kill(ui.deleteTile(player), player);
+            setKill(ui.deleteTile(player), player);
         }
     }
 
     /* This method brings the tile at the given coordinate to life for the given player.
      * If this is not possible for the given tile, it asks for another tile.*/
-    public void playerSetTile(Coordinate c, Player player) {
+    public void setTile(Coordinate c, Player player) {
         Tile inputTile = grid[c.y()][c.x()];
         // If the given tile is dead it can be brought to life for the given player.
         if (inputTile.getColor() == Color.WHITE) {
             inputTile.setColor(player.getPlayerColor());
         }
         else {
-            playerSetTile(ui.setTile(player), player);
+            setTile(ui.setTile(player), player);
         }
     }
 
