@@ -72,7 +72,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection
-        MockGrid aMockGrid = new MockGrid(YELLOW, mockUI);
+        MockGrid aMockGrid = new MockGrid(YELLOW);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -103,7 +103,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection
-        MockGrid aMockGrid = new MockGrid(ORANGE, mockUI);
+        MockGrid aMockGrid = new MockGrid(ORANGE);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -134,7 +134,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection
-        MockGrid aMockGrid = new MockGrid(WHITE, mockUI);
+        MockGrid aMockGrid = new MockGrid(WHITE);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -195,7 +195,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection // color yellow wins
-        MockGrid aMockGrid = new MockGrid(ORANGE, YELLOW, mockUI);
+        MockGrid aMockGrid = new MockGrid(ORANGE, YELLOW);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -206,7 +206,6 @@ public class GameLogicTest {
         //declare winner
         aGame.getWinner();
 
-        System.out.println(aMockGrid);
         assertSame(YELLOW, mockUI.getWinner().getPlayerColor());
         assertSame("TestPlayer2", mockUI.getWinner().getName());
         //it should be Yellow and testplayer2?
