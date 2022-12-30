@@ -122,7 +122,7 @@ public class Grid implements Iterable<Tile>{
         for(int y = 1; y < 17; y++){
             for(int x = 1; x < 17; x++){
                 Tile curTile = grid[y][x];
-                ArrayList<Tile> aliveNeighbors = getAliveNeighbours(y, x);
+                ArrayList<Color> aliveNeighbors = getAliveNeighbours(y, x);
 
                 /* Updating tiles
                 * Different rules apply for coloring a tile, depending on whether it is dead or alive. */
@@ -140,8 +140,8 @@ public class Grid implements Iterable<Tile>{
 
     /* Takes the coordinates from which I want the alive neighbours.
     * Returns an ArrayList of the alive neighbors. */
-    private ArrayList<Tile> getAliveNeighbours(int row, int column){
-        ArrayList<Tile> listOfNeighbours = new ArrayList<>();
+    private ArrayList<Color> getAliveNeighbours(int row, int column){
+        ArrayList<Color> listOfNeighbours = new ArrayList<>();
         int y = row - 1;
         int x = column - 1;
         while (y <= row + 1){
@@ -149,7 +149,7 @@ public class Grid implements Iterable<Tile>{
                 if(y == row && x == column){
                     // We want to ignore the tile itself and only look at the neighbours.
                 }else if (lastGenColors[y][x] != Color.WHITE){    // Add the neighbour to the list if it is alive.
-                    listOfNeighbours.add(grid[y][x]);
+                    listOfNeighbours.add(lastGenColors[y][x]);
                 }
                 x++;
             }
@@ -162,18 +162,18 @@ public class Grid implements Iterable<Tile>{
     /* This method takes the list of neighbours of a dead tile.
     * It compares the colors of the neighbours and
     * returns the color that should be used to color the tile. */
-    private Color getColorForDeadTile(ArrayList<Tile> aliveNeighbours){
+    private Color getColorForDeadTile(ArrayList<Color> aliveNeighbours){
         // If the cell is dead, then it springs to life only in the case that it has 3 live neighbors.
         if(aliveNeighbours.size() != 3){
             return Color.WHITE;
         }
-        Color colorZero = aliveNeighbours.get(0).getColor();
-        Color colorOne = aliveNeighbours.get(1).getColor();
-        Color colorTwo = aliveNeighbours.get(2).getColor();
+        Color colorZero = aliveNeighbours.get(0);
+        Color colorOne = aliveNeighbours.get(1);
+        Color colorTwo = aliveNeighbours.get(2);
         // This covers if-else block covers all six possible combinations of colors.
         if(colorZero == colorOne || colorZero == colorTwo){ // Color zero occurs twice
             return colorZero;
-        }else{  // The color that occupies index one and two occurs twice.
+        }else{  // The colorOne and colorTwo are equal, meaning this is the winning color.
             return colorOne;
         }
     }
