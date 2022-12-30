@@ -2,12 +2,10 @@ package com.example.conways_game_of_life;
 
 public class MockGrid extends Grid{
 
-    InterfaceUI ui;
     //set all Tiles in grid dead/white
 
     //set 2,2 to wished color
-    public MockGrid(Color color, InterfaceUI ui){
-        this.ui = ui;
+    public MockGrid(Color color){
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
                 grid[y][x] = new Tile(x,y);
@@ -16,8 +14,7 @@ public class MockGrid extends Grid{
         grid[2][2].setColor(color);
     }
 
-    public MockGrid(Color color1, Color color2, InterfaceUI ui){
-        this.ui = ui;
+    public MockGrid(Color color1, Color color2){
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
                 grid[y][x] = new Tile(x,y);
