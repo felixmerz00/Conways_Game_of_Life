@@ -39,8 +39,8 @@ public class MockGrid extends Grid{
         return grid[y][x];
     }
     @Override
-    public void kill(int x, int y, Player player){
-        Tile inputTile = getTileAt(x, y);
+    public void kill(Coordinate c, Player player){
+        Tile inputTile = getTileAt(c.x(), c.y());
         inputTile.setColor(Color.WHITE);
     }
 

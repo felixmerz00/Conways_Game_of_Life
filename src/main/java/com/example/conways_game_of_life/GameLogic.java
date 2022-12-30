@@ -39,7 +39,7 @@ public class GameLogic {
             for(Player aPlayer : players){
 
                 //delete a tile
-                aGrid.kill(ui.deleteTile(aPlayer));
+                aGrid.kill(ui.deleteTile(aPlayer), aPlayer);
                 notifyObserver();
 
                 //set a tile

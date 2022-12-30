@@ -98,20 +98,17 @@ public class Grid implements Iterable<Tile>{
         return tile.getColor() != player.getPlayerColor() && tile.getColor() != Color.WHITE;
     }
 
-    //This method sets Tile.aColor to WHITE
-    //we use design by contract for this method implementation -> we use input validation
-    public void kill(int x, int y, Player player) {
-        Tile inputTile = getTileAt(x, y);
-        if (validKill(inputTile,player)) {
+    /* This method kills the tile at the given coordinate, if this is not possible
+    * it asks for another tile to kill.*/
+    public void kill(Coordinate c, Player player) {
+        Tile inputTile = grid[c.y()][c.x()];
+        if (validKill(inputTile, player)) {
             inputTile.setColor(Color.WHITE);
         }
-        else {//we need other Tile to kill
-            Coordinate killCoordinate = ui.deleteTile(player);//getTileToKill();
-            kill(killCoordinate.x(), killCoordinate.y(), player);
+        else {  //we need other Tile to kill
+            kill(ui.deleteTile(player), player);
         }
     }
-
-    //TODO can we delete this method?
 
     // I temporarily implemented this method to resolve the errors.
     public void kill(Coordinate c){

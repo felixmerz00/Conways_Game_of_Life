@@ -65,7 +65,7 @@ class GridTest {
         tile.setColor(Color.MAGENTA);
         assertTrue(validKill(tile, player));
     }
-
+/*
     @Test
     void testKill1() { //Input valid
         //create Tile in Grid which is valid to kill: tile.color is color of enemy player2 (AMBER)
@@ -91,6 +91,9 @@ class GridTest {
         assertTrue(validTile.getColor() == Color.WHITE); //tile should be dead -> color white
     }
 
+ */
+
+    /*
     @Test
     void testKill2() {  //input not valid to kill
         //create Tile in Grid which is not valid to kill for player1 with color BLUE
@@ -122,6 +125,7 @@ class GridTest {
         assertTrue(validTile.getColor() == Color.WHITE); //validTile: tile has to be dead
         assertFalse(invalidTile.getColor() == Color.BLUE); //invalidTile: nothing should be changed
     }
+     */
 
     //helper method to make Grid.validSetTile accessible
     public boolean validSetTile(Tile tile) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
