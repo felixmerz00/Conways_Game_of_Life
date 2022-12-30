@@ -136,7 +136,6 @@ public class Grid implements Iterable<Tile>{
                 }
             }
         }
-        // TODO Write code to update the drawn grid on the GUI.
     }
 
     /* Takes the coordinates from which I want the alive neighbours.
