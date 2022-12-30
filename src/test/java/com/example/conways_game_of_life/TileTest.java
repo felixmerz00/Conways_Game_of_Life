@@ -58,4 +58,37 @@ class TileTest {
         tile.setColor(Color.BLUE);
         assertTrue(tile.tileToPlayer(player));
     }
+
+    // The tiles are equal.
+    @Test
+    void testEquals1() {
+        Tile t1 = new Tile(0, 0);
+        Tile t2 = new Tile(0, 0);
+        assertTrue(t1.equals(t2));
+    }
+
+    // The tiles differ in their color.
+    @Test
+    void testEquals2() {
+        Tile t1 = new Tile(0, 0);
+        t1.setColor(Color.BLUE);
+        Tile t2 = new Tile(0, 0);
+        assertFalse(t1.equals(t2));
+    }
+
+    // The tiles differ in their x coordinate.
+    @Test
+    void testEquals3() {
+        Tile t1 = new Tile(0, 0);
+        Tile t2 = new Tile(1, 0);
+        assertFalse(t1.equals(t2));
+    }
+
+    // The tiles differ in their y coordinate.
+    @Test
+    void testEquals4() {
+        Tile t1 = new Tile(0, 0);
+        Tile t2 = new Tile(0, 1);
+        assertFalse(t1.equals(t2));
+    }
 }
