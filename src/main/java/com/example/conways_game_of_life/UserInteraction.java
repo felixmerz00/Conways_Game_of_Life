@@ -48,13 +48,14 @@ public class UserInteraction implements InterfaceUI, Observer{
         while (!validInput) {
             try {
                 userSelection = Integer.parseInt(aScanner.nextLine());  // Read user input
+                // Check if the user chose a valid color.
                 if (userSelection >= 0 && userSelection < validInputs.size() && userSelection != chosenColorPlayerOne) {
                     validInput = true;
                     if(chosenColorPlayerOne == -1){
                         chosenColorPlayerOne = userSelection;
                     }
-                } else {
-                    if(chosenColorPlayerOne != -1){
+                } else {    // Display error message if the player chose an invalid color.
+                    if(chosenColorPlayerOne != -1){ // For choosing a wrong color the two players get different error messages.
                         System.out.println("Enter one of the provided numbers which is different from the first players color.");
                     }else{
                         System.out.println("Enter one of the provided numbers.");
