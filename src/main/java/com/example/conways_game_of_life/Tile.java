@@ -53,4 +53,13 @@ public class Tile {
     public String toString() {
         return aColor.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this.getClass().equals(obj.getClass())) {
+            Tile t2 = (Tile) obj;
+            return aColor == t2.getColor() && this.x == t2.getCoordinate().x() && this.y == t2.getCoordinate().y();
+        }
+        return false;
+    }
 }
