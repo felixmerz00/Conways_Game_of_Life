@@ -4,19 +4,14 @@ import org.junit.jupiter.api.Test;
 
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
-    Random random = new Random();
-
-
     @Test
     void testKill1() throws NoSuchFieldException, IllegalAccessException { //Input valid
 
@@ -30,7 +25,7 @@ class GridTest {
         Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
 
         Tile[][] setupArray = getSetupArray();
-        Coordinate c = new Coordinate(random.nextInt(1,17), random.nextInt(1, 17));
+        Coordinate c = new Coordinate(4,4);
         setupArray[c.y()][c.x()].setColor(Color.GREEN);
 
         // Assign the dead grid to the grid field of the aTestGrid.
@@ -39,7 +34,7 @@ class GridTest {
         // I pass a copy of the setup array to ensure having two separate instances.
         gridField.set(aGrid, setupArray);
 
-        // Create two players
+        // Create a player
         Player player1 = new Player("Test1", Color.BLUE);
 
         // Call UUT
@@ -50,125 +45,187 @@ class GridTest {
         assertSame(actual[c.y()][c.x()].getColor(), Color.WHITE);
     }
 
-
-
-    /*
     @Test
-    void testKill2() {  //input not valid to kill
-        //create Tile in Grid which is not valid to kill for player1 with color BLUE
-        Tile invalidTile = new Tile(random.nextInt(2,16),random.nextInt(2,16));
-        invalidTile.setColor(Color.BLUE);
-
-        //create Tile in Grid which is valid to kill: tile.color is color of enemy player2 (AMBER)
-        Tile validTile = new Tile(random.nextInt(2,16),random.nextInt(2,16));
-        validTile.setColor(Color.GREEN);
-
-        //use MockUI to test -> create lists & only fill in lists i use in test
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<Color> colors = new ArrayList<>();
-        ArrayList<Coordinate> setTile = new ArrayList<>();
-
-        ArrayList<Coordinate> deleteTile = new ArrayList<>();
-        deleteTile.add(new Coordinate(validTile.getX(),validTile.getY())); //validKill Tile
-
-        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
-
-        //create two players
-        Player player1 = new Player("Test1", Color.BLUE);
-
-        //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
-
-        //input tile is invalid to kill for player1
-        grid.kill(invalidTile.getX(), invalidTile.getY(), player1); //method will ask new tile (valid) from ui
-        assertTrue(validTile.getColor() == Color.WHITE); //validTile: tile has to be dead
-        assertFalse(invalidTile.getColor() == Color.BLUE); //invalidTile: nothing should be changed
-    }
-     */
-
-    //helper method to make Grid.validSetTile accessible
-    public boolean validSetTile(Tile tile) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = Grid.class.getDeclaredMethod("validSetTile");
-        method.setAccessible(true);
-        return (boolean) method.invoke(tile);
-    }
-
-    @Test
-    void testValidSetTile() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
-        Tile tile = new Tile(random.nextInt(2, 16), random.nextInt(2,16));
-        //only if Tile.getColor = WHITE, Grid.validSetTile returns true
-        assertTrue(validSetTile(tile));
-        tile.setColor(Color.MAGENTA);
-        assertFalse(validSetTile(tile)); // tile with color other than WHITE -> validSetTile returns false
-    }
-
-    /*
-    @Test
-    void testPlayerSetTile1() { // give valid input
-        //create Tile in Grid which is valid to set: tile.color has to be Color.WHITE
-        Tile validTile = new Tile(random.nextInt(18), random.nextInt(18)); //color White is set automatically
-
-        //use MockUI to test -> create lists & only fill in lists we use in test
-        //-> no lists needed because we have valid input
+    void testKill2() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
         ArrayList<Coordinate> setTile = new ArrayList<>();
 
-        //create Instance of MockUI
-        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
+        //create coordinates to add there a valid tile in grid
+        Coordinate validC = new Coordinate(4,4);
+        deleteTile.add(validC);
 
-        //create players
+        MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
+
+        Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
+
+        Tile[][] setupArray = getSetupArray();
+        Coordinate c = new Coordinate(7,7);
+        setupArray[c.y()][c.x()].setColor(Color.BLUE);  //tile is assigned to playing player -> invalid
+        setupArray[validC.y()][validC.x()].setColor(Color.GREEN); // tile assigned to enemy player -> valid
+
+        // Assign the dead grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aGrid, setupArray);
+
+        // Create a player
         Player player1 = new Player("Test1", Color.BLUE);
 
-        //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
+        // Call UUT
+        aGrid.setKill(c, player1);
 
-        // TODO This test does test if the tile from the grid was changed.
-        //input tile is valid to set for player1
-        grid.playerSetTile(validTile.getCoordinate(), player1); //valid input: player can set tile.White
-        assertTrue(validTile.getColor() == player1.getPlayerColor()); //valid tile should be assigned to player1
-        assertFalse(validTile.getColor() == Color.WHITE);
+        // Make assertions
+        Tile[][] actual = (Tile[][]) gridField.get(aGrid);
+        assertSame(actual[c.y()][c.x()].getColor(), Color.BLUE);
+        assertSame(actual[validC.y()][validC.x()].getColor(), Color.WHITE);
     }
 
-     */
-
-    /*
     @Test
-    void testPlayerSetTile2() {  //input tile not possible to set -> tile is assigned to a player
-        //create Tile in Grid which is not valid to kill for player1 with color BLUE
-        Tile invalidTile = new Tile(random.nextInt(2,16), random.nextInt(2, 16));
-        invalidTile.setColor(Color.BLUE); //set color other than white
-
-        //create Tile in Grid which is valid to kill: tile.color is WHITE
-        Tile validTile = new Tile(random.nextInt(2, 16), random.nextInt(2, 16));
-        validTile.setColor(Color.WHITE);
-
-        //use MockUI to test -> create lists & only fill in lists i use in test
+    void testKill3() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
-
-        //add valid tile to setTile list
         ArrayList<Coordinate> setTile = new ArrayList<>();
-        setTile.add(new Coordinate(validTile.getX(),validTile.getY())); //validKill Tile
 
-        MockUI ui = new MockUI(names, colors, deleteTile, setTile);
+        //create coordinates to add there a valid tile in grid
+        Coordinate validC = new Coordinate(3,3);
+        deleteTile.add(validC);
 
-        //create two players
+        //Coordinate != validC to pass to method -> invalid
+        Coordinate c = new Coordinate(6,6);
+
+        MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
+
+        Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
+
+        Tile[][] setupArray = getSetupArray(); //all tiles are dead -> invalid to kill
+        setupArray[validC.y()][validC.x()].setColor(Color.GREEN); // tile assigned to enemy player -> valid
+
+        // Assign the dead grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aGrid, setupArray);
+
+        // Create a player
         Player player1 = new Player("Test1", Color.BLUE);
 
-        //create Grid
-        Grid grid = new Grid(Color.BLUE, Color.GREEN, ui);
+        // Call UUT
+        aGrid.setKill(c, player1);
 
-        // TODO This test does not if the tile from the grid was changed.
-        //input tile is invalid to kill for player1
-        grid.playerSetTile(invalidTile.getCoordinate(), player1); //method will ask new tile from ui
-        assertTrue(invalidTile.getColor() == Color.BLUE); //nothing should be changed at invalid tile
-        assertTrue(validTile.getColor() == player1.getPlayerColor()); //tile has to be assigned to player1
+        // Make assertions
+        Tile[][] actual = (Tile[][]) gridField.get(aGrid);
+        assertSame(actual[validC.y()][validC.x()].getColor(), Color.WHITE);
     }
 
-     */
+    @Test
+    void testSetTile1() throws IllegalAccessException, NoSuchFieldException { // give valid input
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+        ArrayList<Coordinate> deleteTile = new ArrayList<>();
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+
+        MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
+
+        Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
+
+        Tile[][] setupArray = getSetupArray(); //all tiles are dead -> valid
+        Coordinate c = new Coordinate(2,2);
+
+        // Assign the dead grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aGrid, setupArray);
+
+        // Create a player
+        Player player1 = new Player("Test1", Color.BLUE);
+
+        // Call UUT
+        aGrid.setTile(c, player1);
+
+        // Make assertions
+        Tile[][] actual = (Tile[][]) gridField.get(aGrid);
+        assertSame(actual[c.y()][c.x()].getColor(), Color.BLUE);
+    }
+
+    @Test
+    void testPlayerSetTile2() throws NoSuchFieldException, IllegalAccessException {  //input tile not possible to set -> tile is assigned to a player
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+        ArrayList<Coordinate> deleteTile = new ArrayList<>();
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+
+        //create coordinates to add there a valid tile in grid
+        Coordinate validC = new Coordinate(15,4);
+        setTile.add(validC); // tile is dead -> valid
+
+        MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
+
+        Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
+
+        Tile[][] setupArray = getSetupArray();
+        Coordinate c = new Coordinate(7, 12);
+        setupArray[c.y()][c.x()].setColor(Color.BLUE);  //tile is assigned to playing player -> invalid
+
+        // Assign the dead grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aGrid, setupArray);
+
+        // Create a player
+        Player player1 = new Player("Test1", Color.BLUE);
+
+        // Call UUT
+        aGrid.setTile(c, player1);
+
+        // Make assertions
+        Tile[][] actual = (Tile[][]) gridField.get(aGrid);
+        assertSame(actual[c.y()][c.x()].getColor(), Color.BLUE);
+        assertSame(actual[validC.y()][validC.x()].getColor(), Color.BLUE);
+    }
+    @Test
+    void testPlayerSetTile3() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill -> tile of enemy player
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+        ArrayList<Coordinate> deleteTile = new ArrayList<>();
+        ArrayList<Coordinate> setTile = new ArrayList<>();
+
+        //create coordinates to add there a valid tile in grid
+        Coordinate validC = new Coordinate(3,3);
+        setTile.add(validC);
+
+        //invalid Coordinate to pass to method
+        Coordinate c = new Coordinate(6,6);
+
+        MockUI mockUI = new MockUI(names, colors, deleteTile, setTile);
+
+        Grid aGrid = new Grid(Color.GREEN, Color.BLUE, mockUI);
+
+        Tile[][] setupArray = getSetupArray();
+        setupArray[c.y()][c.x()].setColor(Color.GREEN); //tile of enemy player
+
+        // Assign the dead grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        // I pass a copy of the setup array to ensure having two separate instances.
+        gridField.set(aGrid, setupArray);
+
+        // Create a player
+        Player player1 = new Player("Test1", Color.BLUE);
+
+        // Call UUT
+        aGrid.setTile(c, player1);
+
+        // Make assertions
+        Tile[][] actual = (Tile[][]) gridField.get(aGrid);
+        assertSame(actual[validC.y()][validC.x()].getColor(), Color.BLUE);
+        assertSame(actual[c.y()][c.x()].getColor(), Color.GREEN);
+    }
 
     // Test if makeGenerationStep method works for a dead playing field.
     @Test
