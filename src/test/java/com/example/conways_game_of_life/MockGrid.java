@@ -3,23 +3,13 @@ package com.example.conways_game_of_life;
 public class MockGrid extends Grid{
 
     //set all Tiles in grid dead/white
-
-    //set 2,2 to wished color
+    //set 2,2 to wished color to test getWinner
     public MockGrid(Color color){
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                grid[y][x] = new Tile(x,y);
-            }
-        }
         grid[2][2].setColor(color);
     }
 
+    //designs a pattern to test a couple rounds of the game to test playGame
     public MockGrid(Color color1, Color color2){
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                grid[y][x] = new Tile(x,y);
-            }
-        }
         grid[2][2].setColor(color1);
         grid[2][3].setColor(color1);
         grid[3][2].setColor(color1);
@@ -32,12 +22,9 @@ public class MockGrid extends Grid{
 
     }
 
-    private Tile getTileAt(int x, int y){
-        return grid[y][x];
-    }
     @Override
     public void setKill(Coordinate c, Player player){
-        Tile inputTile = getTileAt(c.x(), c.y());
+        Tile inputTile = grid[c.x()][c.y()];
         inputTile.setColor(Color.WHITE);
     }
 
