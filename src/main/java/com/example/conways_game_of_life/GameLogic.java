@@ -16,7 +16,7 @@ public class GameLogic {
     public GameLogic(){
         this.observers = new ArrayList<>();
         this.players = new ArrayList<>();
-        this.ui = new UserInteraction(this);
+        this.ui = new UserInteraction(this, players);
     }
 
     //setup game (player + grid)
@@ -29,6 +29,7 @@ public class GameLogic {
         //setup grid
         this.aGrid = new Grid(players.get(0).getPlayerColor(), players.get(1).getPlayerColor(), ui);
         notifyObserver();
+        ui.displayEndTurnInfo();
 
     }
 
@@ -49,6 +50,7 @@ public class GameLogic {
                 //go a step forward (next cell)
                 aGrid.makeGenerationStep();
                 notifyObserver();
+                ui.displayEndTurnInfo();
 
                 if(!allPlayerHaveTiles()){
                     break;

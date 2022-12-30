@@ -46,4 +46,9 @@ public class MockUI implements InterfaceUI{
     public void declareWinner(Player aPlayer){
         this.winner = aPlayer;
     }
+
+    @Override
+    public void displayEndTurnInfo() {
+
+    }
 }
