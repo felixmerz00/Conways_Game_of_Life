@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class UserInteraction implements InterfaceUI, Observer{
 
     Grid aGrid;
+    private final List<Player> playerList;
 
-    private List<Player> playerList;
     public UserInteraction(GameLogic aGameLogic, List<Player> playerList) {
         aGameLogic.registerObserver(this);
         this.playerList = playerList;
