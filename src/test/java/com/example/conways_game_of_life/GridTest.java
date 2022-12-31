@@ -246,7 +246,7 @@ class GridTest {
         // Make assertion: The actualArray should still be completely dead.
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
-                assertEquals(setupArray[y][x], actualArray[y][x]);
+                assertEquals(setupArray[y][x], actualArray[y][x]);  // Two tiles are equal if they have the same x and y values and the same color.
             }
         }
     }
@@ -272,7 +272,7 @@ class GridTest {
             setupArray[y][16].setColor(Color.BLUE);
         }
 
-        // Assign the actual grid to the grid field of the aTestGrid.
+        // Assign the setup grid to the actual grid field of the aTestGrid.
         Field gridField = Grid.class.getDeclaredField("grid");
         gridField.setAccessible(true);
         gridField.set(aTestGrid, getCopy(setupArray));
@@ -298,7 +298,7 @@ class GridTest {
         // Make assertion
         for(int y = 0; y < 18; y++){
             for(int x = 0; x < 18; x++){
-                assertEquals(expectedArray[y][x], actualArray[y][x]);
+                assertEquals(expectedArray[y][x], actualArray[y][x]);   // Two tiles are equal if they have the same x and y values and the same color.
             }
         }
     }
@@ -439,7 +439,7 @@ class GridTest {
      * Test if the iterator throws a NoSuchElementException if I try to access border tiles. */
     @Test
     void testIterator2() {
-        Grid aTestGrid = new Grid();
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         Iterator<Tile> aTestIterator = aTestGrid.iterator();
         // Run through all the visible tiles.
         while(aTestIterator.hasNext()){
@@ -476,7 +476,8 @@ class GridTest {
         return new MockUI(names, colors, deleteTile, setTile);
     }
 
-    // Takes a Tile[][] and returns a new Tile[][] with new tiles but the same color configuration.
+    /* Takes a Tile[][] and returns a new Tile[][] with new tiles but the same color configuration.
+    * I use this method to make sure that I do not compare two Tile[][] variables which reference the same instance. */
     private Tile[][] getCopy(Tile[][] original){
         Tile[][] copy = new Tile[18][18];
         for(int y = 0; y < 18; y++){
