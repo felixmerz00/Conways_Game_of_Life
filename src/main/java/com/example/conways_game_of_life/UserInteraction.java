@@ -8,9 +8,8 @@ import java.util.Scanner;
 public class UserInteraction implements InterfaceUI, Observer{
 
     Grid aGrid;
-    int chosenColorPlayerOne = -1;   // Stores the color of the first player, so the second player cannot choose the same one.
 
-    List<Player> playerList;
+    private List<Player> playerList;
     public UserInteraction(GameLogic aGameLogic, List<Player> playerList) {
         aGameLogic.registerObserver(this);
         this.playerList = playerList;
@@ -58,13 +57,10 @@ public class UserInteraction implements InterfaceUI, Observer{
             try {
                 userSelection = Integer.parseInt(aScanner.nextLine());  // Read user input
                 // Check if the user chose a valid color.
-                if (userSelection >= 0 && userSelection < validInputs.size() && userSelection != chosenColorPlayerOne) {
+                if (userSelection >= 0 && userSelection < validInputs.size() && (playerList.size() == 0 || playerList.get(0).getPlayerColor().ordinal()-1 != userSelection)) {
                     validInput = true;
-                    if(chosenColorPlayerOne == -1){
-                        chosenColorPlayerOne = userSelection;
-                    }
                 } else {    // Display error message if the player chose an invalid color.
-                    if(chosenColorPlayerOne != -1){ // For choosing a wrong color the two players get different error messages.
+                    if(playerList.size() != 0){ // For choosing a wrong color the two players get different error messages.
                         System.out.println("Enter one of the provided numbers which is different from the first players color.");
                     }else{
                         System.out.println("Enter one of the provided numbers.");

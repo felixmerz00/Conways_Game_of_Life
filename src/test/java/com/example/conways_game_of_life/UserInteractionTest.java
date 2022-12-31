@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -104,16 +106,19 @@ class UserInteractionTest {
     void testSetPlayerColor4() throws NoSuchFieldException, IllegalAccessException {
         UserInteraction testUserInteraction;
         GameLogic testGameLogic = new GameLogic();
+        List<Player> testPlayerList = new ArrayList<>();
+
         Field uiField = GameLogic.class.getDeclaredField("ui");
         uiField.setAccessible(true);
         testUserInteraction = (UserInteraction) uiField.get(testGameLogic);
 
-        // Set input for the first player.
-        String input = "7\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-        testUserInteraction.setPlayerColor(1);
+        testPlayerList.add(new Player("Felix", Color.TEAL));
+        Field playerListField = UserInteraction.class.getDeclaredField("playerList");
+        playerListField.setAccessible(true);
+        playerListField.set(testUserInteraction, testPlayerList);
+
         // Set the input for the second player.
-        input = "7\n6";
+        String input = "7\n6";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // Call UUT and make assertions.
