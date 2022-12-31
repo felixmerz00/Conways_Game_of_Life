@@ -455,6 +455,23 @@ class GridTest {
         }
     }
 
+    @Test
+    void testToString() {
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
+        // Call UUT and make assertions.
+        assertInstanceOf(String.class, aTestGrid.toString());
+
+    }
+
+    @Test
+    void testGetNumberOfGenerations() {
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
+        aTestGrid.makeGenerationStep();
+        aTestGrid.makeGenerationStep();
+        // Call UUT and make assertions.
+        assertEquals(2, aTestGrid.getNumberOfGenerations());
+    }
+
     /* This is a helper method for other tests to avoid duplicate code.
     * It returns an array filled with dead Tile objects. */
     Tile[][] getSetupArray(){
