@@ -140,4 +140,109 @@ class UserInteractionTest {
         Color actual = testUserInteraction.setPlayerColor(1);
         assertEquals(Color.RED, actual);
     }
+
+    // Test deleteTile for correct input.
+    @Test
+    void testDeleteTile1() throws NoSuchFieldException, IllegalAccessException {
+        UserInteraction testUserInteraction;
+        GameLogic testGameLogic = new GameLogic();
+        Player testPlayer = new Player("Felix", Color.BLUE);
+
+        Field uiField = GameLogic.class.getDeclaredField("ui");
+        uiField.setAccessible(true);
+        testUserInteraction = (UserInteraction) uiField.get(testGameLogic);
+
+        // Set input stream
+        String input = "1\n1";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Call UUT and make assertions.
+        Coordinate actual = testUserInteraction.deleteTile(testPlayer);
+        Coordinate expected = new Coordinate(1, 1);
+        assertEquals(expected, actual);
+    }
+
+    // Test deleteTile for an input smaller than 1.
+    @Test
+    void testDeleteTile2() throws NoSuchFieldException, IllegalAccessException {
+        UserInteraction testUserInteraction;
+        GameLogic testGameLogic = new GameLogic();
+        Player testPlayer = new Player("Felix", Color.BLUE);
+
+        Field uiField = GameLogic.class.getDeclaredField("ui");
+        uiField.setAccessible(true);
+        testUserInteraction = (UserInteraction) uiField.get(testGameLogic);
+
+        // Set input stream
+        String input = "0\n16\n1";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Call UUT and make assertions.
+        Coordinate actual = testUserInteraction.deleteTile(testPlayer);
+        Coordinate expected = new Coordinate(16, 1);
+        assertEquals(expected, actual);
+    }
+
+    // Test deleteTile for an input greater than 16.
+    @Test
+    void testDeleteTile3() throws NoSuchFieldException, IllegalAccessException {
+        UserInteraction testUserInteraction;
+        GameLogic testGameLogic = new GameLogic();
+        Player testPlayer = new Player("Felix", Color.BLUE);
+
+        Field uiField = GameLogic.class.getDeclaredField("ui");
+        uiField.setAccessible(true);
+        testUserInteraction = (UserInteraction) uiField.get(testGameLogic);
+
+        // Set input stream
+        String input = "17\n1\n16";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Call UUT and make assertions.
+        Coordinate actual = testUserInteraction.deleteTile(testPlayer);
+        Coordinate expected = new Coordinate(1, 16);
+        assertEquals(expected, actual);
+    }
+
+    // Test deleteTile for an input of the wrong type e.g. not an integer.
+    @Test
+    void testDeleteTile4() throws NoSuchFieldException, IllegalAccessException {
+        UserInteraction testUserInteraction;
+        GameLogic testGameLogic = new GameLogic();
+        Player testPlayer = new Player("Felix", Color.BLUE);
+
+        Field uiField = GameLogic.class.getDeclaredField("ui");
+        uiField.setAccessible(true);
+        testUserInteraction = (UserInteraction) uiField.get(testGameLogic);
+
+        // Set input stream
+        String input = "4.5\n16\n16";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Call UUT and make assertions.
+        Coordinate actual = testUserInteraction.deleteTile(testPlayer);
+        Coordinate expected = new Coordinate(16, 16);
+        assertEquals(expected, actual);
+    }
+
+    // Test setTile for correct input.
+    @Test
+    void testSetTile1() throws NoSuchFieldException, IllegalAccessException {
+        UserInteraction testUserInteraction;
+        GameLogic testGameLogic = new GameLogic();
+        Player testPlayer = new Player("Felix", Color.BLUE);
+
+        Field uiField = GameLogic.class.getDeclaredField("ui");
+        uiField.setAccessible(true);
+        testUserInteraction = (UserInteraction) uiField.get(testGameLogic);
+
+        // Set input stream
+        String input = "13\n9";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Call UUT and make assertions.
+        Coordinate actual = testUserInteraction.setTile(testPlayer);
+        Coordinate expected = new Coordinate(13, 9);
+        assertEquals(expected, actual);
+    }
 }
