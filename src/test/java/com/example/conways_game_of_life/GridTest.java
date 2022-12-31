@@ -340,8 +340,7 @@ class GridTest {
         }
     }
 
-    /* Test to cover the condition (colorZero == colorTwo) in getColorForDeadTile
-    * which is currently on line 122. */
+    /* Test to cover the branch (colorZero == colorTwo) == true in getColorForDeadTile. */
     @Test
     void testMakeGenerationStep4() throws NoSuchFieldException, IllegalAccessException {
         Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
@@ -364,6 +363,41 @@ class GridTest {
         expectedArray[5][6].setColor(Color.WHITE);
         expectedArray[4][5].setColor(Color.BLUE);
         expectedArray[6][5].setColor(Color.BLUE);
+
+        // Call the UUT and get the resulting array.
+        aTestGrid.makeGenerationStep();
+        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
+        // Make assertion
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                assertEquals(expectedArray[y][x], actualArray[y][x]);
+            }
+        }
+    }
+
+    /* Test to cover the branch (colorZero == colorTwo) == false in getColorForDeadTile. */
+    @Test
+    void testMakeGenerationStep5() throws NoSuchFieldException, IllegalAccessException {
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
+        // Create grid on which I make the generation step.
+        Tile[][] setupArray = getSetupArray();
+
+        // Create the pattern
+        setupArray[5][4].setColor(Color.BLUE);
+        setupArray[5][5].setColor(Color.RED);
+        setupArray[5][6].setColor(Color.RED);
+
+        // Assign the actual grid to the grid field of the aTestGrid.
+        Field gridField = Grid.class.getDeclaredField("grid");
+        gridField.setAccessible(true);
+        gridField.set(aTestGrid, getCopy(setupArray));
+
+        // Create the expected grid.
+        Tile[][] expectedArray = getCopy(setupArray);
+        expectedArray[5][4].setColor(Color.WHITE);
+        expectedArray[5][6].setColor(Color.WHITE);
+        expectedArray[4][5].setColor(Color.RED);
+        expectedArray[6][5].setColor(Color.RED);
 
         // Call the UUT and get the resulting array.
         aTestGrid.makeGenerationStep();
@@ -455,6 +489,7 @@ class GridTest {
         }
     }
 
+    // Test if the toString method returns in fact a String object.
     @Test
     void testToString() {
         Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
@@ -463,6 +498,7 @@ class GridTest {
 
     }
 
+    // Test if the getNumberOfGenerations method counts correctly.
     @Test
     void testGetNumberOfGenerations() {
         Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
