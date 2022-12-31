@@ -16,6 +16,9 @@ public class UserInteraction implements InterfaceUI, Observer{
         this.playerList = playerList;
     }
 
+    /**
+     * @pre The input parameter int player indicates which player is setting his name.
+     * Because this game has two players the int player must equal one or two. */
     @Override
     public String setPlayerName(int player) {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -36,7 +39,9 @@ public class UserInteraction implements InterfaceUI, Observer{
         return playerName;
     }
 
-
+    /**
+     * @pre The input parameter int player indicates which player is setting his color.
+     * Because this game has two players the int player must equal one or two. */
     // Aks user to choose a color and return it.
     @Override
     public Color setPlayerColor(int player) {
