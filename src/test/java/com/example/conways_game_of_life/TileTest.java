@@ -77,4 +77,11 @@ class TileTest {
         Integer t2 = 10;
         assertFalse(t1.equals(t2));
     }
+
+    @Test
+    void testToString() {
+        Tile testTile = new Tile(0, 0);
+        testTile.setColor(Color.BLUE);
+        assertEquals("B", testTile.toString());
+    }
 }
