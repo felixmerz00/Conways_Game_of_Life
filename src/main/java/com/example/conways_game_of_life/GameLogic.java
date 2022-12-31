@@ -75,7 +75,7 @@ public class GameLogic {
         }
         return true;
     }
-    //observer can register themself with this function
+    //observer can register itself with this function
     public void registerObserver(Observer aObserver){
         this.observers.add(aObserver);
     }

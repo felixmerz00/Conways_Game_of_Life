@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class GridIterator implements Iterator<Tile> {
-    private Tile[][] grid;
+    private final Tile[][] grid;
     private int x, y;
 
     public GridIterator(Tile[][] grid) {

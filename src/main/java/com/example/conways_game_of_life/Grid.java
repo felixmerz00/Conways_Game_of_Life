@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class Grid implements Iterable<Tile>{
     protected Tile[][] grid;
-    private Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
+    private final Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
     private InterfaceUI ui;
 
@@ -149,9 +149,8 @@ public class Grid implements Iterable<Tile>{
         int x = column - 1;
         while (y <= row + 1){
             while (x <= column + 1){
-                if(y == row && x == column){
-                    // We want to ignore the tile itself and only look at the neighbours.
-                }else if (lastGenColors[y][x] != Color.WHITE){    // Add the neighbour to the list if it is alive.
+                // Add the neighbour to the list if it is alive (and in fact a neighbour).
+                if (lastGenColors[y][x] != Color.WHITE && (y != row || x != column)){
                     listOfNeighbours.add(lastGenColors[y][x]);
                 }
                 x++;

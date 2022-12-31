@@ -3,8 +3,6 @@ package com.example.conways_game_of_life;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.StringBufferInputStream;
 import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.*;
