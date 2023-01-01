@@ -42,7 +42,7 @@ class TileTest {
     void testEquals1() {
         Tile t1 = new Tile(0, 0);
         Tile t2 = new Tile(0, 0);
-        assertTrue(t1.equals(t2));
+        assertEquals(t1, t2);
     }
 
     // The tiles differ in their color.
@@ -51,7 +51,7 @@ class TileTest {
         Tile t1 = new Tile(0, 0);
         t1.setColor(Color.BLUE);
         Tile t2 = new Tile(0, 0);
-        assertFalse(t1.equals(t2));
+        assertNotEquals(t1, t2);
     }
 
     // The tiles differ in their x coordinate.
@@ -59,7 +59,7 @@ class TileTest {
     void testEquals3() {
         Tile t1 = new Tile(0, 0);
         Tile t2 = new Tile(1, 0);
-        assertFalse(t1.equals(t2));
+        assertNotEquals(t1, t2);
     }
 
     // The tiles differ in their y coordinate.
@@ -67,7 +67,7 @@ class TileTest {
     void testEquals4() {
         Tile t1 = new Tile(0, 0);
         Tile t2 = new Tile(0, 1);
-        assertFalse(t1.equals(t2));
+        assertNotEquals(t1, t2);
     }
 
     // Object 2 has a different type.
@@ -75,7 +75,7 @@ class TileTest {
     void testEquals5() {
         Tile t1 = new Tile(0, 0);
         Integer t2 = 10;
-        assertFalse(t1.equals(t2));
+        assertNotEquals(t1, t2);
     }
 
     @Test

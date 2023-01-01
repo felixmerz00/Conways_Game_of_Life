@@ -1,6 +1,5 @@
 package core;
 
-import core.Grid;
 import model.Color;
 import model.Coordinate;
 import model.Player;
