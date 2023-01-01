@@ -199,8 +199,11 @@ public class Grid implements Iterable<Tile>{
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder("\n");
-
-        s.append("  ======================   NEW GENERATION   =======================\n");
+        if (numberOfGenerations > 0){
+            s.append("  ======================   NEW GENERATION   =======================\n");
+        }else {
+            s.append("  =======================   STARTING GRID   =======================\n");
+        }
         s.append("    1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16 \n");
         s.append("--+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+--\n");
 
