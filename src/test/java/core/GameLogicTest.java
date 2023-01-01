@@ -49,7 +49,7 @@ public class GameLogicTest {
         players.setAccessible(true);
         ArrayList<Player> actualPlayers = (ArrayList<Player>) players.get(aGame);
 
-        //Test if player are setup correctly, in the correct order
+        //Test if player are set up correctly, in the correct order
         assertEquals(actualPlayers.get(0).getName(),"TestPlayer1" );
         assertEquals(actualPlayers.get(0).getPlayerColor(), ORANGE);
 
@@ -149,7 +149,7 @@ public class GameLogicTest {
         assertSame("No One", mockUI.getWinner().getName());
     }
 
-    //play game, testplayer2 wins with yellow
+    //play game, test player 2 wins with yellow
     @Test
     void playGameTest() throws NoSuchFieldException, IllegalAccessException {
         GameLogic aGame = new GameLogic();
@@ -211,6 +211,6 @@ public class GameLogicTest {
 
         assertSame(YELLOW, mockUI.getWinner().getPlayerColor());
         assertSame("TestPlayer2", mockUI.getWinner().getName());
-        //it should be Yellow and testplayer2?
+        //it should be Yellow and test player 2?
     }
 }
