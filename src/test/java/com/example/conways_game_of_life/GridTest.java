@@ -462,7 +462,7 @@ class GridTest {
         Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
         int countReturnedTiles = 0;
 
-        for(Tile t: aTestGrid){
+        for(Tile ignored : aTestGrid){
             countReturnedTiles++;
         }
 
@@ -506,26 +506,6 @@ class GridTest {
         aTestGrid.makeGenerationStep();
         // Call UUT and make assertions.
         assertEquals(2, aTestGrid.getNumberOfGenerations());
-    }
-
-    /* We have a second constructor for the Grid class which takes no parameters.
-    * This constructor is used nowhere but in the MockGrid class.
-    * This takes makes sure the constructor creates a grid filled with dead tiles as expected. */
-    @Test
-    void testBackUpConstructor() throws NoSuchFieldException, IllegalAccessException {
-        Grid aTestGrid = new Grid();
-
-        // Assign the actual grid to the grid field of the aTestGrid.
-        Field gridField = Grid.class.getDeclaredField("grid");
-        gridField.setAccessible(true);
-        Tile[][] actualArray = (Tile[][]) gridField.get(aTestGrid);
-
-        // Make assertion
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                assertEquals(Color.WHITE, actualArray[y][x].getColor());
-            }
-        }
     }
 
     /* This is a helper method for other tests to avoid duplicate code.

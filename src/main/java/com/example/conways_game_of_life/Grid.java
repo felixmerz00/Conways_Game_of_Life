@@ -7,24 +7,11 @@ public class Grid implements Iterable<Tile>{
     protected Tile[][] grid;
     private final Color[][] lastGenColors;    // Store colors of the outgoing Generation. This is used as a reference for the makeGenerationStep method.
 
-    private InterfaceUI ui;
+    private final InterfaceUI ui;
 
     private int numberOfGenerations = 0;
 
-    // TODO Change the usages, then delete this constructor.
-    // This constructor initializes the Tile[][] grid filled with dead tiles.
-    public Grid() {
-        grid = new Tile[18][18];    // Initialize grid.
-        lastGenColors = new Color[18][18];
-        // Fill grid with dead tiles.
-        for(int y = 0; y < 18; y++){
-            for(int x = 0; x < 18; x++){
-                grid[y][x] = new Tile(x,y);
-            }
-        }
-    }
-
-    // This constructor initializes the Tile[][] grid with a starting pattern.
+    // This constructor initializes the Tile[][] grid with a predetermined starting pattern.
     public Grid(Color colorPlayerOne, Color colorPlayerTwo, InterfaceUI ui) {
         this.ui = ui;
         grid = getInitialGrid(colorPlayerOne, colorPlayerTwo);    // Create grid with initial configuration.
