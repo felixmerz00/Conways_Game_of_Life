@@ -1,12 +1,15 @@
-package com.example.conways_game_of_life;
+package core;
 
+import model.Color;
+import model.Coordinate;
+import model.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import static com.example.conways_game_of_life.Color.*;
+import static model.Color.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameLogicTest {

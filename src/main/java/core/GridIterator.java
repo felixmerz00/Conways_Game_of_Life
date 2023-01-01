@@ -1,4 +1,6 @@
-package com.example.conways_game_of_life;
+package core;
+
+import model.Tile;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

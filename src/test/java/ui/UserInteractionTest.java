@@ -1,5 +1,9 @@
-package com.example.conways_game_of_life;
+package ui;
 
+import core.GameLogic;
+import model.Color;
+import model.Coordinate;
+import model.Player;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

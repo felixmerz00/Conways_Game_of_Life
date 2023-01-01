@@ -1,11 +1,20 @@
-package com.example.conways_game_of_life;
+package ui;
+
+import core.GameLogic;
+import core.Grid;
+import model.Color;
+import model.Coordinate;
+import model.Player;
+import model.Tile;
+import ui.InterfaceUI;
+import ui.Observer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserInteraction implements InterfaceUI, Observer{
+public class UserInteraction implements InterfaceUI, Observer {
 
     Grid aGrid;
     private final List<Player> playerList;

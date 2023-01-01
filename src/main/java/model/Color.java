@@ -1,4 +1,4 @@
-package com.example.conways_game_of_life;
+package model;
 
 public enum Color {
     // The following colors correspond to existing colors from the javafx.scene.paint.Class.

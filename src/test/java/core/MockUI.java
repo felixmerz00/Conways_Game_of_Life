@@ -1,8 +1,13 @@
-package com.example.conways_game_of_life;
+package core;
+
+import model.Color;
+import model.Coordinate;
+import model.Player;
+import ui.InterfaceUI;
 
 import java.util.ArrayList;
 
-public class MockUI implements InterfaceUI{
+public class MockUI implements InterfaceUI {
 
     private Player winner;// = new Player("Not Set", Color.RED);
     private final ArrayList<String> names;

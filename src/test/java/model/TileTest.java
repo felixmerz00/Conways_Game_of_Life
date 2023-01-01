@@ -1,4 +1,4 @@
-package com.example.conways_game_of_life;
+package model;
 
 import org.junit.jupiter.api.Test;
 

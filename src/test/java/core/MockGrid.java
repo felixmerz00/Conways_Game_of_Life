@@ -1,6 +1,13 @@
-package com.example.conways_game_of_life;
+package core;
 
-public class MockGrid extends Grid{
+import core.Grid;
+import model.Color;
+import model.Coordinate;
+import model.Player;
+import model.Tile;
+import ui.InterfaceUI;
+
+public class MockGrid extends Grid {
 
     //set all Tiles in grid dead/white
     //set 2,2 to wished color to test getWinner

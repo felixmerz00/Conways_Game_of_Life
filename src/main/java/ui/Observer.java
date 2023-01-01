@@ -1,4 +1,6 @@
-package com.example.conways_game_of_life;
+package ui;
+
+import core.Grid;
 
 public interface Observer {
     void updateGrid(Grid aGrid);

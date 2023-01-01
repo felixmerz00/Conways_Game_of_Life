@@ -1,4 +1,6 @@
-package com.example.conways_game_of_life;
+package model;
+
+import model.Color;
 
 public class Player {
 

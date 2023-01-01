@@ -1,4 +1,10 @@
-package com.example.conways_game_of_life;
+package core;
+
+import ui.InterfaceUI;
+import model.Color;
+import model.Coordinate;
+import model.Player;
+import model.Tile;
 
 import java.util.ArrayList;
 import java.util.Iterator;

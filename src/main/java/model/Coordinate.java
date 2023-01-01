@@ -1,4 +1,4 @@
-package com.example.conways_game_of_life;
+package model;
 
 public record Coordinate(int x, int y) {
 }

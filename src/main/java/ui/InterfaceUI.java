@@ -1,4 +1,8 @@
-package com.example.conways_game_of_life;
+package ui;
+
+import model.Color;
+import model.Coordinate;
+import model.Player;
 
 public interface InterfaceUI {
 

@@ -1,5 +1,9 @@
-package com.example.conways_game_of_life;
+package core;
 
+import model.Color;
+import model.Coordinate;
+import model.Player;
+import model.Tile;
 import org.junit.jupiter.api.Test;
 
 

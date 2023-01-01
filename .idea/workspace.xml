@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="Grid Test correction">
+    <list default="true" id="1de01336-4c8d-417c-9c8d-24ced9904129" name="Changes" comment="deleted unnecessary file">
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GameLogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GameLogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/MockGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/MockGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/GridIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/GridIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/InterfaceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/InterfaceUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/conways_game_of_life/UserInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GameLogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/core/GameLogicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/core/GridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/MockGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/core/MockGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/MockUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/core/MockUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/TileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/conways_game_of_life/UserInteractionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/UserInteractionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,61 +54,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Git_Repositories/Conways_Game_of_Life&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "D:/Git_Repositories/Conways_Game_of_Life",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="core" />
+      <recent name="ui" />
+      <recent name="model" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.conways_game_of_life" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameLogicTest">
-    <configuration name="GameLogic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GameLogic" />
-      <module name="Conways_Game_of_Life" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserInteractionTest">
     <configuration name="GameLogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
       <extension name="coverage" sample_coverage="false">
         <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="PATTERN" value="model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.GameLogic" />
+          <option name="PATTERN" value="core.GameLogic" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GameLogicTest" />
+      <option name="PACKAGE_NAME" value="core" />
+      <option name="MAIN_CLASS_NAME" value="core.GameLogicTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
@@ -104,64 +120,99 @@
       <module name="Conways_Game_of_Life" />
       <extension name="coverage" sample_coverage="false">
         <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
+      <option name="PACKAGE_NAME" value="core" />
+      <option name="MAIN_CLASS_NAME" value="core.GridTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GridTest.testPlayerSetTile2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
-      <extension name="coverage">
+      <extension name="coverage" sample_coverage="false">
         <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="testPlayerSetTile2" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PlayerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GridTest.testPlayerSetTile3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Conways_Game_of_Life" />
-      <extension name="coverage">
+      <extension name="coverage" sample_coverage="false">
         <pattern>
-          <option name="PATTERN" value="com.example.conways_game_of_life.*" />
+          <option name="PATTERN" value="model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.conways_game_of_life" />
-      <option name="MAIN_CLASS_NAME" value="com.example.conways_game_of_life.GridTest" />
-      <option name="METHOD_NAME" value="testPlayerSetTile3" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.TileTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInteractionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Conways_Game_of_Life" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ui" />
+      <option name="MAIN_CLASS_NAME" value="ui.UserInteractionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.GameLogic" />
+      <item itemvalue="JUnit.UserInteractionTest" />
+      <item itemvalue="JUnit.TileTest" />
+      <item itemvalue="JUnit.PlayerTest" />
       <item itemvalue="JUnit.GameLogicTest" />
       <item itemvalue="JUnit.GridTest" />
-      <item itemvalue="JUnit.GridTest.testPlayerSetTile2" />
-      <item itemvalue="JUnit.GridTest.testPlayerSetTile3" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameLogicTest" />
-        <item itemvalue="Application.GameLogic" />
+        <item itemvalue="JUnit.UserInteractionTest" />
+        <item itemvalue="JUnit.TileTest" />
+        <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="JUnit.GridTest" />
-        <item itemvalue="JUnit.GridTest.testPlayerSetTile3" />
-        <item itemvalue="JUnit.GridTest.testPlayerSetTile2" />
+        <item itemvalue="JUnit.GameLogicTest" />
       </list>
     </recent_temporary>
   </component>
@@ -188,27 +239,6 @@
       <workItem from="1672167583677" duration="5934000" />
       <workItem from="1672236212836" duration="22107000" />
       <workItem from="1672417080315" duration="15826000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial Error">
-      <created>1671048735052</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1671048735052</updated>
-    </task>
-    <task id="LOCAL-00002" summary="GridTest class created">
-      <created>1671048936986</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1671048936986</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Tile class created">
-      <created>1671446997740</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1671446997740</updated>
     </task>
     <task id="LOCAL-00004" summary="Color enum created">
       <created>1671447007240</created>
@@ -525,7 +555,35 @@
       <option name="project" value="LOCAL" />
       <updated>1672437047536</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="deleted old constructor">
+      <created>1672567009730</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1672567009730</updated>
+    </task>
+    <task id="LOCAL-00050" summary="fixed console output">
+      <created>1672569718123</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1672569718123</updated>
+    </task>
+    <task id="LOCAL-00051" summary="bring branch coverage back up to 100%">
+      <created>1672569882415</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1672569882415</updated>
+    </task>
+    <task id="LOCAL-00052" summary="deleted unnecessary file">
+      <created>1672570018091</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1672570018091</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,10 +601,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="testMakeGenerationStep1 improved" />
-    <MESSAGE value="created testMakeGenerationStep2" />
-    <MESSAGE value="improved testMakeGenerationStep1" />
-    <MESSAGE value="improved testMakeGenerationStep2" />
     <MESSAGE value="implemented temporary methods to resolve compiling errors" />
     <MESSAGE value="code commented out to avoid compiling errors" />
     <MESSAGE value="created testMakeGenerationStep3" />
@@ -568,35 +622,64 @@
     <MESSAGE value="rename setKill and setTile in Grid class" />
     <MESSAGE value="Tile remove method" />
     <MESSAGE value="Grid Test correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grid Test correction" />
+    <MESSAGE value="deleted old constructor" />
+    <MESSAGE value="fixed console output" />
+    <MESSAGE value="bring branch coverage back up to 100%" />
+    <MESSAGE value="deleted unnecessary file" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted unnecessary file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$PlayerTest.ic" NAME="PlayerTest Coverage Results" MODIFIED="1672570815302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$All_in_Conways_Game_of_Life.ic" NAME="All in Conways_Game_of_Life Coverage Results" MODIFIED="1672396988844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest.ic" NAME="GameLogicTest.getWinnerTest Coverage Results" MODIFIED="1672305276115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_setUpGameTest.ic" NAME="GameLogicTest.setUpGameTest Coverage Results" MODIFIED="1672306175037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest3.ic" NAME="GameLogicTest.getWinnerTest3 Coverage Results" MODIFIED="1672395534014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogic.ic" NAME="GameLogic Coverage Results" MODIFIED="1672316650312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$TileTest.ic" NAME="TileTest Coverage Results" MODIFIED="1672570856643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest1.ic" NAME="GameLogicTest.getWinnerTest1 Coverage Results" MODIFIED="1672395443520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest2.ic" NAME="GameLogicTest.getWinnerTest2 Coverage Results" MODIFIED="1672395482679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_playGameTest.ic" NAME="GameLogicTest.playGameTest Coverage Results" MODIFIED="1672395558394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest.ic" NAME="GameLogicTest.getWinnerTest Coverage Results" MODIFIED="1672305276115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest.ic" NAME="GameLogicTest Coverage Results" MODIFIED="1672566140124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest_testKill1.ic" NAME="GridTest.testKill1 Coverage Results" MODIFIED="1672569730987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.conways_game_of_life.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$All_in_Conways_Game_of_Life.ic" NAME="All in Conways_Game_of_Life Coverage Results" MODIFIED="1672396988844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1672397032616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest.ic" NAME="GameLogicTest Coverage Results" MODIFIED="1672502797764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest3.ic" NAME="GameLogicTest.getWinnerTest3 Coverage Results" MODIFIED="1672395534014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogicTest_getWinnerTest2.ic" NAME="GameLogicTest.getWinnerTest2 Coverage Results" MODIFIED="1672395482679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.conways_game_of_life.GameLogic</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$UserInteractionTest.ic" NAME="UserInteractionTest Coverage Results" MODIFIED="1672503750621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest.ic" NAME="GridTest Coverage Results" MODIFIED="1672570953456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.*</FILTER>
+      <FILTER>com.example.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GameLogic.ic" NAME="GameLogic Coverage Results" MODIFIED="1672316650312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest_testMakeGenerationStep3.ic" NAME="GridTest.testMakeGenerationStep3 Coverage Results" MODIFIED="1672478358732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest_testIterator1.ic" NAME="GridTest.testIterator1 Coverage Results" MODIFIED="1672422523295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest_testIterator2.ic" NAME="GridTest.testIterator2 Coverage Results" MODIFIED="1672422543836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.conways_game_of_life.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Conways_Game_of_Life$GridTest_testMakeGenerationStep1.ic" NAME="GridTest.testMakeGenerationStep1 Coverage Results" MODIFIED="1672477762035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.conways_game_of_life.*</FILTER>
     </SUITE>
   </component>
