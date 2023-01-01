@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class UserInteraction implements InterfaceUI, Observer {
 
-    Grid aGrid;
+    private Grid aGrid;
     private final List<Player> playerList;
 
     public UserInteraction(GameLogic aGameLogic, List<Player> playerList) {
