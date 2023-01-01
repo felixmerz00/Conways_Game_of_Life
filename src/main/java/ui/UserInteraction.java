@@ -6,8 +6,6 @@ import model.Color;
 import model.Coordinate;
 import model.Player;
 import model.Tile;
-import ui.InterfaceUI;
-import ui.Observer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

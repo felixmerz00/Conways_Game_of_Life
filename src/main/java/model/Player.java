@@ -1,6 +1,5 @@
 package model;
 
-import model.Color;
 
 public class Player {
 
