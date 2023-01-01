@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
     @Test
-    void testKill1() throws NoSuchFieldException, IllegalAccessException { //Input valid
+    void testSetKill1() throws NoSuchFieldException, IllegalAccessException { //Input valid
 
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
@@ -50,7 +50,7 @@ class GridTest {
     }
 
     @Test
-    void testKill2() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill
+    void testSetKill2() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
@@ -88,7 +88,7 @@ class GridTest {
     }
 
     @Test
-    void testKill3() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill
+    void testSetKill3() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
@@ -157,7 +157,7 @@ class GridTest {
     }
 
     @Test
-    void testPlayerSetTile2() throws NoSuchFieldException, IllegalAccessException {  //input tile not possible to set -> tile is assigned to a player
+    void testSetTile2() throws NoSuchFieldException, IllegalAccessException {  //input tile not possible to set -> tile is assigned to a player
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
@@ -193,7 +193,7 @@ class GridTest {
         assertSame(actual[validC.y()][validC.x()].getColor(), Color.BLUE);
     }
     @Test
-    void testPlayerSetTile3() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill -> tile of enemy player
+    void testSetTile3() throws NoSuchFieldException, IllegalAccessException {  //input not valid to kill -> tile of enemy player
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Color> colors = new ArrayList<>();
         ArrayList<Coordinate> deleteTile = new ArrayList<>();
