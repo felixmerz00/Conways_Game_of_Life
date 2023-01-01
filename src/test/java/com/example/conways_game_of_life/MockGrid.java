@@ -4,12 +4,24 @@ public class MockGrid extends Grid{
 
     //set all Tiles in grid dead/white
     //set 2,2 to wished color to test getWinner
-    public MockGrid(Color color){
+    public MockGrid(Color color, InterfaceUI ui){
+        super(color, Color.WHITE, ui);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                grid[y][x] = new Tile(x,y);
+            }
+        }
         grid[2][2].setColor(color);
     }
 
     //designs a pattern to test a couple rounds of the game to test playGame
-    public MockGrid(Color color1, Color color2){
+    public MockGrid(Color color1, Color color2, InterfaceUI ui){
+        super(color1, color2, ui);
+        for(int y = 0; y < 18; y++){
+            for(int x = 0; x < 18; x++){
+                grid[y][x] = new Tile(x,y);
+            }
+        }
         grid[2][2].setColor(color1);
         grid[2][3].setColor(color1);
         grid[3][2].setColor(color1);
