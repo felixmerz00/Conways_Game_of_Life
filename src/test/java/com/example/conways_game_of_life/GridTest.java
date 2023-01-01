@@ -489,10 +489,20 @@ class GridTest {
         }
     }
 
-    // Test if the toString method returns in fact a String object.
+    // Test if the toString method returns in fact a String object for the first generation.
     @Test
-    void testToString() {
+    void testToString1() {
         Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
+        // Call UUT and make assertions.
+        assertInstanceOf(String.class, aTestGrid.toString());
+
+    }
+
+    // Test if the toString method returns in fact a String object for the second generation.
+    @Test
+    void testToString2() {
+        Grid aTestGrid = new Grid(Color.YELLOW, Color.ORANGE, getEmptyMockUI());
+        aTestGrid.makeGenerationStep();
         // Call UUT and make assertions.
         assertInstanceOf(String.class, aTestGrid.toString());
 
