@@ -72,7 +72,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection
-        MockGrid aMockGrid = new MockGrid(YELLOW);
+        MockGrid aMockGrid = new MockGrid(YELLOW, mockUI);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -103,7 +103,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection
-        MockGrid aMockGrid = new MockGrid(ORANGE);
+        MockGrid aMockGrid = new MockGrid(ORANGE, mockUI);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -134,7 +134,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection
-        MockGrid aMockGrid = new MockGrid(WHITE);
+        MockGrid aMockGrid = new MockGrid(WHITE, mockUI);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
@@ -195,7 +195,7 @@ public class GameLogicTest {
         aGame.gameSetup();
 
         //MockGrid initialization and injection // color yellow wins
-        MockGrid aMockGrid = new MockGrid(ORANGE, YELLOW);
+        MockGrid aMockGrid = new MockGrid(ORANGE, YELLOW, mockUI);
         Field grid = GameLogic.class.getDeclaredField("aGrid");
         grid.setAccessible(true);
         grid.set(aGame, aMockGrid);
